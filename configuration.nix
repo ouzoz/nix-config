@@ -51,8 +51,8 @@
   nix.optimise.automatic = true;
   nix.gc = {
     automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 14d";
+    dates = "daily";
+    options = "--delete-older-than 6d";
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -107,6 +107,10 @@
     enable = true;
     config = {
       init.defaultBranch = "main";
+      user = {
+        name = "oguzhanozkaya";
+        email = "ozkayaoguzhan67@gmail.com";
+      };
     };
   };
 
@@ -137,6 +141,7 @@
     
     just
     tokei
+    github-linguist
     wget
 
     waybar
