@@ -7,9 +7,11 @@
 
       # Programs
       ./yazi/yazi.nix
-      ./bash/bash.nix
-      ./foot/foot.nix
       ./tmux/tmux.nix
+
+      ./programs/bash.nix
+      ./programs/git.nix
+      ./programs/foot.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -109,17 +111,6 @@
     source-sans
     corefonts
   ];
-
-  programs.git = {
-    enable = true;
-    config = {
-      init.defaultBranch = "main";
-      user = {
-        name = "oguzhanozkaya";
-        email = "ozkayaoguzhan67@gmail.com";
-      };
-    };
-  };
 
   environment.systemPackages = with pkgs; [
     brave

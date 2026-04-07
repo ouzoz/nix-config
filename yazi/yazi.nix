@@ -12,11 +12,16 @@
           ];
           sort_by = "extension";
           linemode = "mtime"; # size
-            show_hidden = true;
+          show_hidden = true;
           show_symlink = true;
         };
       };
+      theme = {
+        indicator = {
+          
+          padding = { open = "▐"; close = "▌"; };
+        };
+      };
     };
-# theme = lib.importTOML ./theme.toml;
   };
 }
