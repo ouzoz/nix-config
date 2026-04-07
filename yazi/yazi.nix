@@ -3,8 +3,8 @@
   programs.yazi = {
     enable = true;
     settings = {
-      mgr = {
-        yazi = {
+      yazi = {
+        mgr = {
           ratio = [
             1
               3
@@ -17,6 +17,6 @@
         };
       };
     };
-    # theme = lib.importTOML ./theme.toml;
+# theme = lib.importTOML ./theme.toml;
   };
 }
