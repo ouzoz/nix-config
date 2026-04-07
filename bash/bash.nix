@@ -5,19 +5,32 @@
     # loginShellInit = builtins.readFile ./.bashrc;
     # interactiveShellInit = builtins.readFile ./.bashrc;
     interactiveShellInit = ''
-      # History configuration [cite: 6]
       export HISTSIZE=6000
       export HISTFILESIZE=6000
       export HISTIGNORE='l:exit:clear:history'
       export HISTCONTROL='ignoreboth:erasedups'
       shopt -s histappend
       shopt -s cmdhist
-
+    '';
+    promptInit = ''
+      # Provide a nice prompt if the terminal supports it.
+      if [ "$TERM" != "dumb" ] || [ -n "$INSIDE_EMACS" ]; then
+        PROMPT_COLOR="1;31m"
+        ((UID)) && PROMPT_COLOR="1;32m"
+        if [ -n "$INSIDE_EMACS" ]; then
+          # Emacs term mode doesn't support xterm title escape sequence (\e]0;)
+          PS1="\n\[\033[$PROMPT_COLOR\][\u@\h:\w]\\$\[\033[0m\] "
+        else
+          PS1="\n\[\033[$PROMPT_COLOR\][\[\e]0;\u@\h: \w\a\]\u@\h:\w]\\$\[\033[0m\] "
+        fi
+        if test "$TERM" = "xterm"; then
+          PS1="\[\033]2;\h:\u:\w\007\]$PS1"
+        fi
+      fi
       # Custom prompt colors [cite: 5]
       PS1='\[\033[36m\]\w\[\033[31m\] \$ \[\033[00m\]'
       PS2='\[\033[31m\]> \[\033[00m\]'
     '';
-    promptInit = "";
     shellAliases = {
       # shortcuts
       l = "ls -ACxX --group-directories-first --color=auto";
