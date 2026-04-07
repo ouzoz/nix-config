@@ -4,5 +4,6 @@
     enable = true;
     loginShellInit = builtins.readFile ./.bashrc;
     interactiveShellInit = builtins.readFile ./.bashrc;
+    promptInit = "";
   };
 }
