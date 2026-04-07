@@ -40,8 +40,7 @@
       conf-search = "nix search nixpkgs";
       # git
       gs = "git status";
-      gc = "git commit -m";
-      ga = "git add";
+      gc = "git add -A && git commit -m";
       gp = "git push";
       gpu = "git pull";
       gd = "git diff";
