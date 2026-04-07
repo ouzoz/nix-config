@@ -30,7 +30,22 @@
           icon_folder = "🗀";
           icon_command = "🞂";
         };
+        filetype = {
+          rules = [
+            { mime = "image/*"; fg = "yellow"; }
+            { mime = "{audio;video}/*"; fg = "magenta"; }
+            { mime = "application/{zip;rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}"; fg = "red"; }
+            { mime = "application/{pdf;doc,rtf}"; fg = "cyan"; }
+            { mime = "vfs/{absent;stale}"; fg = "gray"; }
+            { url = "*"; is = "orphan"; bg = "red"; }
+            { url = "*"; is = "exec"; fg = "green"; }
+            { url = "*"; is = "dummy"; bg = "red"; }
+            { url = "*/"; is = "dummy"; bg = "red"; }
+            { url = "*/"; fg = "blue"; }
+          ];
+        };
         icon = {
+          globs = [];
           dirs = [];
           files = [];
           exts = [];
@@ -43,7 +58,6 @@
             { "if" = "sock"; text = ""; fg = "#cddc39"; }
             { "if" = "sticky"; text = ""; fg = "#cddc39"; }
             { "if" = "dummy"; text = ""; fg = "#f44336"; }
-
             { "if" = "dir"; text = "🗀"; }
             { "if" = "exec"; text = "🞂"; }
             { "if" = "!dir"; text = "🞍"; }
