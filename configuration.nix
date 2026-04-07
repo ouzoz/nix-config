@@ -4,7 +4,10 @@
   imports =
     [
       ./hardware-configuration.nix
+
+      # Programs
       ./yazi/yazi.nix
+      ./bash/bash.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -119,8 +122,6 @@
     enable = true;
     secureSocket = true;
   };
-
-  programs.yazi.enable = true;
 
   environment.systemPackages = with pkgs; [
     brave
