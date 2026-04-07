@@ -39,8 +39,8 @@
           #   { name = "*"; text = "🗀"; }
           # ];
           prepend_conds = [
-            { if = "dir"; text = "󰉋"; }
-            { if = "!dir"; text = "󰈔"; }
+            { "if" = "dir"; text = "󰉋"; }
+            { "if" = "!dir"; text = "󰈔"; }
           ];
         };
       };
