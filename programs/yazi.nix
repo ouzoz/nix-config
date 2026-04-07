@@ -5,13 +5,9 @@
     settings = {
       yazi = {
         mgr = {
-          ratio = [
-            1
-              3
-              2
-          ];
+          ratio = [ 1 3 2 ];
           sort_by = "extension";
-          linemode = "mtime"; # size
+          linemode = "mtime";
           show_hidden = true;
           show_symlink = true;
         };
