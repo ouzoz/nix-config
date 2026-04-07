@@ -145,6 +145,7 @@
     just
     tokei
     github-linguist
+    fastfetch
     wget
 
     waybar
