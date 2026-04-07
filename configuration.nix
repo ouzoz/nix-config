@@ -6,12 +6,12 @@
       ./hardware-configuration.nix
 
       # Programs
-      ./yazi/yazi.nix
       ./tmux/tmux.nix
 
       ./programs/bash.nix
       ./programs/git.nix
       ./programs/foot.nix
+      ./programs/yazi.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
