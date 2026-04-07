@@ -41,8 +41,8 @@
           dirs = [];
           exts = [];
           conds = [
-            { "if" = "dir"; text = "󰉋"; }
-            { "if" = "!dir"; text = "󰈔"; }
+            { "if" = "dir"; text = "🗀"; }
+            { "if" = "!dir"; text = "🞍"; }
           ];
         };
       };
