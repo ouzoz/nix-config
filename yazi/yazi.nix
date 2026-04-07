@@ -30,6 +30,12 @@
           icon_folder = "🗀";
           icon_command = "🞂";
         };
+        icon = {
+          prepend_rules = [
+            { name = "*/";, character = "🗀"; };
+            { name = "*";,  character = "🞍"; };
+          ];
+        };
       };
     };
   };
