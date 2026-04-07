@@ -2,7 +2,7 @@
 {
   programs.bash = {
     enable = true;
-    loginShellInit = builtins.readFile ./.bash_profile;
+    loginShellInit = builtins.readFile ./.bashrc;
     interactiveShellInit = builtins.readFile ./.bashrc;
   };
 }
