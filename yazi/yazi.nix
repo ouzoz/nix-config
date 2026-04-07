@@ -32,8 +32,8 @@
         };
         icon = {
           prepend_rules = [
-            { name = "*/"; character = "🗀"; };
-            { name = "*"; character = "🞍"; };
+            { name = "*/"; character = "🗀"; }
+            { name = "*"; character = "🞍"; }
           ];
         };
       };
