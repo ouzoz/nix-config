@@ -36,7 +36,7 @@
             { name = "*"; character = "🞍"; }
           ];
           prepend_dirs = [
-            { name = "*"; text = "🗀" }
+            { name = "*"; text = "🗀"; }
           ];
         };
       };
