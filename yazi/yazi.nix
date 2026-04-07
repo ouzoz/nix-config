@@ -18,8 +18,17 @@
       };
       theme = {
         indicator = {
-          
+          preview = { underline = false; };
           padding = { open = "▐"; close = "▌"; };
+        };
+        status = {
+          sep_left = { open = "▐"; close = "▌"; };
+          sep_right = { open = "▐"; close = "▌"; };
+        };
+        cmp = {
+          icon_file = "🞍";
+          icon_folder = "🗀";
+          icon_command = "🞂";
         };
       };
     };
