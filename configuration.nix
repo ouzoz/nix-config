@@ -9,6 +9,7 @@
       ./yazi/yazi.nix
       ./bash/bash.nix
       ./foot/foot.nix
+      ./tmux/tmux.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -118,11 +119,6 @@
         email = "ozkayaoguzhan67@gmail.com";
       };
     };
-  };
-
-  programs.tmux = {
-    enable = true;
-    secureSocket = true;
   };
 
   environment.systemPackages = with pkgs; [
