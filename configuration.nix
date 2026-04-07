@@ -88,6 +88,7 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    viAlias = true;
   };
 
   hardware.logitech.wireless.enable = true;
@@ -128,13 +129,12 @@
     brave
 
     opencode
-    alacritty
-    wl-clipboard
 
     # obsidian
     libreoffice
     # thunderbird
     
+    wl-clipboard
     p7zip
     unzip
     zip

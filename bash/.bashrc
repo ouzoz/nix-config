@@ -26,7 +26,6 @@ shopt -s cmdhist
 
 
 # shortcuts
-alias vi=nvim
 alias l='ls -ACxX --group-directories-first'
 
 # loc
