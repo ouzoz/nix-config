@@ -31,12 +31,16 @@
           icon_command = "🞂";
         };
         icon = {
-          prepend_rules = [
-            { name = "*/"; character = "🗀"; }
-            { name = "*"; character = "🞍"; }
-          ];
-          prepend_dirs = [
-            { name = "*"; text = "🗀"; }
+          # prepend_rules = [
+          #   { name = "*/"; character = "🗀"; }
+          #   { name = "*"; character = "🞍"; }
+          # ];
+          # prepend_dirs = [
+          #   { name = "*"; text = "🗀"; }
+          # ];
+          prepend_conds = [
+            { if = "dir"; text = "󰉋"; }
+            { if = "!dir"; text = "󰈔"; }
           ];
         };
       };
