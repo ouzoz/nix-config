@@ -4,28 +4,23 @@
   imports =
     [
       ./hardware-configuration.nix
-
-      # Programs
-      ./tmux/tmux.nix
-
-      ./programs/bash.nix
-      ./programs/git.nix
-      ./programs/foot.nix
-      ./programs/yazi.nix
+      ./programs
     ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "ouz";
+  networking.networkmanager.enable = true;
   # networking.wireless.enable = true;
-
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  networking.networkmanager.enable = true;
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
 
   time.timeZone = "Europe/Istanbul";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -86,12 +81,6 @@
       intelBusId = "PCI:0:2:0"; 
       nvidiaBusId = "PCI:1:0:0";
     };
-  };
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
   };
 
   hardware.logitech.wireless.enable = true;
@@ -178,19 +167,7 @@
     };
   };
 
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
   services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   system.stateVersion = "25.11";
 }
