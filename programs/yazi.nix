@@ -18,7 +18,7 @@
       };
       theme = {
         mgr = {
-          cwd = { fg = "cyan" };
+          cwd = { fg = "cyan"; };
           find_keyword = { fg = "yellow"; bold = true; italic = true; underline = true; };
           find_position = { fg = "magenta"; bg = "reset"; bold = true; italic = true; };
           symlink_target = { italic = true; };
