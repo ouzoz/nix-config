@@ -38,7 +38,9 @@
           # prepend_dirs = [
           #   { name = "*"; text = "🗀"; }
           # ];
-          prepend_conds = [
+          dirs = [];
+          exts = [];
+          conds = [
             { "if" = "dir"; text = "󰉋"; }
             { "if" = "!dir"; text = "󰈔"; }
           ];
