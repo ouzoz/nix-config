@@ -8,6 +8,7 @@
       # Programs
       ./yazi/yazi.nix
       ./bash/bash.nix
+      ./foot/foot.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
