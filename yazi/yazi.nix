@@ -31,17 +31,21 @@
           icon_command = "🞂";
         };
         icon = {
-          # prepend_rules = [
-          #   { name = "*/"; character = "🗀"; }
-          #   { name = "*"; character = "🞍"; }
-          # ];
-          # prepend_dirs = [
-          #   { name = "*"; text = "🗀"; }
-          # ];
           dirs = [];
+          files = [];
           exts = [];
           conds = [
+            { "if" = "orphan"; text = ""; fg = "#ffffff"; }
+            { "if" = "link"; text = "⯻"; fg = "red"; }
+            { "if" = "block"; text = ""; fg = "#cddc39"; }
+            { "if" = "char"; text = ""; fg = "#cddc39"; }
+            { "if" = "fifo"; text = ""; fg = "#cddc39"; }
+            { "if" = "sock"; text = ""; fg = "#cddc39"; }
+            { "if" = "sticky"; text = ""; fg = "#cddc39"; }
+            { "if" = "dummy"; text = ""; fg = "#f44336"; }
+
             { "if" = "dir"; text = "🗀"; }
+            { "if" = "exec"; text = "🞂"; }
             { "if" = "!dir"; text = "🞍"; }
           ];
         };
