@@ -6,6 +6,7 @@
   };
   environment.shellAliases = {
     oc = "opencode";
+    ff = "fastfetch";
     tok = "tokei -C -s lines -n dots";
     tokf = "tok -f";
     lan = "github-linguist";
