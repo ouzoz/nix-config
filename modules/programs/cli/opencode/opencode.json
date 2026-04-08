@@ -1,0 +1,22 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["README.md"],
+  "default_agent": "plan",
+  "agent": {
+    "chat": {
+      "color": "success"
+    },
+    "plan": {
+      "color": "primary"
+    },
+    "build": {
+      "color": "secondary"
+    },
+    "researcher": {
+      "color": "accent"
+    },
+    "refactor": {
+      "color": "error"
+    }
+  }
+}

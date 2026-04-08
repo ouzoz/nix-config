@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../modules/programs/cli.nix
+    ../modules/programs/cli/cli.nix
     ../modules/programs/foot.nix
   ];
 }
