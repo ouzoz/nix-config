@@ -123,6 +123,7 @@
     github-linguist
     fastfetch
     wget
+    ripgrep
 
     waybar
     wofi
