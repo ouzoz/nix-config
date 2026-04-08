@@ -4,8 +4,8 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../modules/hardware/nvidia.nix
-    ../modules/hardware/logitech.nix
+    ../../modules/hardware/nvidia.nix
+    ../../modules/hardware/logitech.nix
 
     ../profiles/core.nix
     ../profiles/laptop.nix
