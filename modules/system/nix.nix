@@ -11,18 +11,15 @@
   };
 
   environment.shellAliases = {
-    # nixos configs
-    ozc-ouz = "sudo nixos-rebuild switch --flake /etc/nixos#ouz";
-
     # helpers
+    ozc = "sudo nixos-rebuild switch --flake /etc/nixos#";
     ozc-dir = "cd /etc/nixos";
-    ozc-update = "nix flake update";
     ozc-gc = "sudo nix-collect-garbage -d";
     ozc-search = "nix search nixpkgs";
-
-    # flakes
+    ozc-update = "nix flake update";
     ozc-flake = "nix develop";
 
+    # flake templates
     ozc-tem = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-config#empty";
   };
 }

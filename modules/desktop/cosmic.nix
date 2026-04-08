@@ -5,8 +5,8 @@
 
   environment.systemPackages = with pkgs; [ wl-clipboard ];
 
-  # services.gnome.gnome-keyring.enable = true;
-  # security.pam.services.greetd.enableGnomeKeyring = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
 
   environment.sessionVariables = {
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
