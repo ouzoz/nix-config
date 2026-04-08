@@ -13,9 +13,9 @@
   };
   environment.systemPackages = with pkgs; [
     opencode
+    fastfetch
     tokei
     github-linguist
-    fastfetch
   ];
   system.userActivationScripts.linkOpencode = {
     text = ''

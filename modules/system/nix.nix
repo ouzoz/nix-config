@@ -16,9 +16,8 @@
 
   environment.shellAliases = {
     conf-dir = "cd /etc/nixos";
-    conf-edit = "vi /etc/nixos/configuration.nix";
     conf-build = "sudo nixos-rebuild switch --flake /etc/nixos#ouz";
-    conf-update = "sudo nix flake update";
+    conf-update = "nix flake update";
     conf-gc = "sudo nix-collect-garbage -d";
     conf-direnv = "echo 'use flake' > .envrc && direnv allow";
     conf-flake = "nix develop";
