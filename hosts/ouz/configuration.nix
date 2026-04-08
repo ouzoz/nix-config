@@ -1,17 +1,21 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./programs
-    ];
+  imports = [
+    ./hardware-configuration.nix
+
+    # ../../modules/system
+    # ../../modules/desktop
+    ../../modules/programs
+  ];
+
+  networking.hostName = "ouz";
+  system.stateVersion = "25.11";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "ouz";
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -169,6 +173,4 @@
   };
 
   services.openssh.enable = true;
-
-  system.stateVersion = "25.11";
 }

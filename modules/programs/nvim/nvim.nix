@@ -8,8 +8,8 @@
     withPython3 = true;
     configure = {
       customRC = ''
-        set runtimepath^=/etc/nixos/programs/nvim
-        luafile /etc/nixos/programs/nvim/init.lua
+        set runtimepath^=/etc/nixos/modules/programs/nvim
+        luafile /etc/nixos/modules/programs/nvim/init.lua
       '';
     };
   };
