@@ -11,5 +11,9 @@
         modules = [ ./hosts/ouz/configuration.nix ];
       };
     };
+
+    templates = {
+      empty.path = ./templates/empty;
+    };
   };
 }

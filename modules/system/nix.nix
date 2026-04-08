@@ -9,19 +9,20 @@
     dates = "daily";
     options = "--delete-older-than 6d";
   };
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-  };
 
   environment.shellAliases = {
-    conf-dir = "cd /etc/nixos";
-    conf-build = "sudo nixos-rebuild switch --flake /etc/nixos#ouz";
-    conf-update = "nix flake update";
-    conf-gc = "sudo nix-collect-garbage -d";
-    conf-direnv = "echo 'use flake' > .envrc && direnv allow";
-    conf-flake = "nix develop";
-    conf-template = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-flake-templates && direnv allow";
-    conf-search = "nix search nixpkgs";
+    # nixos configs
+    ozc-ouz = "sudo nixos-rebuild switch --flake /etc/nixos#ouz";
+
+    # helpers
+    ozc-dir = "cd /etc/nixos";
+    ozc-update = "nix flake update";
+    ozc-gc = "sudo nix-collect-garbage -d";
+    ozc-search = "nix search nixpkgs";
+
+    # flakes
+    ozc-flake = "nix develop";
+
+    ozc-tem = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-config#empty";
   };
 }
