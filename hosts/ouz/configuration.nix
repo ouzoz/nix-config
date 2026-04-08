@@ -7,8 +7,9 @@
     ../../modules/hardware/nvidia.nix
     ../../modules/hardware/logitech.nix
 
-    ../profiles/core.nix
-    ../profiles/laptop.nix
+    ../../profiles/core.nix
+    ../../profiles/laptop.nix
+    ../../profiles/development.nix
   ];
 
   networking.hostName = "ouz";
