@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
-let
-  oziosevka = pkgs.callPackage ../../pkgs/oziosevka {};
-in
+# let
+#   oziosevka = pkgs.callPackage ../../pkgs/oziosevka {};
+# in
 {
   fonts.packages = with pkgs; [
-    oziosevka
+    # oziosevka
 
     source-sans
     corefonts

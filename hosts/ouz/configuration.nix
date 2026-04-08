@@ -6,6 +6,7 @@
 
     ../../modules/hardware/nvidia.nix
     ../../modules/hardware/logitech.nix
+    ../../modules/hardware/swap.nix
 
     ../../profiles/core.nix
     ../../profiles/laptop.nix
