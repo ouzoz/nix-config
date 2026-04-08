@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
+
 {
+  environment.sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+      MANPAGER = "nvim +Man!";
+  };
   programs.neovim = {
     enable = true;
     defaultEditor = true;

@@ -1,5 +1,18 @@
 { config, pkgs, ... }:
 {
+  environment.shellAliases = {
+    gs = "git status";
+    gc = "git add -A && git commit -m";
+    gp = "git push";
+    gpu = "git pull";
+    gd = "git diff";
+    gl = "git log --oneline -12";
+    gi = "gd --stat";
+    # alias gr = "git reset HEAD"
+    # alias m = "git checkout master"
+    # alias gch = "git checkout"
+    # alias gm = "git merge"
+  };
   programs.git = {
     enable = true;
     config = {
