@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./treesitter.nix
+  ];
+
   environment.sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
