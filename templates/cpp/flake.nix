@@ -27,6 +27,7 @@
             clang-tools
             cppcheck
             llvm
+            pkg-config
           ];
 
           CC = "${pkgs.gcc}/bin/gcc";
