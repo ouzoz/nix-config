@@ -25,5 +25,9 @@ let
   '';
 in
 {
-  programs.neovim.plugins = parsers ++ [ queries ];
+  programs.neovim.configure = {
+    packages.treesitter-bundle = {
+      start = parsers ++ [ queries ];
+    };
+  };
 }
