@@ -21,10 +21,10 @@
 
     # flake templates
     ozc-tem = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-config#empty";
-    ozc-tem-python = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-config#python";
-    ozc-tem-rust = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-config#rust";
-    ozc-tem-typescript = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-config#typescript";
-    ozc-tem-cpp = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-config#cpp";
     ozc-tem-tex = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-config#tex";
+    ozc-tem-python = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-config#python";
+    ozc-tem-typescript = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-config#typescript";
+    ozc-tem-rust = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-config#rust";
+    ozc-tem-cpp = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-config#cpp";
   };
 }
