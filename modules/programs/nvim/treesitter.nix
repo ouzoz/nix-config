@@ -1,4 +1,37 @@
-{ pkgs, ... }:
+# { pkgs, ... }:
+#
+# let
+#   parsers = with pkgs.tree-sitter-grammars; [
+#     tree-sitter-bash
+#     tree-sitter-c
+#     tree-sitter-cpp
+#     tree-sitter-css
+#     tree-sitter-html
+#     tree-sitter-javascript
+#     tree-sitter-json
+#     tree-sitter-lua
+#     tree-sitter-markdown
+#     tree-sitter-markdown-inline
+#     tree-sitter-nix
+#     tree-sitter-python
+#     tree-sitter-rust
+#     tree-sitter-toml
+#     tree-sitter-yaml
+#   ];
+#
+#   merged-parsers = pkgs.symlinkJoin {
+#     name = "treesitter-parsers";
+#     paths = parsers;
+#   };
+# in
+#
+# pkgs.runCommand "treesitter-native-runtime" {} ''
+#   mkdir -p $out
+#   ln -s ${merged-parsers}/parser $out/parser
+#   ln -s ${pkgs.vimPlugins.nvim-treesitter.src}/runtime/queries $out/queries
+# ''
+
+{ pkgs }:
 
 let
   parsers = with pkgs.tree-sitter-grammars; [
@@ -19,14 +52,13 @@ let
     tree-sitter-yaml
   ];
 
-  merged-parsers = pkgs.symlinkJoin {
-    name = "treesitter-parsers";
-    paths = parsers;
-  };
+  linkParsers = pkgs.lib.concatMapStrings (p: ''
+    ln -s ${p}/parser/*.so $out/parser/
+  '') parsers;
 in
-
 pkgs.runCommand "treesitter-native-runtime" {} ''
-  mkdir -p $out
-  ln -s ${merged-parsers}/parser $out/parser
-  ln -s ${pkgs.vimPlugins.nvim-treesitter.src}/runtime/queries $out/queries
+  mkdir -p $out/parser
+  mkdir -p $out/queries
+  ${linkParsers}
+  ln -s ${pkgs.vimPlugins.nvim-treesitter.src}/runtime/queries/* $out/queries/
 ''
