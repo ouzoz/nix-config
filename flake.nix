@@ -14,6 +14,11 @@
 
     templates = {
       empty.path = ./templates/empty;
+      python.path = ./templates/python;
+      rust.path = ./templates/rust;
+      typescript.path = ./templates/typescript;
+      cpp.path = ./templates/cpp;
+      tex.path = ./templates/tex;
     };
   };
 }
