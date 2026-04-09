@@ -5,7 +5,7 @@
     settings = {
       main = {
         font = "Oziosevka:size=12.5";
-        line-height = 15.6;
+        line-height = 16.2;
         resize-delay-ms = 0;
         resize-keep-grid = "no";
         locked-title = "yes";
