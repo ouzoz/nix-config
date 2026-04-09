@@ -123,7 +123,6 @@ let
     tree-sitter-zig
   ];
 
-  getLang = pkg: pkgs.lib.removePrefix "tree-sitter-" (pkg.pname or (builtins.parseDrvName pkg.name).name);
   getLang = pkg:
     let
       name = pkg.pname or (builtins.parseDrvName pkg.name).name;
