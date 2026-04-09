@@ -21,8 +21,12 @@ let
 
   queries = pkgs.runCommand "treesitter-queries-only" {} ''
     mkdir -p $out/queries
-    cp -r ${pkgs.vimPlugins.nvim-treesitter.src}/queries/* $out/queries/
+    cp -r ${pkgs.vimPlugins.nvim-treesitter.src}/runtime/queries/* $out/queries/
   '';
+  # queries = pkgs.runCommand "treesitter-queries-only" {} ''
+  #   mkdir -p $out
+  #   ln -s ${pkgs.vimPlugins.nvim-treesitter}/queries $out/queries
+  # '';
 in
 {
   programs.neovim.configure = {
