@@ -98,7 +98,6 @@ let
     tree-sitter-scheme
     tree-sitter-solidity
     tree-sitter-sql
-    tree-sitter-sshclientconfig
     tree-sitter-strace
     tree-sitter-svelte
     tree-sitter-sway
