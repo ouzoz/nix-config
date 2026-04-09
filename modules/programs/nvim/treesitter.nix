@@ -43,9 +43,6 @@ let
     tree-sitter-gitignore
     tree-sitter-gleam
     tree-sitter-go
-    tree-sitter-go-template
-    tree-sitter-gomod
-    tree-sitter-gowork
     tree-sitter-graphql
     tree-sitter-groovy
     tree-sitter-haskell
