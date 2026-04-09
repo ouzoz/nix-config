@@ -31,6 +31,7 @@
 
           CC = "${pkgs.gcc}/bin/gcc";
           CXX = "${pkgs.gcc}/bin/g++";
+          VCPKG_ROOT = "${pkgs.vcpkg}/share/vcpkg";
 
           shellHook = ''
             echo "Project Packages and environment loaded for ${system}."
