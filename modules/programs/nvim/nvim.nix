@@ -2,9 +2,9 @@
 
 let
   treesitter-runtime = import ./treesitter.nix { inherit pkgs; };
+  base-config = ./.;
 in
 {
-
   environment.sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
@@ -19,8 +19,8 @@ in
     configure = {
       customRC = ''
         set runtimepath^=${treesitter-runtime}
-        set runtimepath^=/etc/nixos/modules/programs/nvim
-        luafile /etc/nixos/modules/programs/nvim/init.lua
+        set runtimepath^=${base-config}
+        luafile ${base-config}/init.lua
       '';
     };
   };
