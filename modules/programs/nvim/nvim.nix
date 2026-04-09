@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  ts-runtime = import ./treesitter.nix { inherit pkgs; };
+  treesitter-runtime = import ./treesitter.nix { inherit pkgs; };
 in
 {
 
@@ -18,7 +18,7 @@ in
     withPython3 = true;
     configure = {
       customRC = ''
-        set runtimepath^=${ts-runtime}
+        set runtimepath^=${treesitter-runtime}
         set runtimepath^=/etc/nixos/modules/programs/nvim
         luafile /etc/nixos/modules/programs/nvim/init.lua
       '';

@@ -52,13 +52,14 @@ let
     tree-sitter-yaml
   ];
 
-  linkParsers = pkgs.lib.concatMapStrings (p: ''
-    ln -s ${p}/parser/*.so $out/parser/
-  '') parsers;
+  getLang = pkg: pkgs.lib.removePrefix "tree-sitter-" (pkg.pname or (builtins.parseDrvName pkg.name).name);
 in
-pkgs.runCommand "treesitter-native-runtime" {} ''
+
+pkgs.runCommand "treesitter-runtime" { } ''
   mkdir -p $out/parser
   mkdir -p $out/queries
-  ${linkParsers}
+  ${pkgs.lib.concatMapStrings (pkg: ''
+    ln -s ${pkg}/parser $out/parser/${getLang pkg}.so
+  '') parsers}
   ln -s ${pkgs.vimPlugins.nvim-treesitter.src}/runtime/queries/* $out/queries/
 ''
