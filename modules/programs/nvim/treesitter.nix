@@ -23,18 +23,10 @@ let
     name = "treesitter-parsers";
     paths = parsers;
   };
-
-  treesitter-runtime = pkgs.runCommand "treesitter-runtime" {} ''
-    mkdir -p $out
-    ln -s ${merged-parsers}/parser $out/parser
-    ln -s ${pkgs.vimPlugins.nvim-treesitter.src}/runtime/queries $out/queries
-  '';
-
 in
-{
-  programs.neovim.configure = {
-    customRC = ''
-      set runtimepath^=${treesitter-runtime}
-    '';
-  };
-}
+
+pkgs.runCommand "treesitter-native-runtime" {} ''
+  mkdir -p $out
+  ln -s ${merged-parsers}/parser $out/parser
+  ln -s ${pkgs.vimPlugins.nvim-treesitter.src}/runtime/queries $out/queries
+''
