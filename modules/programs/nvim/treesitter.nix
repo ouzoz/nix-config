@@ -19,15 +19,22 @@ let
     tree-sitter-yaml
   ];
 
-  queries = pkgs.runCommand "treesitter-queries-only" {} ''
-    mkdir -p $out/queries
-    cp -r ${pkgs.vimPlugins.nvim-treesitter.src}/runtime/queries/* $out/queries/
+  merged-parsers = pkgs.symlinkJoin {
+    name = "treesitter-parsers";
+    paths = parsers;
+  };
+
+  treesitter-runtime = pkgs.runCommand "treesitter-runtime" {} ''
+    mkdir -p $out
+    ln -s ${merged-parsers}/parser $out/parser
+    ln -s ${pkgs.vimPlugins.nvim-treesitter.src}/runtime/queries $out/queries
   '';
+
 in
 {
   programs.neovim.configure = {
-    packages.treesitter-bundle = {
-      start = parsers ++ [ queries ];
-    };
+    customRC = ''
+      set runtimepath^=${treesitter-runtime}
+    '';
   };
 }
