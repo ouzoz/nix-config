@@ -52,7 +52,7 @@
       };
       csd = {
         # preferred = "none";
-        hide-when-maximized = true;
+        hide-when-maximized = "yes";
       };
     };
   };
