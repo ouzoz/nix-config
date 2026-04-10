@@ -51,8 +51,8 @@
         "246" = "96929b";
       };
       csd = {
-        # preferred = "none";
-        hide-when-maximized = "yes";
+        preferred = "none";
+        # hide-when-maximized = "yes";
       };
     };
   };
