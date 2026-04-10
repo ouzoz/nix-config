@@ -10,6 +10,7 @@
         resize-keep-grid = "no";
         locked-title = "yes";
         selection-target = "clipboard";
+        pad = "0x0";
       };
       scrollback = {
         lines = 0;
