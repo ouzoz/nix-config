@@ -9,7 +9,8 @@
     ff = "fastfetch";
     tok = "tokei -C -s lines";
     tokf = "tok -f";
-    lan = "github-linguist";
+    lin = "github-linguist";
+    lan = "tok && lin"
   };
   environment.systemPackages = with pkgs; [
     opencode
