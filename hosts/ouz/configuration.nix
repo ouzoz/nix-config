@@ -11,6 +11,7 @@
     ../../profiles/core.nix
     ../../profiles/laptop.nix
     ../../profiles/development.nix
+    ../../profiles/gaming.nix
   ];
 
   networking.hostName = "ouz";

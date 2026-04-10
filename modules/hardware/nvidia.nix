@@ -1,8 +1,16 @@
 { config, pkgs, ... }:
 
 {
-  hardware.graphics.enable = true;
-  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+  hardware.graphics{
+    enable = true;
+    enable32Bit = true;
+  };
+
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
+
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
