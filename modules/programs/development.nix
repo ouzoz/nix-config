@@ -17,9 +17,16 @@
   # system.userActivationScripts.linkOpencode = {
   # };
   programs.wireshark.enable = true;
-  users.users.ouz.extraGroups = [ "wireshark" ];
 
   virtualisation.libvirtd.enable = true;
-  users.users.ouz.extraGroups = [ "kvm" "adbusers" "libvirtd" ];
   programs.adb.enable = true;
+  users.users.ouz.extraGroups = [
+    #adb
+    "kvm"
+    "adbusers"
+    "libvirtd"
+
+    #wireshark
+    "wireshark"
+  ];
 }
