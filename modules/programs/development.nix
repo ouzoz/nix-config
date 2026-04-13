@@ -13,17 +13,19 @@
       pylyzer
       clang-tools
       lua-language-server
+
+      android-tools
   ];
   # system.userActivationScripts.linkOpencode = {
   # };
+
   programs.wireshark.enable = true;
 
   virtualisation.libvirtd.enable = true;
-  programs.adb.enable = true;
+
   users.users.ouz.extraGroups = [
     #adb
     "kvm"
-    "adbusers"
     "libvirtd"
 
     #wireshark
