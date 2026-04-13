@@ -6,10 +6,8 @@
     enable32Bit = true;
   };
 
-  services.xserver.videoDrivers = [
-    "modesetting"
-    "nvidia"
-  ];
+  services.xserver.videoDrivers = [ "nvidia" ];
+  boot.kernelModules = [ "nvidia_uvm" ];
 
   hardware.nvidia = {
     nvidiaPersistenced = true;
