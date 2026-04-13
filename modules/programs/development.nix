@@ -21,6 +21,7 @@
 
   programs.wireshark.enable = true;
   programs.wireshark.package = pkgs.wireshark;
+  programs.wireshark.dumpcap.enable = true;
 
   virtualisation.libvirtd.enable = true;
 
