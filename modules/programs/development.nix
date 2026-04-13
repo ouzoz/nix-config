@@ -20,7 +20,7 @@
   # };
 
   programs.wireshark.enable = true;
-  programs.wireshark.package = wireshark;
+  programs.wireshark.package = pkgs.wireshark;
 
   virtualisation.libvirtd.enable = true;
 
