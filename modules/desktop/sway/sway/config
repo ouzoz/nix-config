@@ -1,0 +1,107 @@
+output {
+    * bg /home/ouz/oz/dos/fot/bg/oz-red-turqoise.jpg fill
+    HDMI-A-1 res 1920x1080@180Hz pos 0,0
+    eDP-1 disable
+    # eDP-1 res 1920x1080@165Hz pos 0,0
+    # HDMI-A-1 disable
+}
+
+input {
+    * {
+        xkb_layout "tr"
+        repeat_rate 60
+        repeat_delay 240
+        pointer_accel 0.0
+        accel_profile adaptive
+        xkb_options caps:swapescape
+    }
+    type:touchpad {
+        dwt enabled
+        tap enabled
+        middle_emulation enabled
+        pointer_accel 1.0
+    }
+}
+
+default_orientation horizontal
+focus_follows_mouse yes
+default_border none
+default_floating_border none
+smart_gaps on
+gaps inner 15
+gaps outer 0
+
+for_window [app_id=".*"] floating enable
+for_window [app_id="foot"] floating disable
+for_window [app_id="brave-browser"] floating disable
+
+xwayland enable
+
+exec --no-startup-id swaylock
+exec --no-startup-id waybar
+# bar swaybar_command waybar
+
+# return, backspace, period, space
+set $m Mod4
+floating_modifier $m normal
+bindsym {
+    $m+Shift+Escape exit
+    $m+Escape exec ~/.config/wofi/power.sh
+
+    $m+p exec grim
+    $m+return exec foot
+    $m+backspace exec wofi
+    $m+a exec thunar
+
+    $m+q kill
+
+    $m+w floating toggle
+    $m+quotedbl focus prev
+    $m+h focus left
+    $m+j focus down
+    $m+k focus up
+    $m+l focus right
+    $m+Shift+h move left
+    $m+Shift+j move down
+    $m+Shift+k move up
+    $m+Shift+l move right
+    $m+f fullscreen
+
+    $m+Tab workspace back_and_forth
+    $m+1 workspace number 1
+    $m+2 workspace number 2
+    $m+3 workspace number 3
+    $m+4 workspace number 4
+    $m+5 workspace number 5
+    $m+6 workspace number 6
+    $m+Shift+Tab move window to workspace back_and_forth
+    $m+Shift+1 move window to workspace number 1
+    $m+Shift+2 move window to workspace number 2
+    $m+Shift+3 move window to workspace number 3
+    $m+Shift+4 move window to workspace number 4
+    $m+Shift+5 move window to workspace number 5
+    $m+Shift+6 move window to workspace number 6
+
+    $m+Shift+Left focus output left
+    $m+Shift+Right focus output right
+
+    $m+minus exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    $m+space exec playerctl play-pause
+    $m+Right exec playerctl next
+    $m+Left exec playerctl previous
+    $m+Up exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 6%+
+    $m+Down exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 6%-
+
+    XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+    XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+    XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+    XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+    XF86AudioNext exec playerctl next
+    XF86AudioPause exec playerctl play-pause
+    XF86AudioPlay exec playerctl play-pause
+    XF86AudioPrev exec playerctl previous
+    XF86MonBrightnessDown exec brightnessctl -e4 -n2 set 5%-
+    XF86MonBrightnessUp exec brightnessctl -e4 -n2 set 5%+
+}
+
+include /etc/sway/config.d/*

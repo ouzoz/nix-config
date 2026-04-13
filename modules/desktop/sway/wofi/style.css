@@ -1,0 +1,28 @@
+@define-color bg #000000;
+@define-color bgs #232027;
+@define-color fg #ffffff;
+
+* {
+    font-family: Oziosevka;
+    font-size: 16px;
+    font-weight: 500;
+    color: @fg;
+
+    border: none;
+    border-radius: 0;
+    outline: none;
+    transition: none;
+    animation: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+#outer-box { margin: 0; padding: 0; background: @bg; }
+
+#input { background: @bg; padding: 6px; }
+#input:focus { background-color: @bg; }
+
+#entry { padding: 6px; }
+#entry:selected { background: @bgs; }
+
+#img { margin-right: 6px; }
