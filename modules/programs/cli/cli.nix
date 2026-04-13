@@ -25,7 +25,7 @@
       ln -sfn /etc/nixos/modules/programs/cli/opencode/commands ~/.config/opencode/commands
       ln -sfn /etc/nixos/modules/programs/cli/opencode/themes ~/.config/opencode/themes
       ln -sfn /etc/nixos/modules/programs/cli/opencode/opencode.json ~/.config/opencode/opencode.json
-      ln -sfn /etc/nixos/modules/programs/cli/opencode/AGENTS.md ~/.config/opencode/AGENTS.md
+      ln -sfn /etc/nixos/modules/programs/cli/opencode/AGENTS.md ~/.config/opencode/RULES.md
     '';
   };
 }
