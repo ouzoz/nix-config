@@ -46,22 +46,22 @@ opt.wildignorecase = true
 opt.wildignore = '*.o,*.obj,*.exe,*.pdf'
 
 local has_word = function()
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 
 key('i', '<Tab>', function()
-    if vim.fn.pumvisible() == 1 then
-        return '<C-n>'
-    elseif has_word() then
-        if vim.bo.omnifunc ~= '' then
-            return '<C-x><C-o>'
-        else
-            return '<C-n>'
-        end
+  if vim.fn.pumvisible() == 1 then
+    return '<C-n>'
+  elseif has_word() then
+    if vim.bo.omnifunc ~= '' then
+      return '<C-x><C-o>'
     else
-        return '<Tab>'
+      return '<C-n>'
     end
+  else
+    return '<Tab>'
+  end
 end, { expr = true, silent = true })
 
 -- symbols
@@ -91,11 +91,11 @@ opt.foldmethod = 'indent'
 opt.foldlevelstart = 99
 opt.foldtext = 'v:lua.OzFold()'
 function _G.OzFold()
-    return con {
-        api.nvim_buf_get_lines(0, vim.v.foldstart - 1, vim.v.foldstart, false)[1],
-        ' => ',
-        vim.v.foldend - vim.v.foldstart
-    }
+  return con {
+    api.nvim_buf_get_lines(0, vim.v.foldstart - 1, vim.v.foldstart, false)[1],
+    ' => ',
+    vim.v.foldend - vim.v.foldstart
+  }
 end
 
 
@@ -133,65 +133,75 @@ key('n', '<Esc>', '<cmd>nohlsearch<CR>', { nowait = true })
 
 -- lsp
 vim.lsp.enable {
-    'jdtls',
-    'pylyzer',
-    'clangd',
-    'lua-language-server',
-    'typescript-language-server',
-    'julials',
-    'haskell-language-server-wrapper',
-    'gopls',
-    'rust-analyzer',
-    'nixd',
+  'basedpyright',
+  'bashls',
+  'clangd',
+  'cmake',
+  'cssls',
+  'dockerls',
+  'eslint',
+  'gopls',
+  'html',
+  'javals',
+  'jsonls',
+  'just',
+  'luals',
+  'marksman',
+  'nixd',
+  'rust-analyzer',
+  'sqls',
+  'texlab',
+  'tsls',
+  'yamlls',
 }
 
 vim.diagnostic.config({
-    virtual_text = { severity = { min = vim.diagnostic.severity.WARN } },
-    signs = false,
-    underline = true,
-    severity_sort = true,
-    update_in_insert = false
+  virtual_text = { severity = { min = vim.diagnostic.severity.WARN } },
+  signs = false,
+  underline = true,
+  severity_sort = true,
+  update_in_insert = false
 })
 
 local compl_triggers = {}
 for i = 32, 126 do compl_triggers[#compl_triggers+1] = string.char(i) end
 
 api.nvim_create_autocmd('LspAttach', {
-    group = api.nvim_create_augroup('my.lsp', {}),
-    callback = function(args)
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client == nil then return end
+  group = api.nvim_create_augroup('my.lsp', {}),
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client == nil then return end
 
-        if client:supports_method 'textDocument/completion' then
-            client.server_capabilities.completionProvider.triggerCharacters = compl_triggers
-            vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-            -- vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true, convert = function(item) return { abbr = item.label:gsub('%b()', '') } end })
-        end
+    if client:supports_method 'textDocument/completion' then
+      client.server_capabilities.completionProvider.triggerCharacters = compl_triggers
+      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+      -- vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true, convert = function(item) return { abbr = item.label:gsub('%b()', '') } end })
+    end
 
-        if client:supports_method 'textDocument/foldingRange' then
-            vim.opt_local.foldmethod = 'expr'
-            vim.opt_local.foldexpr = 'v:lua.vim.lsp.foldexpr()'
-        end
+    if client:supports_method 'textDocument/foldingRange' then
+      vim.opt_local.foldmethod = 'expr'
+      vim.opt_local.foldexpr = 'v:lua.vim.lsp.foldexpr()'
+    end
 
-        if client:supports_method 'textDocument/formatting'
-            and not client:supports_method 'textDocument/willSaveWaitUntil' then
-            api.nvim_buf_create_user_command( args.buf, 'FormatBuf', function()
-                vim.lsp.buf.format { bufnr = args.buf, id = client.id, timeout_ms = 1000 }
-            end, {})
-        end
-    end,
+    if client:supports_method 'textDocument/formatting'
+      and not client:supports_method 'textDocument/willSaveWaitUntil' then
+      api.nvim_buf_create_user_command( args.buf, 'FormatBuf', function()
+        vim.lsp.buf.format { bufnr = args.buf, id = client.id, timeout_ms = 1000 }
+      end, {})
+    end
+  end,
 })
 
 
 -- tree-sitter
 api.nvim_create_autocmd('FileType', {
-    callback = function(args)
-        local has_ts, _ = pcall(vim.treesitter.start, args.buf)
-        if has_ts then
-            vim.opt_local.foldmethod = 'expr'
-            vim.opt_local.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-        end
+  callback = function(args)
+    local has_ts, _ = pcall(vim.treesitter.start, args.buf)
+    if has_ts then
+      vim.opt_local.foldmethod = 'expr'
+      vim.opt_local.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
     end
+  end
 })
 
 local reg = vim.treesitter.language.register

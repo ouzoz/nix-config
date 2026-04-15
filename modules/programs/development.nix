@@ -6,17 +6,36 @@
   # environment.shellAliases = {
   # };
   environment.systemPackages = with pkgs; [
-      texliveFull
-      plantuml
-      graphviz
+    # utils
+    just
+    ripgrep
 
-      pylyzer
-      clang-tools
-      lua-language-server
-      nixd
-      typescript-language-server
+    # lsp
+    clang-tools
+    lua-language-server
+    nixd
+    just-lsp
+    bash-language-server
+    typescript-language-server
+    marksman
+    yaml-language-server
+    vscode-langservers-extracted
+    cmake-language-server
+    texlab
+    basedpyright
+    java-language-server
+    docker-language-server
+    sqls
 
-      android-tools
+    # tex
+    texliveFull
+    plantuml
+    graphviz
+
+    # docker
+    # docker-compose
+
+    android-tools
   ];
   # system.userActivationScripts.linkOpencode = {
   # };
