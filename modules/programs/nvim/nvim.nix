@@ -18,7 +18,7 @@ in
     withPython3 = true;
     configure = {
       customRC = ''
-        set runtimepath^=${treesitter-runtime}
+        set runtimepath+=${treesitter-runtime}
         set runtimepath^=${base-config}
         luafile ${base-config}/init.lua
       '';

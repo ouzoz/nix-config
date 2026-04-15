@@ -64,7 +64,6 @@ let
     tree-sitter-latex
     tree-sitter-llvm
     tree-sitter-log
-    tree-sitter-lua
     tree-sitter-mail
     tree-sitter-make
     tree-sitter-markdoc
