@@ -142,6 +142,7 @@ vim.lsp.enable {
     'haskell-language-server-wrapper',
     'gopls',
     'rust-analyzer',
+    'nixd',
 }
 
 vim.diagnostic.config({
