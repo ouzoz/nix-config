@@ -7,7 +7,6 @@ let
     tree-sitter-awk
     tree-sitter-bash
     tree-sitter-bibtex
-    tree-sitter-c
     tree-sitter-c-sharp
     tree-sitter-cairo
     tree-sitter-clojure
@@ -67,8 +66,6 @@ let
     tree-sitter-mail
     tree-sitter-make
     tree-sitter-markdoc
-    tree-sitter-markdown
-    tree-sitter-markdown-inline
     tree-sitter-matlab
     tree-sitter-meson
     tree-sitter-nginx
@@ -86,7 +83,6 @@ let
     tree-sitter-proto
     tree-sitter-python
     tree-sitter-ql
-    tree-sitter-query
     tree-sitter-r
     tree-sitter-readline
     tree-sitter-regex
@@ -111,7 +107,6 @@ let
     tree-sitter-vala
     tree-sitter-verilog
     tree-sitter-vhdl
-    tree-sitter-vim
     tree-sitter-vue
     tree-sitter-xml
     tree-sitter-yaml
