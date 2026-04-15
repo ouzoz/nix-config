@@ -13,6 +13,8 @@
       pylyzer
       clang-tools
       lua-language-server
+      nixd
+      typescript-language-server
 
       android-tools
   ];
