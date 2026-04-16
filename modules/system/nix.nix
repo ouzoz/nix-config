@@ -19,7 +19,7 @@
     ozc-update = "nix flake update";
     ozc-flake = "nix develop";
 
-    # flake templates
+    # dev shell templates
     ozc-tem = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-config#empty";
     ozc-tem-tex = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-config#tex";
     ozc-tem-python = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-config#python";

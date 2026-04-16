@@ -1,3 +1,5 @@
+require('vim._core.ui2').enable({})
+
 local api = vim.api
 local opt = vim.opt
 local key = vim.keymap.set
@@ -38,6 +40,7 @@ opt.shiftwidth = 2
 opt.inccommand = 'split'
 
 -- completion
+opt.autocomplete = true
 opt.pumheight = 6
 opt.complete = { '.', 'w', 'b', 'kspell', 'i', 't', 'f' } -- '.,w,b'
 opt.completeopt = { 'menu', 'menuone', 'noselect', 'popup' } -- fuzzy.nosort
@@ -167,7 +170,7 @@ local compl_triggers = {}
 for i = 32, 126 do compl_triggers[#compl_triggers+1] = string.char(i) end
 
 api.nvim_create_autocmd('LspAttach', {
-  group = api.nvim_create_augroup('my.lsp', {}),
+  group = api.nvim_create_augroup('my.lsp', { clear = true }),
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if client == nil then return end

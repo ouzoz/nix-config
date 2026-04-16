@@ -8,6 +8,7 @@
     gd = "git diff";
     gl = "git log --oneline -12";
     gi = "gd --stat";
+    grm = "git rm --cached";
     # alias gr = "git reset HEAD"
     # alias m = "git checkout master"
     # alias gch = "git checkout"
@@ -20,6 +21,15 @@
       user = {
         name = "oguzhanozkaya";
         email = "ozkayaoguzhan67@gmail.com";
+      };
+      core = {
+        excludesfile = "${pkgs.writeText "gitignore-global" ''
+          shell.nix
+          .envrc
+          .direnv/
+
+          .agents/
+        '' }";
       };
     };
   };

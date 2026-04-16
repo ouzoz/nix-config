@@ -1,5 +1,5 @@
 {
-  description = "tex flake template";
+  description = "Project nix flake";
   inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; };
   outputs = { self, nixpkgs }:
   let
@@ -14,21 +14,11 @@
     devShells = forAllSystems (system: 
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        my-texlive = pkgs.texlive.combine {
-          inherit (pkgs.texlive)
-            scheme-basic
-            collection-fontsrecommended
-            collection-latexextra
-            collection-xetex
-
-            latexmk
-            biber;
-          };
       in
       {
         default = pkgs.mkShell {
           packages = with pkgs; [
-              my-texlive
+              texliveFull
               graphviz
               plantuml
           ];

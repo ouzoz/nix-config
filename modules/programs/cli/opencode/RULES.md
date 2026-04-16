@@ -7,8 +7,8 @@
 - **Hardware:** Multi-GPU Laptop (Nvidia + Intel Integrated)
 - **OS:** Nixos
 - **Package Management:** nix with flakes based project management.
-- **Window Manager:** Sway (Wayland), Clipboard: wl-clipboard (`wl-copy`, `wl-paste`), no X11/Xorg tools.
-- **Development Setup:** alacritty, tmux, neovim (Pluginless neovim config, No GUI editors).
+- **Window Manager:** Cosmic (Wayland), Clipboard: wl-clipboard (`wl-copy`, `wl-paste`), no X11/Xorg tools.
+- **Development Setup:** foot terminal, tmux, neovim (Pluginless neovim config, No GUI editors).
 - **Shell:** Bash
 
 # Rules

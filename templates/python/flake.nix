@@ -1,5 +1,5 @@
 {
-  description = "python flake template";
+  description = "Project nix flake";
   inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; };
   outputs = { self, nixpkgs }:
   let
@@ -18,7 +18,6 @@
       {
         default = pkgs.mkShell {
           packages = with pkgs; [
-            pylyzer
             uv
             python314
           ];
