@@ -2,10 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # utils
-    just
-    ripgrep
-
     # lsp
     basedpyright
     bash-language-server

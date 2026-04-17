@@ -176,8 +176,8 @@ v.diagnostic.config({
   }
 })
 
-local compl_triggers = {}
-for i = 32, 126 do compl_triggers[#compl_triggers+1] = string.char(i) end
+-- local compl_triggers = {}
+-- for i = 32, 126 do compl_triggers[#compl_triggers+1] = string.char(i) end
 
 api.nvim_create_autocmd('LspAttach', {
   group = api.nvim_create_augroup('my.lsp', { clear = true }),
@@ -186,7 +186,7 @@ api.nvim_create_autocmd('LspAttach', {
     if client == nil then return end
 
     if client:supports_method 'textDocument/completion' then
-      client.server_capabilities.completionProvider.triggerCharacters = compl_triggers
+      -- client.server_capabilities.completionProvider.triggerCharacters = compl_triggers
       v.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
     end
 
