@@ -93,11 +93,11 @@ opt.spell = false
 opt.foldmethod = 'indent'
 opt.foldlevelstart = 99
 opt.foldtext = 'v:lua.OzFold()'
-function _G.OzFold()
+function OzFold()
   return con {
     api.nvim_buf_get_lines(0, vim.v.foldstart - 1, vim.v.foldstart, false)[1],
     ' => ',
-    vim.v.foldend - vim.v.foldstart
+    vim.v.foldend - vim.v.foldstart + 1
   }
 end
 
@@ -175,7 +175,7 @@ vim.diagnostic.config({
     severity = { min = vim.diagnostic.severity.WARN },
     spacing = 2,
     source = 'if_many',
-    prefix = '●',
+    prefix = '🞄',
   }
 })
 
