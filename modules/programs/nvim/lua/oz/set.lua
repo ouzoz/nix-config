@@ -1,9 +1,6 @@
-require('vim._core.ui2').enable({})
+local v, api, opt, key, con = vim, vim.api, vim.opt, vim.keymap.set, table.concat
 
-local api = vim.api
-local opt = vim.opt
-local key = vim.keymap.set
-local con = table.concat
+require('vim._core.ui2').enable({})
 
 -- options
 opt.cpoptions = 'aABceFs_'
@@ -49,15 +46,15 @@ opt.wildignorecase = true
 opt.wildignore = '*.o,*.obj,*.exe,*.pdf'
 
 local has_word = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+  local line, col = unpack(api.nvim_win_get_cursor(0))
+  return col ~= 0 and api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 
 key('i', '<Tab>', function()
-  if vim.fn.pumvisible() == 1 then
+  if v.fn.pumvisible() == 1 then
     return '<C-n>'
   elseif has_word() then
-    if vim.bo.omnifunc ~= '' then
+    if v.bo.omnifunc ~= '' then
       return '<C-x><C-o>'
     else
       return '<C-n>'
@@ -95,16 +92,16 @@ opt.foldlevelstart = 99
 opt.foldtext = 'v:lua.OzFold()'
 function OzFold()
   return con {
-    api.nvim_buf_get_lines(0, vim.v.foldstart - 1, vim.v.foldstart, false)[1],
+    api.nvim_buf_get_lines(0, v.v.foldstart - 1, v.v.foldstart, false)[1],
     ' => ',
-    vim.v.foldend - vim.v.foldstart + 1
+    v.v.foldend - v.v.foldstart + 1
   }
 end
 
 
 -- keymaps
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+v.g.mapleader = ' '
+v.g.maplocalleader = ' '
 key({ 'n', 'v' }, '<leader>', '<Nop>', { silent = true })
 local float_set = { max_width = 72, border = 'single' }
 local opts = { noremap = true, silent = true, nowait = true }
@@ -125,24 +122,24 @@ key('n', '<leader>e', '<cmd>TogExplorer<CR>', opts)
 key('n', '<leader>w', '<cmd>set spell!<CR>', opts )
 key('n', '<leader>t', '<cmd>ToggleBackground<CR>', opts)
 
-key('n', '<leader>gd', vim.lsp.buf.definition, opts)
-key('n', '<leader>gt', vim.lsp.buf.type_definition, opts)
-key('n', '<leader>gr', vim.lsp.buf.references, opts)
-key('n', '<leader>gi', vim.lsp.buf.implementation, opts)
-key('n', '<leader>gk', function() vim.lsp.buf.hover(float_set) end, opts)
-key('n', '<leader>gh', vim.lsp.buf.signature_help, opts)
-key('n', '<leader>gc', vim.lsp.buf.rename, opts)
-key('n', '<leader>ga', vim.lsp.buf.code_action, opts)
+key('n', '<leader>gd', v.lsp.buf.definition, opts)
+key('n', '<leader>gt', v.lsp.buf.type_definition, opts)
+key('n', '<leader>gr', v.lsp.buf.references, opts)
+key('n', '<leader>gi', v.lsp.buf.implementation, opts)
+key('n', '<leader>gk', function() v.lsp.buf.hover(float_set) end, opts)
+key('n', '<leader>gh', v.lsp.buf.signature_help, opts)
+key('n', '<leader>gc', v.lsp.buf.rename, opts)
+key('n', '<leader>ga', v.lsp.buf.code_action, opts)
 key('n', '<leader>gf', '<cmd>FormatBuf<CR>', opts)
-key('n', '<leader>ge', function() vim.diagnostic.open_float(float_set) end, opts)
-key('n', '<leader>gp', function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
-key('n', '<leader>gn', function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
+key('n', '<leader>ge', function() v.diagnostic.open_float(float_set) end, opts)
+key('n', '<leader>gp', function() v.diagnostic.jump({ count = -1, float = true }) end, opts)
+key('n', '<leader>gn', function() v.diagnostic.jump({ count = 1, float = true }) end, opts)
 
 key('n', '<Esc>', '<cmd>nohlsearch<CR>', { nowait = true })
 
 
 -- lsp
-vim.lsp.enable {
+v.lsp.enable {
   'basedpyright',
   'bashls',
   'clangd',
@@ -165,14 +162,14 @@ vim.lsp.enable {
   'yamlls',
 }
 
-vim.diagnostic.config({
+v.diagnostic.config({
   update_in_insert = false,
   underline = true,
   signs = false,
   severity_sort = true,
   float = { source = 'if_many' },
   virtual_text = {
-    severity = { min = vim.diagnostic.severity.WARN },
+    severity = { min = v.diagnostic.severity.WARN },
     spacing = 2,
     source = 'if_many',
     prefix = '🞄',
@@ -185,23 +182,23 @@ for i = 32, 126 do compl_triggers[#compl_triggers+1] = string.char(i) end
 api.nvim_create_autocmd('LspAttach', {
   group = api.nvim_create_augroup('my.lsp', { clear = true }),
   callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    local client = v.lsp.get_client_by_id(args.data.client_id)
     if client == nil then return end
 
     if client:supports_method 'textDocument/completion' then
       client.server_capabilities.completionProvider.triggerCharacters = compl_triggers
-      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+      v.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
     end
 
     if client:supports_method 'textDocument/foldingRange' then
-      vim.opt_local.foldmethod = 'expr'
-      vim.opt_local.foldexpr = 'v:lua.vim.lsp.foldexpr()'
+      v.opt_local.foldmethod = 'expr'
+      v.opt_local.foldexpr = 'v:lua.vim.lsp.foldexpr()'
     end
 
     if client:supports_method 'textDocument/formatting'
       and not client:supports_method 'textDocument/willSaveWaitUntil' then
       api.nvim_buf_create_user_command( args.buf, 'FormatBuf', function()
-        vim.lsp.buf.format { bufnr = args.buf, id = client.id, timeout_ms = 1000 }
+        v.lsp.buf.format { bufnr = args.buf, id = client.id, timeout_ms = 1000 }
       end, {})
     end
   end,
@@ -211,15 +208,15 @@ api.nvim_create_autocmd('LspAttach', {
 -- tree-sitter
 api.nvim_create_autocmd('FileType', {
   callback = function(args)
-    local has_ts, _ = pcall(vim.treesitter.start, args.buf)
+    local has_ts, _ = pcall(v.treesitter.start, args.buf)
     if has_ts then
-      vim.opt_local.foldmethod = 'expr'
-      vim.opt_local.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+      v.opt_local.foldmethod = 'expr'
+      v.opt_local.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
     end
   end
 })
 
-local reg = vim.treesitter.language.register
+local reg = v.treesitter.language.register
 reg('bash', { 'sh' })
 reg('json', { 'jsonc' })
 reg('sway', { 'swayconfig' })
