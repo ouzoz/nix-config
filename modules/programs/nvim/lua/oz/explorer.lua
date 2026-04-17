@@ -1,10 +1,4 @@
-local u = UTILS
-local api = vim.api
-local uv = vim.uv
-local fs = vim.fs
-local fn = vim.fn
-local key = vim.keymap.set
-local con = table.concat
+local u, api, uv, fs, fn, key, con = UTILS, vim.api, vim.uv, vim.fs, vim.fn, vim.keymap.set, table.concat
 
 local M = u.Float('Explorer')
 M.ns = api.nvim_create_namespace('ExLine')
@@ -15,11 +9,7 @@ function M:add_line(text, color)
   self.hls[#self.hls+1] = {
     row = line,
     col = 0,
-    opts = {
-      end_row = line,
-      end_col = #self.lines[line+1],
-      hl_group = color
-    }
+    opts = { end_row = line, end_col = #self.lines[line+1], hl_group = color }
   }
 end
 
@@ -38,8 +28,7 @@ function M:on_open()
   api.nvim_set_option_value('modifiable', true, { buf = self.state.buf })
 
   api.nvim_buf_clear_namespace(self.state.buf, self.ns, 0, -1)
-  self.hls = {}
-  self.lines = {}
+  self.hls, self.lines = {}, {}
 
   self:get_bufs()
   self.lines[#self.lines+1] = ''
@@ -67,7 +56,7 @@ function M:open_clicked()
       self:on_open()
     else
       if file.is_opened then return end
-      vim.cmd('badd ' .. file.path)
+      vim.cmd.badd { args = file.path }
       self:on_open()
       local row, col = unpack(api.nvim_win_get_cursor(self.state.win))
       if row < #self.lines then
@@ -87,17 +76,12 @@ end
 
 function M:get_bufs()
   self.bufs = fn.getbufinfo { buflisted = 1 }
-  for _, buf in ipairs(self.bufs) do
+  for _, b in ipairs(self.bufs) do
     self:add_line(
-      string.format('%-4d%-24s%-6d%s',
-      buf.bufnr,
-      fs.basename(buf.name),
-      buf.linecount,
-      fn.fnamemodify(buf.name, ':~:.')
-    ),
-    u.get_buf_color(buf)
-  )
-end
+      string.format('%-4d%-24s%-6d%s', b.bufnr, fs.basename(b.name), b.linecount, fn.fnamemodify(b.name, ':~:.')),
+      u.get_buf_color(b)
+    )
+  end
 end
 
 function M:print_file(file, indent)
@@ -123,8 +107,7 @@ function M:get_files()
 end
 
 function M:file_tree(dir, old, indent)
-  dir.dirs = {}
-  dir.childs = {}
+  dir.dirs, dir.childs = {}, {}
   local dir_data = uv.fs_scandir(dir.path)
   if not dir_data then return end
   while true do
@@ -132,7 +115,7 @@ function M:file_tree(dir, old, indent)
     if not name then break end
 
     local child = {
-      path = dir.path .. '/' .. name,
+      path = con { dir.path, '/', name },
       name = name,
       type = type,
       is_dir = type == 'directory'
