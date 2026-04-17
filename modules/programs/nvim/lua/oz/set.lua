@@ -109,6 +109,7 @@ key('n', '<leader>h', '<C-w><C-h>')
 key('n', '<leader>j', '<C-w><C-j>')
 key('n', '<leader>k', '<C-w><C-k>')
 key('n', '<leader>l', '<C-w><C-l>')
+key('n', '<leader>v', '<C-w><C-v>')
 
 key('n', '<leader>s', '<cmd>w<CR>', opts)
 key('n', '<leader>q', '<cmd>bd<CR>', opts)
