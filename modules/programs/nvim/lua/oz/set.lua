@@ -51,17 +51,11 @@ local has_word = function()
 end
 
 key('i', '<Tab>', function()
-  if v.fn.pumvisible() == 1 then
-    return '<C-n>'
+  if v.fn.pumvisible() == 1 then return '<C-n>'
   elseif has_word() then
-    if v.bo.omnifunc ~= '' then
-      return '<C-x><C-o>'
-    else
-      return '<C-n>'
-    end
-  else
-    return '<Tab>'
-  end
+    if v.bo.omnifunc ~= '' then return '<C-x><C-o>'
+    else return '<C-n>' end
+  else return '<Tab>' end
 end, { expr = true, silent = true })
 
 -- symbols

@@ -5,6 +5,10 @@ let
   base-config = ./.;
 in
 {
+  imports = [
+    ./lsp.nix
+  ];
+
   environment.sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
