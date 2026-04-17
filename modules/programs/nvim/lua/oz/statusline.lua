@@ -46,7 +46,7 @@ function OzStatusline()
   return con {
     con(buffers),
     '%=%=',
-    v.diagnostic.status(), ' ',
+    diags, ' ',
     diagnostics(),
     '%*%L:%l-%{strdisplaywidth(getline(\'.\'))}:%v',
     modes[api.nvim_get_mode().mode] or modes.n
