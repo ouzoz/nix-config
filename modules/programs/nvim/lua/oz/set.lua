@@ -170,14 +170,12 @@ vim.diagnostic.config({
   underline = true,
   signs = false,
   severity_sort = true,
+  float = { source = 'if_many' },
   virtual_text = {
     severity = { min = vim.diagnostic.severity.WARN },
     spacing = 2,
     source = 'if_many',
     prefix = '●',
-  },
-  float = {
-    source = 'if_many'
   }
 })
 
@@ -226,11 +224,3 @@ reg('bash', { 'sh' })
 reg('json', { 'jsonc' })
 reg('sway', { 'swayconfig' })
 reg('ini', { 'dosini', 'conf' })
-
--- filetypes
-vim.filetype.add({
-  pattern = {
-    ["compose.*%.ya?ml"] = "yaml.docker-compose",
-    ["docker%-compose.*%.ya?ml"] = "yaml.docker-compose",
-  },
-})

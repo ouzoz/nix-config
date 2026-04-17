@@ -40,6 +40,9 @@ function OzStatusline()
     }
   end
 
+  local diags = v.diagnostic.status()
+  if diags == '' then diags = col('DiagnosticOk') .. '🞄' end
+
   return con {
     con(buffers),
     '%=%=',

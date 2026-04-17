@@ -1,6 +1,6 @@
 return {
   cmd = { 'docker-language-server', 'start', '--stdio' },
-  filetypes = { 'dockerfile', 'yaml.docker-compose' },
+  filetypes = { 'dockerfile' },
   root_markers = {
     'Dockerfile',
     'docker-compose.yaml',
