@@ -154,15 +154,15 @@ local function Endwise(...)
   function(meta) return keys.cr .. meta.pat.tailp .. keys.nest end)
 end
 
-local Buf = setmetatable({}, { __call = function (self, param)
-  if state.bufs[param.bufnr] then
-    for key, _ in pairs(state.bufs[param.bufnr].pats) do pcall(api.nvim_buf_del_keymap, param.bufnr, 'i', key) end
-    state.bufs[param.bufnr] = nil
+local Buf = setmetatable({}, { __call = function (self, bufnr, ft)
+  if state.bufs[bufnr] then
+    for key, _ in pairs(state.bufs[bufnr].pats) do pcall(api.nvim_buf_del_keymap, bufnr, 'i', key) end
+    state.bufs[bufnr] = nil
   end
 
-  if not vim.treesitter.highlighter.active[param.bufnr] then return end
+  if not vim.treesitter.highlighter.active[bufnr] then return end
 
-  local buf = setmetatable({ nr = param.bufnr, ft = param.ft, pats = {} }, { __index = self })
+  local buf = setmetatable({ nr = bufnr, ft = ft, pats = {} }, { __index = self })
   state.bufs[buf.nr] = buf
   for _, pat in pairs(state.pats) do buf:add_map(pat) end
 end})
@@ -244,4 +244,4 @@ table.sort(state.pats, function(a, b)
   or a.headp_len > b.headp_len)
 end)
 
-api.nvim_create_autocmd('FileType', { callback = Buf.__call })
+api.nvim_create_autocmd('FileType', { callback = function(param) Buf(param.buf, param.match) end })
