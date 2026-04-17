@@ -3,7 +3,7 @@
 {
   programs.bash = {
     enable = true;
-    interactiveShellInit = ''
+    shellInit = ''
       shopt -s histappend
       shopt -s cmdhist
     '';
@@ -11,12 +11,14 @@
       PS1='\[\033[36m\]\w\[\033[31m\] \$ \[\033[00m\]'
       PS2='\[\033[31m\]> \[\033[00m\]'
     '';
-    shellAliases = {
-      l = "ls -ACxX --group-directories-first --color=auto";
-      oz-token = "openssl rand -hex 16";
-      oz-ram = "top -b -o +RES -n 1 -Em -em | head -n 60";
-    };
   };
+
+  environment.shellAliases = {
+    l = "ls -ACxX --group-directories-first --color=auto";
+    oz-token = "openssl rand -hex 16";
+    oz-ram = "top -b -o +RES -n 1 -Em -em | head -n 60";
+  };
+
   environment.sessionVariables = {
     HISTSIZE = 6000;
     HISTFILESIZE = 6000;

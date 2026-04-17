@@ -7,7 +7,6 @@
     just
     ripgrep
     wget
-
     zip
     unzip
     smartmontools

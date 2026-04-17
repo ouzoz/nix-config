@@ -12,4 +12,6 @@
   # networking.firewall.enable = false;
 
   services.openssh.enable = true;
+
+  users.users.ouz.extraGroups = [ "networkmanager" ];
 }
