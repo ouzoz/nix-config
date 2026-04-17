@@ -2,11 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # tex
-    texliveFull
-    plantuml
-    graphviz
-
     android-tools
   ];
 
