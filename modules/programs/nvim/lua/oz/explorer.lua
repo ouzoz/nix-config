@@ -56,7 +56,7 @@ function M:open_clicked()
       self:on_open()
     else
       if file.is_opened then return end
-      vim.cmd.badd { args = file.path }
+      vim.cmd.badd { args = { file.path } }
       self:on_open()
       local row, col = unpack(api.nvim_win_get_cursor(self.state.win))
       if row < #self.lines then
