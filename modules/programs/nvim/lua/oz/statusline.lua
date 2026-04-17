@@ -1,6 +1,5 @@
 local next, con, u, v, api, sev = next, table.concat, UTILS, vim, vim.api, vim.diagnostic.severity
 local col = function (color) return con { '%#', color, '#' } end
-local sym = function (color, num) return not num and '' or con { col(color), '🞄', num, ' ' } end
 
 v.opt.laststatus = 3
 v.opt.statusline = '%!v:lua.OzStatusline()'
@@ -18,7 +17,9 @@ local modes = {
   n       = con { col 'OzStatModeN', ' N ' }
 }
 
-local function diagnostics(bufnr)
+local sym = function (color, num) return not num and '' or con { col(color), '🞄', num, ' ' } end
+local function diagnostics()
+  local bufnr = api.nvim_get_current_buf()
   if #v.lsp.get_clients { bufnr = bufnr } < 1 then return '' end
 
   local diags = v.diagnostic.count(bufnr)
@@ -31,8 +32,6 @@ local function diagnostics(bufnr)
 end
 
 function OzStatusline()
-  local bufnr = api.nvim_get_current_buf()
-
   local buffers = {}
   for i, b in ipairs(v.fn.getbufinfo { buflisted = 1 }) do
     buffers[i] = con {
@@ -44,8 +43,8 @@ function OzStatusline()
   return con {
     con(buffers),
     '%=%=',
-    v.diagnostic.status(bufnr), ' ',
-    diagnostics(bufnr),
+    v.diagnostic.status(), ' ',
+    diagnostics(),
     '%*%L:%l-%{strdisplaywidth(getline(\'.\'))}:%v',
     modes[api.nvim_get_mode().mode] or modes.n
   }

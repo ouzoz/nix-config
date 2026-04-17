@@ -9,6 +9,10 @@ return {
   settings = {
     gopls = {
       semanticTokens = true,
+      usePlaceholders = true,
+      staticcheck = true,
+      gofumpt = true,
+      analyses = { unusedparams = true },
       hints = {
         assignVariableTypes = true,
         compositeLiteralFields = true,
@@ -18,12 +22,6 @@ return {
         parameterNames = true,
         rangeVariableTypes = true,
       },
-      usePlaceholders = true,
-      analyses = {
-        unusedparams = true,
-      },
-      staticcheck = true,
-      gofumpt = true,
     },
   },
 }

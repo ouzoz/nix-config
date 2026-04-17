@@ -110,7 +110,14 @@ local float_set = { max_width = 72, border = 'single' }
 local opts = { noremap = true, silent = true, nowait = true }
 
 key('n', '<leader><Tab>', '<cmd>b#<CR>')
+key('n', '<leader>n', '<cmd>bn<CR>')
+key('n', '<leader>p', '<cmd>bp<CR>')
 for i=1, 9, 1 do key('n', con{ '<leader>', i }, con{ '<cmd>b', i, '<CR>' }, opts) end
+
+key('n', '<leader>h', '<C-w><C-h>')
+key('n', '<leader>j', '<C-w><C-j>')
+key('n', '<leader>k', '<C-w><C-k>')
+key('n', '<leader>l', '<C-w><C-l>')
 
 key('n', '<leader>s', '<cmd>w<CR>', opts)
 key('n', '<leader>q', '<cmd>bd<CR>', opts)
@@ -159,11 +166,19 @@ vim.lsp.enable {
 }
 
 vim.diagnostic.config({
-  virtual_text = { severity = { min = vim.diagnostic.severity.WARN } },
-  signs = false,
+  update_in_insert = false,
   underline = true,
+  signs = false,
   severity_sort = true,
-  update_in_insert = false
+  virtual_text = {
+    severity = { min = vim.diagnostic.severity.WARN },
+    spacing = 2,
+    source = 'if_many',
+    prefix = '●',
+  },
+  float = {
+    source = 'if_many'
+  }
 })
 
 local compl_triggers = {}
@@ -211,3 +226,11 @@ reg('bash', { 'sh' })
 reg('json', { 'jsonc' })
 reg('sway', { 'swayconfig' })
 reg('ini', { 'dosini', 'conf' })
+
+-- filetypes
+vim.filetype.add({
+  pattern = {
+    ["compose.*%.ya?ml"] = "yaml.docker-compose",
+    ["docker%-compose.*%.ya?ml"] = "yaml.docker-compose",
+  },
+})
