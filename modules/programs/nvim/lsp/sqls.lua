@@ -5,5 +5,4 @@ return {
     'config.yml',
     '.git'
   },
-  settings = {},
 }

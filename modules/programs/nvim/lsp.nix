@@ -4,7 +4,6 @@
   environment.systemPackages = with pkgs; [
     basedpyright
     bash-language-server
-    cmake-language-server
     vscode-langservers-extracted
     docker-language-server
     java-language-server

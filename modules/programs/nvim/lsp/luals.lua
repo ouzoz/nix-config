@@ -1,6 +1,17 @@
 return {
   filetypes = { 'lua' },
   cmd = { 'lua-language-server' },
+  root_markers = {
+    '.luarc.json',
+    '.luarc.jsonc',
+    '.luacheckrc',
+    '.stylua.toml',
+    'stylua.toml',
+    'selene.toml',
+    'selene.yml',
+    '.git',
+    'Makefile',
+  },
   settings = {
     Lua = {
       telemetry = { enable = false },
@@ -14,16 +25,5 @@ return {
         path = vim.split(package.path, ";"),
       },
     },
-  },
-  root_markers = {
-    '.luarc.json',
-    '.luarc.jsonc',
-    '.luacheckrc',
-    '.stylua.toml',
-    'stylua.toml',
-    'selene.toml',
-    'selene.yml',
-    '.git',
-    'Makefile',
   },
 }
