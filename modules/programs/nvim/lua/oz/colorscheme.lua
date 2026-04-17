@@ -8,19 +8,19 @@ vim.opt.background = 'dark'
 vim.opt.termguicolors = false
 
 local c = {
-    t  = 'NONE',
-    b1 = 233,
-    b2 = 0,
-    b3 = 235,
-    f3 = 239,
-    f2 = 246,
-    f1 = 15,
-    p1 = 9,
-    p3 = 10,
-    p2 = 11,
-    p5 = 12,
-    p6 = 13,
-    p4 = 14,
+  t  = 'NONE',
+  b1 = 233,
+  b2 = 0,
+  b3 = 235,
+  f3 = 239,
+  f2 = 246,
+  f1 = 15,
+  p1 = 9,
+  p3 = 10,
+  p2 = 11,
+  p5 = 12,
+  p6 = 13,
+  p4 = 14,
 }
 
 local shl = vim.api.nvim_set_hl
@@ -36,8 +36,8 @@ local underline_italic = { underline = true, italic = true }
 
 local is_transparent = true
 local function toggle_background()
-    h('Normal', (is_transparent and c.t) or c.b1, c.f1)
-    is_transparent = not is_transparent
+  h('Normal', (is_transparent and c.t) or c.b1, c.f1)
+  is_transparent = not is_transparent
 end
 vim.api.nvim_create_user_command('ToggleBackground', toggle_background, {})
 toggle_background()
