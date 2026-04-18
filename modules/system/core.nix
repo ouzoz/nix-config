@@ -1,7 +1,19 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   environment.localBinInPath = true;
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    settings = {
+      global = {
+        hide_env_diff = true;
+        warn_timeout = "5m";
+        log_format = "";
+      };
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     just
@@ -12,16 +24,4 @@
     smartmontools
     openconnect
   ];
-
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-    settings = {
-      global = {
-        hide_env_diff = false;
-        warn_timeout = "5m";
-        log_format = "";
-      };
-    };
-  };
 }
