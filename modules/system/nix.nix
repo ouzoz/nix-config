@@ -21,7 +21,7 @@
     ozc-gc = "sudo nix-collect-garbage -d";
     ozc-search = "nix search nixpkgs";
     ozc-update = "nix flake update";
-    ozc-flake = "nix develop";
+    ozc-shell = "nix-shell";
 
     # dev shell templates
     ozc-tem = "nix flake init -t git+ssh://git@github.com/oguzhanozkaya/nix-config#empty";

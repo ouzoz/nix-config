@@ -135,7 +135,6 @@ key('n', '<Esc>', '<cmd>nohlsearch<CR>', { nowait = true })
 
 -- lsp
 v.lsp.enable {
-  'basedpyright',
   'bashls',
   'clangd',
   'cmake',
@@ -154,6 +153,7 @@ v.lsp.enable {
   'sqls',
   'texlab',
   'tsls',
+  'ty',
   'yamlls',
 }
 
