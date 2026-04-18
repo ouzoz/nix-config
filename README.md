@@ -1,8 +1,11 @@
-# Nix Configuration
+# System Configuration
 
 ## Commands
 
-### Templates
+### Nix
+
+#### Templates
+
 ```bash
 # enable dev shell
 nix-shell
