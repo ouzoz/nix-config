@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 
 {
   nix = {
@@ -15,4 +15,7 @@
   programs.nix-ld.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+
+  nix.registry.nixpkgs.flake = inputs.nixpkgs;
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 }
