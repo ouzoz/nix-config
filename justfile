@@ -1,13 +1,17 @@
-default: build
+default: commit build
 
 search:
   nix search nixpkgs
 
+commit:
+  git add -A
+  git commit -m "$(date)"
+
 build:
-  nixos-rebuild switch --flake /etc/nixos#
+  sudo nixos-rebuild switch --flake /etc/nixos#
 
 update:
   nix flake update
 
 gc:
-  nix-collect-garbage -d
+  sudo nix-collect-garbage -d
