@@ -19,7 +19,7 @@
     oz-ram = "top -b -o +RES -n 1 -Em -em | head -n 60";
   };
 
-  environment.sessionVariables = {
+  environment.variables = {
     HISTSIZE = 6000;
     HISTFILESIZE = 6000;
     HISTIGNORE = "l:exit:clear:history";

@@ -1,8 +1,9 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   time.timeZone = "Europe/Istanbul";
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocales = [ "tr_TR.UTF-8/UTF-8" ];
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "tr_TR.UTF-8";
     LC_IDENTIFICATION = "tr_TR.UTF-8";
@@ -20,4 +21,8 @@
     layout = "tr";
     variant = "";
   };
+
+  # environment.variables = {
+  #   LC_ = "en_US.UTF-8";
+  # };
 }
