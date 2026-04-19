@@ -15,3 +15,9 @@ update:
 
 gc:
   sudo nix-collect-garbage -d
+
+gc-images:
+  nix-collect-garbage -d --delete-older-than 2d
+
+optimise:
+  nix-store --optimise -v

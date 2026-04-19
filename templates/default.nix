@@ -1,3 +1,5 @@
+{ self, ... }:
+
 {
   empty.path = ./empty;
   tex.path = ./tex;
@@ -5,4 +7,6 @@
   typescript.path = ./typescript;
   go.path = ./go;
   rust.path = ./rust;
+
+  defaultTemplate = self.empty;
 }

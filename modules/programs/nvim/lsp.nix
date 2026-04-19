@@ -14,7 +14,6 @@
     yaml-language-server
 
     typescript-language-server
-    java-language-server
     ty
   ];
 }

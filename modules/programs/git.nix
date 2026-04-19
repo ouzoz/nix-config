@@ -7,7 +7,7 @@
     gpu = "git pull";
     gd = "git diff";
     gl = "git log --oneline -12";
-    gi = "gd --stat";
+    gi = "git diff --stat";
     grm = "git rm --cached";
     # alias gr = "git reset HEAD"
     # alias m = "git checkout master"

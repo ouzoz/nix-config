@@ -143,7 +143,6 @@ v.lsp.enable {
   'eslint',
   'gopls',
   'html',
-  'javals',
   'jsonls',
   'just',
   'luals',
