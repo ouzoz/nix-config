@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   services.displayManager.cosmic-greeter.enable = true;
   services.desktopManager.cosmic.enable = true;
@@ -14,5 +14,6 @@
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
     MOZ_ENABLE_WAYLAND = "1";
+    COSMIC_DATA_CONTROL_ENABLED = "1";
   };
 }
