@@ -26,11 +26,6 @@ local function count_char(text, char)
   return num
 end
 
-local function get_current_line(bufnr)
-  local row = unpack(api.nvim_win_get_cursor(0)) or 1
-  return api.nvim_buf_get_lines(bufnr, row - 1, row, false)[1] or ''
-end
-
 local Rule = setmetatable({}, { __call = function(self, headp, tailp, ft, not_ft)
   return setmetatable({
     pats = {},
@@ -57,7 +52,7 @@ function Rule:exec(meta)
   meta.prevc = meta.line:sub(meta.col - meta.pat.headp_len + 1, meta.col)
   meta.nextc = meta.line:sub(meta.col + 1, meta.col + meta.pat.tailp_len)
 
-  return (can_do(self.conds, meta) and self.callback(meta)) or nil
+  return can_do(self.conds, meta) and self.callback(meta) or nil
 end
 
 local function Pair(...)
@@ -184,29 +179,16 @@ function Buf:add_map(pat)
 end
 
 function Buf:map_exec(key)
-  if self:is_map_ignore() then return end
+  if fn.reg_recording() ~= ''
+    or fn.reg_executing() ~= ''
+    or fn.visualmode() == '^V'
+    or vim.v.count > 0
+  then return end
 
-  local meta = self:get_meta(key)
-  for _, pat in pairs(self.pats[key]) do
-    meta.pat = pat
-    local res = pat:exec(meta)
-    if res then return res end
-  end
-end
-
-function Buf:is_map_ignore()
-  return fn.reg_recording() ~= ''
-  or fn.reg_executing() ~= ''
-  or fn.visualmode() == '^V'
-  or vim.v.count > 0
-end
-
-function Buf:get_meta(key)
   local col = api.nvim_win_get_cursor(0)[2]
   local row = api.nvim_win_get_cursor(0)[1] - 1
-  local line = get_current_line(self.nr)
-
-  return {
+  local line = api.nvim_buf_get_lines(self.nr, row - 1, row, false)[1] or ''
+  local meta = {
     key = key,
     buf = self,
     col = col,
@@ -217,6 +199,12 @@ function Buf:get_meta(key)
     char_prev = line:sub(col, col),
     char_next = line:sub(col + 1, col + 1),
   }
+
+  for _, pat in pairs(self.pats[key]) do
+    meta.pat = pat
+    local res = pat:exec(meta)
+    if res then return res end
+  end
 end
 
 local rules = {
