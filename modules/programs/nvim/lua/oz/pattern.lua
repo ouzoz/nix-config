@@ -59,11 +59,11 @@ local function Pair(...)
   local rule = Rule(...)
   return rule
   :Pat('move', rule.tailp:match('[%z\1-\127\194-\244][\128-\191]*'), { function (meta)
-    if not (meta.key == meta.nextc and meta.key == meta.pat.tailp) then return false end
+    return meta.key == meta.nextc and meta.key == meta.pat.tailp
   end},
   function(meta) return keys.jr:rep(meta.pat.tailp_len) end)
   :Pat('del', keys.bs, {function (meta)
-    if not (meta.pat.headp == meta.prevc and meta.pat.tailp == meta.nextc) then return false end
+    return meta.pat.headp == meta.prevc and meta.pat.tailp == meta.nextc
   end},
   function(meta) return keys.bs:rep(meta.pat.headp_len) .. keys.del:rep(meta.pat.tailp_len) end)
   :Pat('pair', rule.headp:match('[^\128-\191][\128-\191]*$'), {},
