@@ -187,7 +187,7 @@ function Buf:map_exec(key)
 
   local col = api.nvim_win_get_cursor(0)[2]
   local row = api.nvim_win_get_cursor(0)[1] - 1
-  local line = api.nvim_buf_get_lines(self.nr, row - 1, row, false)[1] or ''
+  local line = api.nvim_buf_get_lines(self.nr, row, row + 1, false)[1] or ''
   local meta = {
     key = key,
     buf = self,
