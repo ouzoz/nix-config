@@ -68,25 +68,6 @@ local function Pair(...)
   function(meta) return keys.bs:rep(meta.pat.headp_len) .. keys.del:rep(meta.pat.tailp_len) end)
   :Pat('pair', rule.headp:match('[^\128-\191][\128-\191]*$'), {},
   function(meta)
-    -- local is_next_quote = is_quote(meta.next_char)
-    -- if is_bracket(meta.key) and (is_next_quote or is_bracket(meta.next_char)) then
-    --     local count, is_prev_slash = 0, false
-    --     for i = meta.col, #meta.line, 1 do
-    --         local char = meta.line:sub(i, i + #meta.pat.end_pair - 1)
-    --         if (is_next_quote and not is_prev_slash and char == meta.next_char)
-    --             or (not is_next_quote and char == meta.pat.end_pair)
-    --         then
-    --             if not is_next_quote or not is_prev_slash then
-    --                 count = count + 1
-    --                 if not is_next_quote or count == 2 then
-    --                     return meta.key .. u.keys.jr:rep(i - meta.col) .. meta.pat.end_pair
-    --                 end
-    --             end
-    --         end
-    --         is_prev_slash = not is_prev_slash and char == '\\'
-    --     end
-    -- end
-
     return meta.key .. meta.pat.tailp .. keys.jl:rep(meta.pat.tailp_len)
   end)
 end
