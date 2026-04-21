@@ -1,3 +1,3 @@
 # Standarts
 
-> Required conventions and policies.
+> Conventions, rules and policies.

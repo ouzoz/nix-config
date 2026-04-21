@@ -1,6 +1,6 @@
 # Plan
 
-> The active tasks, priorities, known bugs, and the long-term project roadmap.
+> Tasks, priorities, known bugs, and the long-term project roadmap.
 
 ## Tasks
 
