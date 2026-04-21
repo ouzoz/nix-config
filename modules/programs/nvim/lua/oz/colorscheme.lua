@@ -9,8 +9,8 @@ vim.opt.termguicolors = false
 
 local c = {
   t  = 'NONE',
-  b1 = 233,
-  b2 = 0,
+  b1 = 0,
+  b2 = 233,
   b3 = 235,
   f3 = 239,
   f2 = 246,
