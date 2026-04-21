@@ -1,3 +1,3 @@
 # Structure
 
-> Project structure, file organization, and tooling reference.*
+> Project structure, file organization, and tooling reference.
