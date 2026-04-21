@@ -34,7 +34,7 @@ local strikethrough = { strikethrough = true }
 local underline_italic = { underline = true, italic = true }
 
 
-local is_transparent = true
+local is_transparent = false
 local function toggle_background()
   h('Normal', (is_transparent and c.t) or c.b1, c.f1)
   is_transparent = not is_transparent
