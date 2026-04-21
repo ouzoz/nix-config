@@ -1,7 +1,7 @@
 {
   description = "Project nix flake";
   inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; };
-  outputs = { self, nixpkgs }:
+  outputs = { nixpkgs }:
   let
     supportedSystems = [
       "x86_64-linux"
@@ -18,9 +18,8 @@
       {
         default = pkgs.mkShell {
           packages = with pkgs; [
-              texliveFull
-              graphviz
-              plantuml
+            texliveFull
+            mermaid-cli
           ];
 
           shellHook = ''
