@@ -142,7 +142,7 @@ hl('WarningMsg', 'Warning')
 
 hl('@error', 'Error')
 
-ht('Comment', c.t, c.f2, italic)
+ht('Comment', c.t, c.f3, italic)
 hl('@comment', 'Comment')
 hl('@comment.documentation', '@comment')
 ht('@comment.error', c.t, c.p1, bold)
