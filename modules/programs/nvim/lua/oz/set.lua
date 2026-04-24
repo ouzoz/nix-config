@@ -137,7 +137,6 @@ key('n', '<Esc>', '<cmd>nohlsearch<CR>', { nowait = true })
 v.lsp.enable {
   'bashls',
   'clangd',
-  'cmake',
   'cssls',
   'dockerls',
   'eslint',

@@ -15,5 +15,7 @@
 
     typescript-language-server
     ty
+    rust-analyzer
+    gopls
   ];
 }
