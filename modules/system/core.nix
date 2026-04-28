@@ -22,6 +22,7 @@
     zip
     unzip
     unrar
+    p7zip
     smartmontools
     openconnect
   ];
