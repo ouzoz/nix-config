@@ -21,6 +21,7 @@
     wget
     zip
     unzip
+    unrar
     smartmontools
     openconnect
   ];
