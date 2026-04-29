@@ -21,3 +21,7 @@ gc-images:
 
 optimise:
   nix-store --optimise -v
+
+update-rust:
+  rm -rf ~/.rustup/toolchains/*
+  rustup default stable
