@@ -20,6 +20,8 @@
   services.xserver.xkb = {
     layout = "tr";
     variant = "";
+
+    options = "caps:swapescape";
   };
 
   # environment.variables = {
