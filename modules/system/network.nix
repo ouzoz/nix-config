@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   networking.networkmanager.enable = true;
@@ -12,6 +12,8 @@
   # networking.firewall.enable = false;
 
   services.openssh.enable = true;
+
+  hardware.bluetooth.enable = true;
 
   users.users.ouz.extraGroups = [ "networkmanager" ];
 }
