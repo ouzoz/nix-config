@@ -20,11 +20,7 @@
   services.xserver.xkb = {
     layout = "tr";
     variant = "";
-
-    options = "caps:swapescape";
   };
-
-  i18n.console.useXkbConfig = true;
 
   # environment.variables = {
   #   LC_ = "en_US.UTF-8";
