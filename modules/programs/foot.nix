@@ -21,7 +21,7 @@
       };
       colors-dark = {
         # alpha = ;
-        cursor = "000000 ffffff";
+        cursor = "ffffff 000000";
         selection-foreground = "ffffff";
         selection-background = "232027";
         foreground = "000000";
