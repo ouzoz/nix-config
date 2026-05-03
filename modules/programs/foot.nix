@@ -20,12 +20,12 @@
         hide-when-typing = "yes";
       };
       colors-dark = {
-        alpha = 0.92;
+        # alpha = ;
         cursor = "000000 ffffff";
         selection-foreground = "ffffff";
         selection-background = "232027";
-        foreground = "ffffff";
-        background = "000000";
+        foreground = "000000";
+        background = "ffffff";
 
         regular0 = "000000";
         regular1 = "ff3a4c";
