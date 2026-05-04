@@ -13,7 +13,6 @@
   };
   environment.systemPackages = with pkgs; [
     opencode
-    fastfetch
     tokei
     github-linguist
   ];
