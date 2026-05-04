@@ -1,13 +1,17 @@
 { pkgs, ... }:
 
 {
-  # programs.wireshark = {
-  #   enable = true;
-  #   package = pkgs.wireshark;
-  #   dumpcap.enable = true;
-  # };
-  #
-  # users.users.ouz.extraGroups = [
-  #   "wireshark"
-  # ];
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc.lib
+    zlib
+    openssl
+    glib
+  ];
+
+  environment.systemPackages = with pkgs; [
+    just
+    uv
+    rustup
+    bun
+  ];
 }
