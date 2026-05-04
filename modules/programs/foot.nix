@@ -29,20 +29,20 @@
 
         regular0 = "ffffff";
         regular1 = "ff3a4c";
-        regular2 = "00ea45";
+        regular2 = "00b708";
         regular3 = "cccb00";
         regular4 = "6687ff";
         regular5 = "bd56ff";
-        regular6 = "40e0d0";
+        regular6 = "00ad9f";
         regular7 = "cbc6d0";
 
         bright0 = "65616a";
         bright1 = "ff3a4c";
-        bright2 = "00ea45";
+        bright2 = "00b708";
         bright3 = "cccb00";
         bright4 = "6687ff";
         bright5 = "bd56ff";
-        bright6 = "40e0d0";
+        bright6 = "00ad9f";
         bright7 = "000000";
 
         "233" = "100d14";
