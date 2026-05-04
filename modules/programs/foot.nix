@@ -24,10 +24,10 @@
         cursor = "ffffff 000000";
         selection-foreground = "ffffff";
         selection-background = "232027";
-        foreground = "000000";
-        background = "ffffff";
+        foreground = "ffffff";
+        background = "000000";
 
-        regular0 = "000000";
+        regular0 = "ffffff";
         regular1 = "ff3a4c";
         regular2 = "00ea45";
         regular3 = "cccb00";
@@ -43,7 +43,7 @@
         bright4 = "6687ff";
         bright5 = "bd56ff";
         bright6 = "40e0d0";
-        bright7 = "ffffff";
+        bright7 = "000000";
 
         "233" = "100d14";
         "235" = "232027";
