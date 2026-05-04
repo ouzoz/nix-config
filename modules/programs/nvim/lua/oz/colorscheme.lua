@@ -4,17 +4,17 @@ vim.cmd 'syntax clear'
 vim.cmd 'syntax on'
 
 vim.g.colors_name = 'poz'
-vim.opt.background = 'dark'
+vim.opt.background = 'light'
 vim.opt.termguicolors = false
 
 local c = {
   t  = 'NONE',
-  b1 = 0,
+  b1 = 15,
   b2 = 233,
   b3 = 235,
   f3 = 239,
   f2 = 246,
-  f1 = 15,
+  f1 = 0,
   p1 = 9,
   p3 = 10,
   p2 = 11,
