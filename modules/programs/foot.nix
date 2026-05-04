@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       main = {
-        font = "Oziosevka:size=14.4";
+        font = "Oziosevka:size=12";
         # line-height = 18;
         resize-delay-ms = 0;
         resize-keep-grid = "no";
@@ -22,12 +22,12 @@
       colors-dark = {
         # alpha = ;
         cursor = "ffffff 000000";
-        selection-foreground = "ffffff";
+        selection-foreground = "000000";
         selection-background = "232027";
         foreground = "ffffff";
         background = "000000";
 
-        regular0 = "ffffff";
+        regular0 = "000000";
         regular1 = "ff3a4c";
         regular2 = "00b708";
         regular3 = "cccb00";
@@ -43,7 +43,7 @@
         bright4 = "6687ff";
         bright5 = "bd56ff";
         bright6 = "00ad9f";
-        bright7 = "000000";
+        bright7 = "ffffff";
 
         "233" = "100d14";
         "235" = "232027";
