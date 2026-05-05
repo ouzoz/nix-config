@@ -29,7 +29,7 @@
     "backgroundElement": { "dark": "oz2", "light": "oz2" },
     "border": { "dark": "oz2", "light": "oz2" },
     "borderActive": { "dark": "oz3", "light": "oz3" },
-    "borderSubtle": { "dark": "oz2", "light": "oz2" },
+    "borderSubtle": { "dark": "oz1", "light": "oz1" },
 
     "diffAdded": { "dark": "oz7", "light": "oz7" },
     "diffRemoved": { "dark": "oz6", "light": "oz6" },
