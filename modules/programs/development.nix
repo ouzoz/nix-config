@@ -4,6 +4,8 @@
   environment.systemPackages = with pkgs; [
     just
 
+    prettier
+
     bun
     uv
     rustup
