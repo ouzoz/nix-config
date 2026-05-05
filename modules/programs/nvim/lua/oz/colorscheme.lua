@@ -10,10 +10,10 @@ vim.opt.termguicolors = false
 local c = {
   t  = 'NONE',
   b1 = 15,
-  b2 = 246,
-  b3 = 239,
-  f3 = 235,
-  f2 = 233,
+  b2 = 254,
+  b3 = 251,
+  f3 = 246,
+  f2 = 241,
   f1 = 0,
   p1 = 9,
   p3 = 10,
@@ -170,7 +170,7 @@ ht('@string.special.url', c.t, c.t, underline)
 hl('@label', 'Special')
 hl('@constructor', 'Special')
 
-h('Macro', c.t, c.p4)
+h('Macro', c.t, c.p3)
 hl('PreProc', 'Macro')
 hl('PreCondit', 'Macro')
 hl('@attribute', 'Macro')
@@ -230,7 +230,7 @@ hl('@property', '@variable')
 hl('@lsp.type.selfKeyword', 'Identifier')
 hl('@lsp.type.static', 'Identifier')
 
-h('Constant', c.t, c.p3)
+h('Constant', c.t, c.p4)
 hl('@constant', 'Constant')
 hl('@constant.builtin', '@constant')
 hl('@constant.builtin.macro', '@constant')
@@ -303,8 +303,8 @@ hl('@markup.heading.4.markdown', '@markup.heading.markdown')
 hl('@markup.heading.5.markdown', '@markup.heading.markdown')
 hl('@markup.heading.6.markdown', '@markup.heading.markdown')
 ht('@markup.list.markdown', c.t, c.p6, bold)
-h('@markup.raw.markdown_inline', c.t, c.p3)
-ht('@markup.strong.markdown_inline', c.t, c.p4, bold)
+h('@markup.raw.markdown_inline', c.t, c.p4)
+ht('@markup.strong.markdown_inline', c.t, c.p3, bold)
 ht('@markup.italic.markdown_inline', c.t, c.p5, italic)
 
 
