@@ -78,7 +78,7 @@ h('Extra', c.t, c.p6)
 h('Secondary', c.t, c.f2)
 h('Disabled', c.t, c.f3)
 
-ht('Title', c.t, c.p1, bold)
+ht('Title', c.t, c.t, bold)
 h('MoreMsg', c.t, c.p4)
 h('Question', c.t, c.p4)
 h('Directory', c.t, c.p4)
