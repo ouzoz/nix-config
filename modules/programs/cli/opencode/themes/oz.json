@@ -19,7 +19,7 @@
     "secondary": { "dark": "oz6", "light": "oz6" },
     "accent": { "dark": "oz10", "light": "oz10" },
     "error": { "dark": "oz6", "light": "oz6" },
-    "warning": { "dark": "oz8", "light": "oz8" },
+    "warning": { "dark": "oz10", "light": "oz10" },
     "success": { "dark": "oz7", "light": "oz7" },
     "info": { "dark": "oz9", "light": "oz9" },
     "text": { "dark": "oz5", "light": "oz5" },
@@ -46,7 +46,7 @@
 
     "markdownText": { "dark": "oz5", "light": "oz5" },
     "markdownHeading": { "dark": "oz5", "light": "oz5" },
-    "markdownLink": { "dark": "oz8", "light": "oz8" },
+    "markdownLink": { "dark": "oz9", "light": "oz9" },
     "markdownLinkText": { "dark": "oz6", "light": "oz6" },
     "markdownCode": { "dark": "oz7", "light": "oz7" },
     "markdownBlockQuote": { "dark": "oz3", "light": "oz3" },
