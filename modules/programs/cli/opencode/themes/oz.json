@@ -1,12 +1,12 @@
 {
   "$schema": "https://opencode.ai/theme.json",
   "defs": {
-    "oz0": 15,
-    "oz1": 254,
-    "oz2": 251,
-    "oz3": 246,
-    "oz4": 241,
-    "oz5": 0,
+    "oz0": "#ffffff",
+    "oz1": "#ece7f1",
+    "oz2": "#cbc6d0",
+    "oz3": "#96929b",
+    "oz4": "#65616a",
+    "oz5": "#000000",
     "oz6": 1,
     "oz7": 2,
     "oz8": 3,
