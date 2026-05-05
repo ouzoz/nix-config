@@ -304,7 +304,7 @@ hl('@markup.heading.5.markdown', '@markup.heading.markdown')
 hl('@markup.heading.6.markdown', '@markup.heading.markdown')
 ht('@markup.list.markdown', c.t, c.p1, bold)
 h('@markup.raw.markdown_inline', c.t, c.p4)
-ht('@markup.strong.markdown_inline', c.t, c.p3, bold)
+ht('@markup.strong.markdown_inline', c.t, c.t, bold)
 ht('@markup.italic.markdown_inline', c.t, c.p5, italic)
 
 

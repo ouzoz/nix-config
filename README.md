@@ -1,8 +1,8 @@
 # System Configuration
 
 - asd
-    1. asd
-    2. dsa
+  1. asd
+  2. dsa
 
 ## Commands
 
