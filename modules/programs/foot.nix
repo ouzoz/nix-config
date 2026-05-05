@@ -23,7 +23,7 @@
         # alpha = ;
         cursor = "ffffff 000000";
         selection-foreground = "000000";
-        selection-background = "232027";
+        selection-background = "ece6f1";
         foreground = "000000";
         background = "ffffff";
 

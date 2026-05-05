@@ -48,7 +48,7 @@
     "markdownHeading": { "dark": "oz5", "light": "oz5" },
     "markdownLink": { "dark": "oz9", "light": "oz9" },
     "markdownLinkText": { "dark": "oz6", "light": "oz6" },
-    "markdownCode": { "dark": "oz7", "light": "oz7" },
+    "markdownCode": { "dark": "oz11", "light": "oz11" },
     "markdownBlockQuote": { "dark": "oz3", "light": "oz3" },
     "markdownEmph": { "dark": "oz11", "light": "oz11" },
     "markdownStrong": { "dark": "oz5", "light": "oz5" },
