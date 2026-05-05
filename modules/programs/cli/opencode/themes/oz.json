@@ -7,12 +7,12 @@
     "oz3": "#96929b",
     "oz4": "#65616a",
     "oz5": "#000000",
-    "oz6": 1,
-    "oz7": 2,
-    "oz8": 3,
-    "oz9": 4,
-    "oz10": 5,
-    "oz11": 6
+    "oz6": "#ff3a4c",
+    "oz7": "#00b708",
+    "oz8": "#9c9b00",
+    "oz9": "#6687ff",
+    "oz10": "#bd56ff",
+    "oz11": "#00ad9f"
   },
   "theme": {
     "primary": { "dark": "oz11", "light": "oz11" },
@@ -51,7 +51,7 @@
     "markdownCode": { "dark": "oz7", "light": "oz7" },
     "markdownBlockQuote": { "dark": "oz3", "light": "oz3" },
     "markdownEmph": { "dark": "oz11", "light": "oz11" },
-    "markdownStrong": { "dark": "oz11", "light": "oz11" },
+    "markdownStrong": { "dark": "oz5", "light": "oz5" },
     "markdownHorizontalRule": { "dark": "oz3", "light": "oz3" },
     "markdownListItem": { "dark": "oz10", "light": "oz10" },
     "markdownListEnumeration": { "dark": "oz10", "light": "oz10" },
