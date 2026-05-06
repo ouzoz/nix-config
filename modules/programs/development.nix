@@ -22,6 +22,26 @@
 
     # pkg-config
   ];
+  programs.nix-ld.libraries = with pkgs; [
+    # cudaPackages.cuda_cudart
+    # cudaPackages.cuda_nvcc
+    # linuxPackages.nvidia_x11
+
+    # cudaPackages.libcublas
+    # cudaPackages.libcufft
+    # cudaPackages.libcurand
+    # cudaPackages.libcusolver
+    # cudaPackages.libcusparse
+    # cudaPackages.cudnn
+
+    zlib
+    glib
+    glibc
+    openssl
+    # xorg.libX11
+    stdenv.cc.cc
+    stdenv.cc.cc.lib
+  ];
 
   environment.variables = {
     VCPKG_ROOT = "${pkgs.vcpkg}/share/vcpkg";
