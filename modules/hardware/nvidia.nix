@@ -1,16 +1,12 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
+  hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
-  boot.kernelModules = [ "nvidia_uvm" ];
-
+  # boot.kernelModules = [ "nvidia_uvm" ];
+  # hardware.nvidia.forceFullCompositionPipeline = true;
   hardware.nvidia = {
-    nvidiaPersistenced = true;
+    # nvidiaPersistenced = true;
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
@@ -25,11 +21,10 @@
   };
 
   environment.sessionVariables = {
-    GBM_BACKEND = "nvidia-drm";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    LIBVA_DRIVER_NAME = "nvidia";
-    NVIDIA_WAYLAND_DXGI = "1";
-    NVDISKPT = "1";
+    # GBM_BACKEND = "nvidia-drm";
+    # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    # LIBVA_DRIVER_NAME = "nvidia";
+    # NVIDIA_WAYLAND_DXGI = "1";
   };
 
   nix.settings = {

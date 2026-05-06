@@ -2,15 +2,17 @@
 
 {
   environment.systemPackages = with pkgs; [
-    just
+    clang-tools
 
     prettier
+
+    texliveFull
+    mermaid-cli
 
     bun
     uv
     rustup
 
-    texliveFull
-    mermaid-cli
+    just
   ];
 }

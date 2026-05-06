@@ -9,7 +9,7 @@
 \addto\captionsenglish{\renewcommand{\contentsname}{Table of Contents}}
 
 % ── Page layout ─────────────────────────────────────────────────────────────
-\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=3cm]{geometry}
 \usepackage{parskip}
 
 % ── Graphics & color ────────────────────────────────────────────────────────
@@ -58,6 +58,7 @@
 
 % ── Section formatting ───────────────────────────────────────────────────────
 \usepackage{titlesec}
+\setcounter{tocdepth}{2}
 \titleformat{\section}{\large\bfseries}{\thesection}{0em}{\quad}
 \titleformat*{\section}{\large\bfseries}
 \titleformat{\subsection}{\normalsize\bfseries}{}{0em}{\thesubsection\quad}
@@ -83,7 +84,7 @@
 \setlength{\headheight}{14pt}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\small MoonAI -- Test Plan Report}
+\lhead{\small MoonAI — Low-Level Design Report}
 \rhead{\small CMPE 492 — TED University, 2026}
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -130,7 +131,7 @@
 		\vspace{2.0cm}
 		{\Huge\bfseries MoonAI\par}
 		\vspace{0.5cm}
-		{\LARGE Test Plan Report\par}
+		{\LARGE Low-Level Design Report\par}
 		\vspace{1.5cm}
 		{\large\bfseries Team:\par}
 		\vspace{0.3cm}
