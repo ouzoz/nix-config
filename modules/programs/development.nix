@@ -10,6 +10,7 @@
     ninja
     vcpkg
     gcc
+    stdenv.cc
 
     mermaid-cli
     texliveFull
