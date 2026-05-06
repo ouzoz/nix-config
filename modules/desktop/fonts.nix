@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 let
   oziosevka = pkgs.callPackage ../../pkgs/oziosevka {};
 in
