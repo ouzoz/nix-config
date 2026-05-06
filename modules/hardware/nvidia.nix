@@ -20,12 +20,12 @@
     };
   };
 
-  environment.sessionVariables = {
+  # environment.sessionVariables = {
     # GBM_BACKEND = "nvidia-drm";
     # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     # LIBVA_DRIVER_NAME = "nvidia";
     # NVIDIA_WAYLAND_DXGI = "1";
-  };
+  # };
 
   nix.settings = {
     substituters = [ "https://cache.nixos-cuda.org" ];
