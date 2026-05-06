@@ -20,7 +20,7 @@
 
     just
 
-    # pkg-config
+    pkg-config
   ];
 
   environment.sessionVariables = {
