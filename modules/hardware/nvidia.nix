@@ -23,14 +23,14 @@
     };
   };
 
-  # environment.sessionVariables = {
-  #   KWIN_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
-  #   # GBM_BACKEND = "nvidia-drm";
-  #   # LIBVA_DRIVER_NAME = "nvidia";
-  # };
   environment.sessionVariables = {
-    KWIN_DRM_DEVICES = "/dev/dri/by-path/pci-0000:01:00.0-card:/dev/dri/by-path/pci-0000:00:02.0-card";
+    KWIN_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
+    # GBM_BACKEND = "nvidia-drm";
+    # LIBVA_DRIVER_NAME = "nvidia";
   };
+  # environment.sessionVariables = {
+  #   KWIN_DRM_DEVICES = "/dev/dri/by-path/pci-0000:01:00.0-card:/dev/dri/by-path/pci-0000:00:02.0-card";
+  # };
 
   nix.settings = {
     substituters = [ "https://cache.nixos-cuda.org" ];
