@@ -3,12 +3,12 @@
 {
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
-  boot.kernelModules = [
-    "nvidia"
-    "nvidia_modeset"
-    "nvidia_drm"
-    "nvidia_uvm"
-  ];
+  # boot.kernelModules = [
+  #   "nvidia"
+  #   "nvidia_modeset"
+  #   "nvidia_drm"
+  #   "nvidia_uvm"
+  # ];
   # hardware.nvidia.forceFullCompositionPipeline = true;
   hardware.nvidia = {
     nvidiaPersistenced = true;
@@ -41,4 +41,14 @@
     substituters = [ "https://cache.nixos-cuda.org" ];
     trusted-public-keys = [ "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M=" ];
   };
+systemd.services.nvidia-uvm = {
+  description = "Load NVIDIA UVM module for CUDA";
+  wantedBy = [ "multi-user.target" ];
+  after = [ "systemd-modules-load.service" ];
+  serviceConfig = {
+    Type = "oneshot";
+    ExecStart = "/run/current-system/sw/bin/modprobe nvidia_uvm";
+    RemainAfterExit = true;
+  };
+};
 }
