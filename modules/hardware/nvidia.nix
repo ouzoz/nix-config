@@ -3,10 +3,10 @@
 {
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
-  # boot.kernelModules = [ "nvidia_uvm" ];
+  boot.kernelModules = [ "nvidia_uvm" ];
   # hardware.nvidia.forceFullCompositionPipeline = true;
   hardware.nvidia = {
-    # nvidiaPersistenced = true;
+    nvidiaPersistenced = true;
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
@@ -14,16 +14,20 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.latest;
     prime = {
-      sync.enable = true;
       intelBusId = "PCI:0:2:0"; 
       nvidiaBusId = "PCI:1:0:0";
+
+      # offload.enable = false;
+      # sync.enable = false;
+      # reverseSync.enable = false;
     };
   };
 
-  # environment.sessionVariables = {
+  environment.sessionVariables = {
+    KWIN_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
     # GBM_BACKEND = "nvidia-drm";
     # LIBVA_DRIVER_NAME = "nvidia";
-  # };
+  };
 
   nix.settings = {
     substituters = [ "https://cache.nixos-cuda.org" ];
