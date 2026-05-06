@@ -10,7 +10,6 @@
     texliveFull
     mermaid-cli
 
-    gcc
     bun
     uv
     rustup
