@@ -11,6 +11,7 @@
     vcpkg
     gcc
     stdenv.cc
+    stdenv.cc.cc
 
     mermaid-cli
     texliveFull
