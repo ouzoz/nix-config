@@ -9,6 +9,7 @@
     cmake
     ninja
     vcpkg
+    gcc
 
     mermaid-cli
     texliveFull
