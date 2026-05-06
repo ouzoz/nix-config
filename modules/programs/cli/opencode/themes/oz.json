@@ -33,8 +33,8 @@
 
     "diffAdded": { "dark": "oz7", "light": "oz7" },
     "diffRemoved": { "dark": "oz6", "light": "oz6" },
-    "diffContext": { "dark": "oz2", "light": "oz2" },
-    "diffHunkHeader": { "dark": "oz2", "light": "oz2" },
+    "diffContext": { "dark": "oz4", "light": "oz4" },
+    "diffHunkHeader": { "dark": "oz4", "light": "oz4" },
     "diffHighlightAdded": { "dark": "oz7", "light": "oz7" },
     "diffHighlightRemoved": { "dark": "oz6", "light": "oz6" },
     "diffAddedBg": { "dark": "oz2", "light": "oz2" },
