@@ -30,8 +30,6 @@
     LIBVA_DRIVER_NAME = "nvidia";
     NVIDIA_WAYLAND_DXGI = "1";
     NVDISKPT = "1";
-    # WLR_NO_HARDWARE_CURSORS = "1";
-    # __GL_MaxFramesAllowed = "1";
   };
 
   nix.settings = {
