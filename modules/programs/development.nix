@@ -20,10 +20,10 @@
 
     just
 
-    pkg-config
+    # pkg-config
   ];
 
-  environment.sessionVariables = {
+  environment.variables = {
     VCPKG_ROOT = "${pkgs.vcpkg}/share/vcpkg";
     # CMAKE_TOOLCHAIN_FILE = "${pkgs.vcpkg}/share/vcpkg/scripts/buildsystems/vcpkg.cmake";
     #
