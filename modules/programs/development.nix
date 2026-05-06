@@ -6,6 +6,7 @@
 
     prettier
 
+    expat
     texliveFull
     mermaid-cli
 

@@ -21,14 +21,6 @@
     };
   };
 
-  # environment.sessionVariables = {
-  #   KWIN_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
-  # };
-
-  # environment.sessionVariables = {
-  #   KWIN_DRM_DEVICES = "/dev/dri/by-path/pci-0000:01:00.0-card:/dev/dri/by-path/pci-0000:00:02.0-card";
-  # };
-
   services.udev.extraRules = ''
     SUBSYSTEM=="drm", KERNEL=="card*", DRIVERS=="nvidia", SYMLINK+="dri/by-driver/nvidia-card"
     SUBSYSTEM=="drm", KERNEL=="card*", DRIVERS=="i915", SYMLINK+="dri/by-driver/intel-card"
