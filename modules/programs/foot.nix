@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       main = {
-        font = "Oziosevka:size=12:style:medium";
+        font = "Oziosevka:size=12";
         # line-height = 18.6;
         resize-delay-ms = 0;
         resize-keep-grid = "no";
