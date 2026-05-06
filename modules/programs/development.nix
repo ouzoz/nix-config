@@ -1,7 +1,14 @@
 { pkgs, ... }:
 
 {
+  pkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
+    clang-tools
+    cmake
+    ninja
+    vcpkg
+
     mermaid-cli
     texliveFull
 
@@ -11,5 +18,22 @@
     rustup
 
     just
+
+    # pkg-config
   ];
+
+  environment.sessionVariables = {
+    VCPKG_ROOT = "${pkgs.vcpkg}/share/vcpkg";
+    # CMAKE_TOOLCHAIN_FILE = "${pkgs.vcpkg}/share/vcpkg/scripts/buildsystems/vcpkg.cmake";
+    #
+    # CUDA_PATH = "${pkgs.cudatoolkit}";
+    # CUDA_HOME = "${pkgs.cudatoolkit}";
+    # CUDAToolkit_ROOT = "${pkgs.cudatoolkit}";
+    #
+    # FONTCONFIG_FILE = "${pkgs.makeFontsConf {
+    #   fontDirectories = [ pkgs.corefonts ];
+    # }}";
+    #
+    # NIX_LD_LIBRARY_PATH = lib.makeLibraryPath libs;
+  };
 }
