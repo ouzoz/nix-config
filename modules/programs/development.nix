@@ -1,7 +1,8 @@
 { pkgs, ... }:
 
 {
-  pkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.cudaSupport = true;
 
   environment.systemPackages = with pkgs; [
     clang-tools
