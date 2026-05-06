@@ -24,9 +24,9 @@
       };
       core = {
         excludesfile = "${pkgs.writeText "gitignore-global" ''
-          shell.nix
-          .envrc
-          .direnv/
+          # shell.nix
+          # .envrc
+          # .direnv/
 
           .agents/
         '' }";
