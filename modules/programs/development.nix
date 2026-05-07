@@ -32,9 +32,9 @@
     CUDAFLAGS = "-I${pkgs.cudatoolkit}/include";
     NVCC_PREPEND_FLAGS = "-I${pkgs.cudatoolkit}/include";
     CUDACXX = "${pkgs.cudatoolkit}/bin/nvcc";
-    CUDAHOSTCXX = "${pkgs.gcc14}/bin/c++";
+    CUDAHOSTCXX = "${pkgs.gcc14}/bin/g++";
 
-    CC = "${pkgs.gcc14}/bin/cc";
-    CXX = "${pkgs.gcc14}/bin/c++";
+    CC = "${pkgs.gcc14}/bin/gcc";
+    CXX = "${pkgs.gcc14}/bin/g++";
   };
 }
