@@ -1,15 +1,15 @@
 { lib, pkgs, ... }:
 
-let
-  libs = with pkgs; [
-    cudatoolkit
-
-    glib
-    glibc
-    zlib
-    openssl
-  ];
-in
+# let
+  # libs = with pkgs; [
+  #   cudatoolkit
+  #
+  #   glib
+  #   glibc
+  #   zlib
+  #   openssl
+  # ];
+# in
 {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.cudaSupport = true;
@@ -25,11 +25,10 @@ in
     rustup
     just
 
-    pkg-config
+    # pkg-config
   ];
   programs.nix-ld.libraries = with pkgs; [
     cudatoolkit
-
     glib
     glibc
     zlib
@@ -49,7 +48,7 @@ in
     CC = "${pkgs.gcc14}/bin/gcc";
     CXX = "${pkgs.gcc14}/bin/g++";
 
-    LIBRARY_PATH = lib.makeLibraryPath libs;
-    PKG_CONFIG_PATH = lib.makeSearchPathOutput "dev" "lib/pkgconfig" libs;
+    # LIBRARY_PATH = lib.makeLibraryPath libs;
+    # PKG_CONFIG_PATH = lib.makeSearchPathOutput "dev" "lib/pkgconfig" libs;
   };
 }
