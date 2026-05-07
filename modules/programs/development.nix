@@ -44,7 +44,6 @@ in
 
   environment.sessionVariables = {
     VCPKG_ROOT = "${pkgs.vcpkg}/share/vcpkg";
-    # CMAKE_TOOLCHAIN_FILE = "${pkgs.vcpkg}/share/vcpkg/scripts/buildsystems/vcpkg.cmake";
 
     CUDA_PATH = "${pkgs.cudatoolkit}";
     CUDA_HOME = "${pkgs.cudatoolkit}";
