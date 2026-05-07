@@ -15,6 +15,7 @@
     rustup
     just
   ];
+
   programs.nix-ld.libraries = with pkgs; [
     cudatoolkit
     glib
