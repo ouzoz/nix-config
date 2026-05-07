@@ -1,15 +1,5 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
-# let
-  # libs = with pkgs; [
-  #   cudatoolkit
-  #
-  #   glib
-  #   glibc
-  #   zlib
-  #   openssl
-  # ];
-# in
 {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.cudaSupport = true;
@@ -19,13 +9,11 @@
     texliveFull
     prettier
     cudatoolkit
-    gcc14
+    stdenv.cc
     bun
     uv
     rustup
     just
-
-    # pkg-config
   ];
   programs.nix-ld.libraries = with pkgs; [
     cudatoolkit
@@ -43,12 +31,9 @@
     CUDAFLAGS = "-I${pkgs.cudatoolkit}/include";
     NVCC_PREPEND_FLAGS = "-I${pkgs.cudatoolkit}/include";
     CUDACXX = "${pkgs.cudatoolkit}/bin/nvcc";
-    CUDAHOSTCXX = "${pkgs.gcc14}/bin/g++";
+    CUDAHOSTCXX = "${pkgs.stdenv.cc}/bin/c++";
 
-    CC = "${pkgs.gcc14}/bin/gcc";
-    CXX = "${pkgs.gcc14}/bin/g++";
-
-    # LIBRARY_PATH = lib.makeLibraryPath libs;
-    # PKG_CONFIG_PATH = lib.makeSearchPathOutput "dev" "lib/pkgconfig" libs;
+    CC = "${pkgs.stdenv.cc}/bin/cc";
+    CXX = "${pkgs.stdenv.cc}/bin/c++";
   };
 }
