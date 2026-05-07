@@ -59,6 +59,6 @@ in
 
     LIBRARY_PATH = lib.makeLibraryPath globalBuildInputs + ":/run/opengl-driver/lib";
     PKG_CONFIG_PATH = lib.makeSearchPathOutput "dev" "lib/pkgconfig" globalBuildInputs;
-    NIX_LD_LIBRARY_PATH = lib.makeLibraryPath globalBuildInputs;
+    # NIX_LD_LIBRARY_PATH = lib.makeLibraryPath globalBuildInputs;
   };
 }
