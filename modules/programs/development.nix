@@ -3,10 +3,11 @@
 let
   globalBuildInputs = with pkgs; [
     cudatoolkit
+    udev
     libx11 libxi libxrandr libxcursor libGL libGLU
-    glib.dev
-    zlib.dev
-    openssl.dev
+    glib
+    zlib
+    openssl
   ];
 in
 {
@@ -58,5 +59,6 @@ in
 
     LIBRARY_PATH = lib.makeLibraryPath globalBuildInputs + ":/run/opengl-driver/lib";
     PKG_CONFIG_PATH = lib.makeSearchPathOutput "dev" "lib/pkgconfig" globalBuildInputs;
+    NIX_LD_LIBRARY_PATH = lib.makeLibraryPath globalBuildInputs;
   };
 }
