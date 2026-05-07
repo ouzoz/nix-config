@@ -1,5 +1,14 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
+let
+  globalBuildInputs = with pkgs; [
+    cudatoolkit
+    libx11 libxi libxrandr libxcursor libGL libGLU
+    glib.dev
+    zlib.dev
+    openssl.dev
+  ];
+in
 {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.cudaSupport = true;
@@ -23,7 +32,6 @@
     pkg-config
   ];
   programs.nix-ld.libraries = with pkgs; [
-    linuxPackages.nvidia_x11
     cudatoolkit
     libx11 libxi libxrandr libxcursor libGL libGLU
     udev
@@ -44,5 +52,8 @@
 
     CC = "${pkgs.gcc}/bin/gcc";
     CXX = "${pkgs.gcc}/bin/g++";
+
+    LIBRARY_PATH = lib.makeLibraryPath globalBuildInputs + ":/run/opengl-driver/lib";
+    PKG_CONFIG_PATH = lib.makeSearchPathOutput "dev" "lib/pkgconfig" globalBuildInputs;
   };
 }
