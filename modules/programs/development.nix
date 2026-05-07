@@ -63,12 +63,23 @@ in
     CC = "${pkgs.gcc14}/bin/gcc";
     CXX = "${pkgs.gcc14}/bin/g++";
 
+    # CPATH = lib.makeSearchPath "include" libs;
+    # C_INCLUDE_PATH = lib.makeSearchPath "include" libs;
+    # CPLUS_INCLUDE_PATH = lib.makeSearchPath "include" libs;
+    #
+    # LIBRARY_PATH = lib.makeLibraryPath libs + ":/run/opengl-driver/lib";
+    # PKG_CONFIG_PATH = lib.makeSearchPathOutput "dev" "lib/pkgconfig" globalBuildInputs;
+    # PKG_CONFIG_PATH =
+    #   lib.makeSearchPath "lib/pkgconfig" libs
+    #   + ":"
+    #   + lib.makeSearchPath "share/pkgconfig" libs;
+
+    LIBRARY_PATH = lib.makeLibraryPath libs + ":/run/opengl-driver/lib";
+
     CPATH = lib.makeSearchPath "include" libs;
     C_INCLUDE_PATH = lib.makeSearchPath "include" libs;
     CPLUS_INCLUDE_PATH = lib.makeSearchPath "include" libs;
 
-    LIBRARY_PATH = lib.makeLibraryPath libs + ":/run/opengl-driver/lib";
-    # PKG_CONFIG_PATH = lib.makeSearchPathOutput "dev" "lib/pkgconfig" globalBuildInputs;
     PKG_CONFIG_PATH =
       lib.makeSearchPath "lib/pkgconfig" libs
       + ":"
