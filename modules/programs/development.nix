@@ -5,6 +5,12 @@ let
     cudatoolkit
     udev
     libx11 libxi libxrandr libxcursor libGL libGLU
+
+    xorg.libX11
+    xorg.libXi
+    xorg.libXrandr
+    xorg.libXcursor
+
     glib
     zlib
     openssl
@@ -19,6 +25,11 @@ in
     cmake
     ninja
     vcpkg
+
+    xorg.libX11
+    xorg.libXi
+    xorg.libXrandr
+    xorg.libXcursor
 
     mermaid-cli
     texliveFull
