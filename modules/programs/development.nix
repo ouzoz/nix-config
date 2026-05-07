@@ -23,7 +23,7 @@ in
     texliveFull
     prettier
     cudatoolkit
-    gcc
+    gcc14
     bun
     uv
     rustup
@@ -52,10 +52,10 @@ in
     CUDAFLAGS = "-I${pkgs.cudatoolkit}/include";
     NVCC_PREPEND_FLAGS = "-I${pkgs.cudatoolkit}/include";
     CUDACXX = "${pkgs.cudatoolkit}/bin/nvcc";
-    CUDAHOSTCXX = "${pkgs.gcc}/bin/g++";
+    CUDAHOSTCXX = "${pkgs.gcc14}/bin/g++";
 
-    CC = "${pkgs.gcc}/bin/gcc";
-    CXX = "${pkgs.gcc}/bin/g++";
+    CC = "${pkgs.gcc14}/bin/gcc";
+    CXX = "${pkgs.gcc14}/bin/g++";
 
     LIBRARY_PATH = lib.makeLibraryPath globalBuildInputs + ":/run/opengl-driver/lib";
     PKG_CONFIG_PATH = lib.makeSearchPathOutput "dev" "lib/pkgconfig" globalBuildInputs;
