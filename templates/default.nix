@@ -1,7 +1,7 @@
 {
-  empty = {
-    path = ./empty;
-    description = "A minimal empty flake template";
+  devenv = {
+    path = ./devenv;
+    description = "A minimal shell template";
   };
 
   docs = {

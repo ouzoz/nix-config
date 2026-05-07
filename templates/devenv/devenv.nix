@@ -25,7 +25,6 @@ pkgs.mkShell {
 
     mermaid-cli
     texliveFull
-
     prettier
     bun
     uv
