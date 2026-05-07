@@ -9,25 +9,20 @@
     cmake
     ninja
     vcpkg
-    gcc
-    stdenv.cc
-    stdenv.cc.cc
 
     mermaid-cli
     texliveFull
-
     prettier
+    cudatoolkit
+    gcc
     bun
     uv
     rustup
-
     just
 
     # pkg-config
   ];
   programs.nix-ld.libraries = with pkgs; [
-    ninja
-
     # cudaPackages.cuda_cudart
     # cudaPackages.cuda_nvcc
     # linuxPackages.nvidia_x11
@@ -39,30 +34,25 @@
     # cudaPackages.libcusparse
     # cudaPackages.cudnn
 
-    zlib
+    cudatoolkit
+    libx11 libxi libxrandr libxcursor libGL libGLU
+    udev
     glib
     glibc
+    zlib
     openssl
-    # xorg.libX11
-    stdenv.cc
-    stdenv.cc.cc
     stdenv.cc.cc.lib
   ];
 
   environment.sessionVariables = {
     VCPKG_ROOT = "${pkgs.vcpkg}/share/vcpkg";
-    CC = "${pkgs.gcc}/bin/gcc";
-    CXX = "${pkgs.gcc}/bin/g++";
     # CMAKE_TOOLCHAIN_FILE = "${pkgs.vcpkg}/share/vcpkg/scripts/buildsystems/vcpkg.cmake";
-    #
-    # CUDA_PATH = "${pkgs.cudatoolkit}";
-    # CUDA_HOME = "${pkgs.cudatoolkit}";
-    # CUDAToolkit_ROOT = "${pkgs.cudatoolkit}";
-    #
-    # FONTCONFIG_FILE = "${pkgs.makeFontsConf {
-    #   fontDirectories = [ pkgs.corefonts ];
-    # }}";
-    #
-    # NIX_LD_LIBRARY_PATH = lib.makeLibraryPath libs;
+
+    # CC = "${pkgs.gcc}/bin/gcc";
+    # CXX = "${pkgs.gcc}/bin/g++";
+
+    CUDA_PATH = "${pkgs.cudatoolkit}";
+    CUDA_HOME = "${pkgs.cudatoolkit}";
+    CUDAToolkit_ROOT = "${pkgs.cudatoolkit}";
   };
 }
