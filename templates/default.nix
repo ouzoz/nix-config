@@ -4,28 +4,18 @@
     description = "A minimal shell template";
   };
 
+  mono = {
+    path = ./mono;
+    description = "All of the monorepo template";
+  };
+
   docs = {
     path = ./docs;
     description = "Documentation project template";
   };
 
-  ted = {
-    path = ./ted;
+  report = {
+    path = ./report;
     description = "Ted project template";
-  };
-
-  python = {
-    path = ./python;
-    description = "Python development environment";
-  };
-
-  typescript = {
-    path = ./typescript;
-    description = "TypeScript/Node project template";
-  };
-
-  rust = {
-    path = ./rust;
-    description = "Rust Cargo project template";
   };
 }
