@@ -49,7 +49,7 @@
     stdenv.cc.cc.lib
   ];
 
-  environment.variables = {
+  environment.sessionVariables = {
     VCPKG_ROOT = "${pkgs.vcpkg}/share/vcpkg";
     CC = "${pkgs.gcc}/bin/gcc";
     CXX = "${pkgs.gcc}/bin/g++";
