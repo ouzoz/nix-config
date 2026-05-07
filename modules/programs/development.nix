@@ -26,6 +26,8 @@
     # pkg-config
   ];
   programs.nix-ld.libraries = with pkgs; [
+    ninja
+
     # cudaPackages.cuda_cudart
     # cudaPackages.cuda_nvcc
     # linuxPackages.nvidia_x11
