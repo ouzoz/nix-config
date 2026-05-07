@@ -20,20 +20,10 @@
     rustup
     just
 
-    # pkg-config
+    pkg-config
   ];
   programs.nix-ld.libraries = with pkgs; [
-    # cudaPackages.cuda_cudart
-    # cudaPackages.cuda_nvcc
-    # linuxPackages.nvidia_x11
-
-    # cudaPackages.libcublas
-    # cudaPackages.libcufft
-    # cudaPackages.libcurand
-    # cudaPackages.libcusolver
-    # cudaPackages.libcusparse
-    # cudaPackages.cudnn
-
+    linuxPackages.nvidia_x11
     cudatoolkit
     libx11 libxi libxrandr libxcursor libGL libGLU
     udev
@@ -48,11 +38,11 @@
     VCPKG_ROOT = "${pkgs.vcpkg}/share/vcpkg";
     # CMAKE_TOOLCHAIN_FILE = "${pkgs.vcpkg}/share/vcpkg/scripts/buildsystems/vcpkg.cmake";
 
-    # CC = "${pkgs.gcc}/bin/gcc";
-    # CXX = "${pkgs.gcc}/bin/g++";
-
     CUDA_PATH = "${pkgs.cudatoolkit}";
     CUDA_HOME = "${pkgs.cudatoolkit}";
     CUDAToolkit_ROOT = "${pkgs.cudatoolkit}";
+
+    CC = "${pkgs.gcc}/bin/gcc";
+    CXX = "${pkgs.gcc}/bin/g++";
   };
 }
