@@ -9,7 +9,7 @@
     texliveFull
     prettier
     cudatoolkit
-    stdenv.cc
+    gcc14
     bun
     uv
     rustup
@@ -32,9 +32,9 @@
     CUDAFLAGS = "-I${pkgs.cudatoolkit}/include";
     NVCC_PREPEND_FLAGS = "-I${pkgs.cudatoolkit}/include";
     CUDACXX = "${pkgs.cudatoolkit}/bin/nvcc";
-    CUDAHOSTCXX = "${pkgs.stdenv.cc}/bin/c++";
+    CUDAHOSTCXX = "${pkgs.gcc14}/bin/c++";
 
-    CC = "${pkgs.stdenv.cc}/bin/cc";
-    CXX = "${pkgs.stdenv.cc}/bin/c++";
+    CC = "${pkgs.gcc14}/bin/cc";
+    CXX = "${pkgs.gcc14}/bin/c++";
   };
 }
