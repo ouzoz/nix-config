@@ -1,14 +1,11 @@
 { lib, pkgs, ... }:
 
 let
-  globalBuildInputs = with pkgs; [
+  libs = with pkgs; [
     cudatoolkit
 
     udev
     libx11 libxi libxrandr libxcursor libGL libGLU
-    mesa
-
-    libxrandr.dev libxcursor.dev
 
     glib
     zlib
@@ -24,6 +21,8 @@ in
     cmake
     ninja
     vcpkg
+
+    libx11 libxi libxrandr libxcursor libGL libGLU
 
     mermaid-cli
     texliveFull
@@ -42,8 +41,6 @@ in
 
     udev
     libx11 libxi libxrandr libxcursor libGL libGLU
-    mesa
-    libxrandr.dev libxcursor.dev
 
     glib
     glibc
@@ -66,7 +63,15 @@ in
     CC = "${pkgs.gcc14}/bin/gcc";
     CXX = "${pkgs.gcc14}/bin/g++";
 
-    LIBRARY_PATH = lib.makeLibraryPath globalBuildInputs + ":/run/opengl-driver/lib";
-    PKG_CONFIG_PATH = lib.makeSearchPathOutput "dev" "lib/pkgconfig" globalBuildInputs;
+    CPATH = lib.makeSearchPath "include" libs;
+    C_INCLUDE_PATH = lib.makeSearchPath "include" libs;
+    CPLUS_INCLUDE_PATH = lib.makeSearchPath "include" libs;
+
+    LIBRARY_PATH = lib.makeLibraryPath libs + ":/run/opengl-driver/lib";
+    # PKG_CONFIG_PATH = lib.makeSearchPathOutput "dev" "lib/pkgconfig" globalBuildInputs;
+    PKG_CONFIG_PATH =
+      lib.makeSearchPath "lib/pkgconfig" libs
+      + ":"
+      + lib.makeSearchPath "share/pkgconfig" libs;
   };
 }
