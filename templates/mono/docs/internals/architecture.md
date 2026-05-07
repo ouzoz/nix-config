@@ -1,0 +1,5 @@
+---
+description: System Architecture.
+---
+
+# Architecture
