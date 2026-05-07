@@ -3,13 +3,12 @@
 let
   globalBuildInputs = with pkgs; [
     cudatoolkit
+
     udev
     libx11 libxi libxrandr libxcursor libGL libGLU
+    mesa
 
-    xorg.libX11
-    xorg.libXi
-    xorg.libXrandr
-    xorg.libXcursor
+    libxrandr.dev libxcursor.dev
 
     glib
     zlib
@@ -26,11 +25,6 @@ in
     ninja
     vcpkg
 
-    xorg.libX11
-    xorg.libXi
-    xorg.libXrandr
-    xorg.libXcursor
-
     mermaid-cli
     texliveFull
     prettier
@@ -45,8 +39,12 @@ in
   ];
   programs.nix-ld.libraries = with pkgs; [
     cudatoolkit
-    libx11 libxi libxrandr libxcursor libGL libGLU
+
     udev
+    libx11 libxi libxrandr libxcursor libGL libGLU
+    mesa
+    libxrandr.dev libxcursor.dev
+
     glib
     glibc
     zlib
@@ -70,6 +68,5 @@ in
 
     LIBRARY_PATH = lib.makeLibraryPath globalBuildInputs + ":/run/opengl-driver/lib";
     PKG_CONFIG_PATH = lib.makeSearchPathOutput "dev" "lib/pkgconfig" globalBuildInputs;
-    # NIX_LD_LIBRARY_PATH = lib.makeLibraryPath globalBuildInputs;
   };
 }
