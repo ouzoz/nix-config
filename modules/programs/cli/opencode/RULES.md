@@ -106,3 +106,39 @@ Skip any step = incomplete verification.
 **Tests:** `[Run pytest] [See: 34 passed] → "All tests pass"` ✅  
 **Build:** `[Run cargo build] [See: exit 0] → "Build succeeds"` ✅  
 **Never:** "Should work now" / "Looks correct" ❌
+
+## 6. Documentation
+
+### Project Documentation Files
+
+- All of the markdown files at `docs/` directory directly given to the ai agents and it is deployed using zensical.
+- It is project map and documentation for both human developers and ai agents.
+
+#### Purpose
+
+- Main purpose of these documentation is to document the internal structure of the projects, it must save time by summarizing high level structure, workflow, rules, standarts, architecture. Humans and ai agents that read the docs must know, which rules to follow while writing code, during the development/deployment workflow, where to look to change something or how internal flow/architecture works at the codebase before reading the actual codebase. 
+
+#### Rules
+
+- Dont mention words like `AI` at it, it must be generic for both humans and ai agents.
+- If a change makes documentation out of dated and reality differs from the documentation update the documentation.
+- If a new addition to project makes documentation insufficent update the documentation.
+- Always make atomic changes, never delete necessary information. never simplify the information.
+- Never add or delete existing files, only update the necessary parts of the existing files.
+- Use mermaid.js diagrams at the necessary parts to represent flow and architecture of the internals of the project.
+- Dont add unnecessary information, informations must document the internals or help during the setup/development/deployment processes.
+
+### Comments
+
+- Low level, source releated documentation must live close to the source.
+- Always add Comments to parts that contains complicated logic.
+
+## 7. Workflow
+
+### Justfile
+
+- Just is a command wrapper and highly used for standartization unit.
+- It is automatically read and given as context to ai agents.
+- AI agents must always prefer just commands instead of raw commands to standartize the workflow, only use raw commands if just recipe doesnt exists.
+- Just recipes must be preferred over raw commands, if a recipe exists use it, only fallback to raw commands if a just recipe doesnt exists.
+- If a recipe for format + lint fixes + quality gate exists (like `qual`) always use it to save time instead of doing check -> fix -> check.
