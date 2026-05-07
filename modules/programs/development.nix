@@ -49,6 +49,8 @@ in
     CUDA_PATH = "${pkgs.cudatoolkit}";
     CUDA_HOME = "${pkgs.cudatoolkit}";
     CUDAToolkit_ROOT = "${pkgs.cudatoolkit}";
+    CUDACXX = "${pkgs.cudatoolkit}/bin/nvcc";
+    CUDAHOSTCXX = "${pkgs.gcc}/bin/g++";
 
     CC = "${pkgs.gcc}/bin/gcc";
     CXX = "${pkgs.gcc}/bin/g++";
