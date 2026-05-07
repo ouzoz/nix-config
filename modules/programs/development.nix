@@ -48,8 +48,8 @@
 
   environment.sessionVariables = {
     VCPKG_ROOT = "${pkgs.vcpkg}/share/vcpkg";
-    CC = "${pkgs.gcc}/bin/gcc";
-    CXX = "${pkgs.gcc}/bin/g++";
+    CC = "gcc";
+    CXX = "g++";
     # CMAKE_TOOLCHAIN_FILE = "${pkgs.vcpkg}/share/vcpkg/scripts/buildsystems/vcpkg.cmake";
     #
     # CUDA_PATH = "${pkgs.cudatoolkit}";
