@@ -42,14 +42,15 @@
     glibc
     openssl
     # xorg.libX11
+    stdenv.cc
     stdenv.cc.cc
     stdenv.cc.cc.lib
   ];
 
-  environment.sessionVariables = {
+  environment.variables = {
     VCPKG_ROOT = "${pkgs.vcpkg}/share/vcpkg";
-    CC = "gcc";
-    CXX = "g++";
+    CC = "${pkgs.gcc}/bin/gcc";
+    CXX = "${pkgs.gcc}/bin/g++";
     # CMAKE_TOOLCHAIN_FILE = "${pkgs.vcpkg}/share/vcpkg/scripts/buildsystems/vcpkg.cmake";
     #
     # CUDA_PATH = "${pkgs.cudatoolkit}";
