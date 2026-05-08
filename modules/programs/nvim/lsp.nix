@@ -12,11 +12,5 @@
     sqls
     texlab
     yaml-language-server
-
-    clang-tools
-    typescript-language-server
-    ty
-    rust-analyzer
-    gopls
   ];
 }
