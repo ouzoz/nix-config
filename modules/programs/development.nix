@@ -1,14 +1,14 @@
 { pkgs, ... }:
 
 {
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.cudaSupport = true;
+  # nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.cudaSupport = true;
 
   environment.systemPackages = with pkgs; [
     mermaid-cli
     texliveFull
     prettier
-    cudatoolkit
+    # cudatoolkit
     bun
     uv
     rustup
