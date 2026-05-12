@@ -10,9 +10,9 @@
     gi = "git diff --stat";
     grm = "git rm --cached";
     # alias gr = "git reset HEAD"
-    # alias m = "git checkout master"
-    # alias gch = "git checkout"
-    # alias gm = "git merge"
+    gb = "git branch";
+    gch = "git checkout";
+    gm = "git merge";
   };
   programs.git = {
     enable = true;
