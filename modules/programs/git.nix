@@ -18,6 +18,7 @@
     enable = true;
     config = {
       init.defaultBranch = "main";
+      pull.rebase = true;
       user = {
         name = "oguzhanozkaya";
         email = "ozkayaoguzhan67@gmail.com";
