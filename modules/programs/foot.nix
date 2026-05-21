@@ -57,11 +57,11 @@
 
         bright0 = "65616a";
         bright1 = "ff3a4c";
-        bright2 = "00b708";
+        bright2 = "00ea45";
         bright3 = "9c9b00";
         bright4 = "6687ff";
         bright5 = "bd56ff";
-        bright6 = "00ad9f";
+        bright6 = "40e0d0";
         bright7 = "ffffff";
 
 
