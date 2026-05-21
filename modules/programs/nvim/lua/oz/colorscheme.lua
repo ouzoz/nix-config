@@ -9,12 +9,12 @@ vim.opt.termguicolors = false
 
 local c = {
   t  = 'NONE',
-  b1 = 15,
+  b1 = 0,
   b2 = 254,
   b3 = 251,
   f3 = 246,
   f2 = 241,
-  f1 = 0,
+  f1 = 15,
   p1 = 9,
   p3 = 10,
   p2 = 11,
