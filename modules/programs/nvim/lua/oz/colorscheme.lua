@@ -4,7 +4,7 @@ vim.cmd 'syntax clear'
 vim.cmd 'syntax on'
 
 vim.g.colors_name = 'poz'
-vim.opt.background = 'light'
+vim.opt.background = 'dark'
 vim.opt.termguicolors = false
 
 local c = {
