@@ -49,7 +49,7 @@
         regular0 = "000000";
         regular1 = "ff3a4c";
         regular2 = "00ea45";
-        regular3 = "9c9b00";
+        regular3 = "cccb00";
         regular4 = "6687ff";
         regular5 = "bd56ff";
         regular6 = "40e0d0";
@@ -58,7 +58,7 @@
         bright0 = "65616a";
         bright1 = "ff3a4c";
         bright2 = "00ea45";
-        bright3 = "9c9b00";
+        bright3 = "cccb00";
         bright4 = "6687ff";
         bright5 = "bd56ff";
         bright6 = "40e0d0";
