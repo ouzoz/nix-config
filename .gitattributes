@@ -1,5 +1,8 @@
 * text=auto eol=lf
 
 *.pdf binary
+*.pdf binary
+*.jpg binary
+*.jpeg binary
 
 templates/*/** linguist-vendored
