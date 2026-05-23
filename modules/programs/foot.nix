@@ -20,7 +20,7 @@
         hide-when-typing = "yes";
       };
       colors-dark = {
-        alpha = 0.94;
+        alpha = 0.92;
         blur = true;
         cursor = "000000 ffffff";
         selection-foreground = "ffffff";

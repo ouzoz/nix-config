@@ -48,7 +48,7 @@ hl.config({
     },
     resize_on_border = false,
     allow_tearing = false,
-    layout = "master",
+    layout = "dwindle",
   },
   decoration = {
     rounding       = 10,
@@ -132,11 +132,10 @@ hl.config({
 
 hl.config({
   misc = {
-    force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-    disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
+    force_default_wallpaper = -1,
+    disable_hyprland_logo   = true,
   },
 })
-
 
 hl.config({
   input = {
@@ -149,6 +148,7 @@ hl.config({
     follow_mouse = 1,
 
     sensitivity = 1, -- -1.0 - 1.0, 0 means no modification.
+    accel_profile = "adaptive",
 
     repeat_rate = 60,
     repeat_delay = 240,
@@ -167,12 +167,6 @@ hl.gesture({
   action = "workspace"
 })
 
-hl.device({
-  name        = "epic-mouse-v1",
-  sensitivity = -0.5,
-})
-
-
 local mainMod = "SUPER"
 
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
@@ -185,10 +179,10 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
 -- Move focus with mainMod + arrow keys
-hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + h",  hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + k",    hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + j",  hl.dsp.focus({ direction = "down" }))
 
 hl.bind(mainMod .. " + Tab", hl.dsp.focus({ workspace = "previous" }))
 
