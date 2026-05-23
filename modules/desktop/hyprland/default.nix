@@ -39,7 +39,9 @@
   ];
 
   environment.etc = {
+    "xdg/hypr/stubs".source = "${pkgs.hyprland}/share/hypr/stubs";
     "xdg/hypr/hyprland.lua".source = ./hyprland.lua;
+
     "xdg/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
     "xdg/hypr/hyprtoolkit.conf".source = ./hyprtoolkit.conf;
     "xdg/hypr/hyprlauncher.conf".source = ./hyprlauncher.conf;
