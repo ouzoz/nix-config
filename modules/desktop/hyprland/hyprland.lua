@@ -23,8 +23,8 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("hyprpaper")
 end)
 
-hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_SIZE", "12")
+hl.env("HYPRCURSOR_SIZE", "12")
 
 -- hl.config({
 --   ecosystem = {
@@ -48,7 +48,7 @@ hl.config({
     },
     resize_on_border = false,
     allow_tearing = false,
-    layout = "dwindle",
+    layout = "master",
   },
   decoration = {
     rounding       = 10,
@@ -64,8 +64,8 @@ hl.config({
     blur = {
       enabled   = true,
       size      = 3,
-      passes    = 1,
-      vibrancy  = 0.1696,
+      passes    = 2,
+      vibrancy  = 0.24,
     },
   },
   animations = {
