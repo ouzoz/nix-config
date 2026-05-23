@@ -6,27 +6,36 @@
     xwayland.enable = true;
   };
 
-  # programs.dconf.profiles.user.databases = [
-  #   {
-  #     settings."org/gnome/desktop/interface" = {
+  programs.dconf.profiles.user.databases = [
+    {
+      settings."org/gnome/desktop/interface" = {
   #       gtk-theme = "Adwaita";
   #       icon-theme = "Flat-Remix-Red-Dark";
-  #       font-name = "Noto Sans Medium 11";
-  #       document-font-name = "Noto Sans Medium 11";
-  #       monospace-font-name = "Noto Sans Mono Medium 11";
-  #     };
-  #   }
-  # ];
+        font-name = "Noto Sans Medium 11";
+        document-font-name = "Noto Sans Medium 11";
+        monospace-font-name = "Noto Sans Mono Medium 11";
+      };
+    }
+  ];
 
   environment.systemPackages = with pkgs; [
-    hyprpaper
-    hyprlauncher
-    wl-clipboard
     waybar
   #   wofi
     mako
     grim
     slurp
+
+    hyprpaper
+    hyprlauncher
+    hyprlock
+    hyprsysteminfo
+    hyprpolkitagent
+    hyprpwcenter
+    hyprshutdown
+    hyprtoolkit
+    hyprcursor
+
+    wl-clipboard
   ];
 
   environment.etc = {
@@ -51,6 +60,12 @@
 #   SDL_VIDEODRIVER = "wayland";
 #   CLUTTER_BACKEND = "wayland";
 #   MOZ_ENABLE_WAYLAND = "1";
+
+# env = LIBVA_DRIVER_NAME,nvidia
+# env = XDG_SESSION_TYPE,wayland
+# env = GBM_BACKEND,nvidia-drm
+# env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+# env = NVD_BACKEND,direct
   };
 
   # services.gnome.gnome-keyring.enable = true;
