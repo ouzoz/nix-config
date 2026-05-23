@@ -27,6 +27,18 @@
     slurp
   ];
 
+  environment.etc = {
+    "xdg/hypr/hyprland.lua".source = ./hyprland.lua;
+    "xdg/waybar/config.jsonc".source = ../waybar/config.jsonc;
+    "xdg/waybar/style.css".source = ../waybar/style.css;
+    "xdg/mako/config".source = ../mako/config;
+    # "xdg/wofi/config".source = ../wofi/config;
+    # "xdg/wofi/style.css".source = ../wofi/style.css;
+    # "xdg/wofi/power-config".source = ../wofi/power-config;
+    # "xdg/wofi/power.sh".source = ../wofi/power.sh;
+    # "xdg/swaylock/config".source = ../swaylock/config;
+  };
+
   services.udev.extraRules = ''
     SUBSYSTEM=="drm", KERNEL=="card*", DRIVERS=="nvidia", SYMLINK+="dri/by-driver/nvidia-card"
     SUBSYSTEM=="drm", KERNEL=="card*", DRIVERS=="i915", SYMLINK+="dri/by-driver/intel-card"
@@ -71,16 +83,12 @@
 #   luajit = import ../../langs/luajit.nix {inherit pkgs;};
 # in {
 #   imports = [
-#     (import ./waybar/default.nix {inherit pkgs colors;})
 #     (import ./hypridle.nix)
 #     (import ./hyprlock.nix)
 #   ];
 #   wayland = {
 #     windowManager = {
 #       hyprland = {
-#         enable = true;
-#         package = pkgs.hyprland;
-#         configType = "lua";
 #         extraConfig =
 #           builtins.replaceStrings
 #           [
