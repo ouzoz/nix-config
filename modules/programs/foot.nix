@@ -21,6 +21,7 @@
       };
       colors-dark = {
         alpha = 0.94;
+        blur = true;
         cursor = "000000 ffffff";
         selection-foreground = "ffffff";
         selection-background = "4e4a53";
