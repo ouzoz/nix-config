@@ -131,7 +131,7 @@ hl.config({
 
 hl.config({
   input = {
-    kb_layout  = "us",
+    kb_layout  = "tr",
     kb_variant = "",
     kb_model   = "",
     kb_options = "",
@@ -139,7 +139,7 @@ hl.config({
 
     follow_mouse = 1,
 
-    sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
+    sensitivity = 1, -- -1.0 - 1.0, 0 means no modification.
 
     touchpad = {
       natural_scroll = false,
@@ -161,13 +161,13 @@ hl.device({
 
 local mainMod = "SUPER"
 
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + BackSpace", hl.dsp.exec_cmd(menu))
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 

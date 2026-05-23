@@ -5,11 +5,11 @@
     "width": 1920,
     "spacing": 15,
 
-    "modules-left": [ "sway/workspaces" ],
+    "modules-left": [ "hyprland/workspaces" ],
     "modules-center": [ "clock" ],
     "modules-right": [ "network", "pulseaudio", "temperature", "cpu", "memory", "battery" ],
 
-    "sway/workspaces": {
+    "hyprland/workspaces": {
         "all-outputs": false,
         "disable-scroll": true,
         "warp-on-scroll": false,
