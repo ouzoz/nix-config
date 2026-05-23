@@ -68,6 +68,40 @@ hl.config({
       vibrancy  = 0.24,
     },
   },
+  dwindle = {
+    preserve_split = true, -- You probably want this
+  },
+  master = {
+    new_status = "master",
+  },
+  scrolling = {
+    fullscreen_on_one_column = true,
+  },
+  misc = {
+    force_default_wallpaper = -1,
+    disable_hyprland_logo   = true,
+  },
+  input = {
+    kb_layout  = "tr",
+    kb_variant = "",
+    kb_model   = "",
+    kb_options = "caps:swapescape",
+    kb_rules   = "",
+
+    follow_mouse = 1,
+
+    sensitivity = 1, -- -1.0 - 1.0, 0 means no modification.
+    accel_profile = "adaptive",
+
+    repeat_rate = 60,
+    repeat_delay = 240,
+
+    natural_scroll = true,
+
+    touchpad = {
+      natural_scroll = true,
+    },
+  },
   animations = {
     enabled = true,
   },
@@ -110,55 +144,6 @@ hl.window_rule({
   match = { float = false, workspace = "f[1]" },
   border_size = 0,
   rounding    = 0,
-})
-
-hl.config({
-  dwindle = {
-    preserve_split = true, -- You probably want this
-  },
-})
-
-hl.config({
-  master = {
-    new_status = "master",
-  },
-})
-
-hl.config({
-  scrolling = {
-    fullscreen_on_one_column = true,
-  },
-})
-
-hl.config({
-  misc = {
-    force_default_wallpaper = -1,
-    disable_hyprland_logo   = true,
-  },
-})
-
-hl.config({
-  input = {
-    kb_layout  = "tr",
-    kb_variant = "",
-    kb_model   = "",
-    kb_options = "caps:swapescape",
-    kb_rules   = "",
-
-    follow_mouse = 1,
-
-    sensitivity = 1, -- -1.0 - 1.0, 0 means no modification.
-    accel_profile = "adaptive",
-
-    repeat_rate = 60,
-    repeat_delay = 240,
-
-    natural_scroll = true,
-
-    touchpad = {
-      natural_scroll = true,
-    },
-  },
 })
 
 hl.gesture({
