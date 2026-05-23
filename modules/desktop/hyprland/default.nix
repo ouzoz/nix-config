@@ -19,6 +19,8 @@
   # ];
 
   environment.systemPackages = with pkgs; [
+    hyprpaper
+    hyprlauncher
     wl-clipboard
     waybar
   #   wofi
