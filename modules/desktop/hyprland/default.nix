@@ -29,9 +29,9 @@
 
   environment.etc = {
     "xdg/hypr/hyprland.lua".source = ./hyprland.lua;
-    "xdg/waybar/config.jsonc".source = ../waybar/config.jsonc;
-    "xdg/waybar/style.css".source = ../waybar/style.css;
-    "xdg/mako/config".source = ../mako/config;
+    "xdg/waybar/config.jsonc".source = ./waybar/config.jsonc;
+    "xdg/waybar/style.css".source = ./waybar/style.css;
+    "xdg/mako/config".source = ./mako/config;
     # "xdg/wofi/config".source = ../wofi/config;
     # "xdg/wofi/style.css".source = ../wofi/style.css;
     # "xdg/wofi/power-config".source = ../wofi/power-config;
