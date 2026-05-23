@@ -21,6 +21,7 @@
   environment.systemPackages = with pkgs; [
     wl-clipboard
     waybar
+  #   wofi
     mako
     grim
     slurp
@@ -33,6 +34,11 @@
 
   environment.sessionVariables = {
     KWIN_DRM_DEVICES = "/dev/dri/by-driver/nvidia-card:/dev/dri/by-driver/intel-card";
+#   ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+#   QT_QPA_PLATFORM = "wayland";
+#   SDL_VIDEODRIVER = "wayland";
+#   CLUTTER_BACKEND = "wayland";
+#   MOZ_ENABLE_WAYLAND = "1";
   };
 
   # services.gnome.gnome-keyring.enable = true;
@@ -42,15 +48,6 @@
   #   extraOptions = [ "--unsupported-gpu" ];
   #   wrapperFeatures.gtk = true;
   # };
-  #
-  # environment.systemPackages = with pkgs; [
-  #   wl-clipboard
-  #   waybar
-  #   wofi
-  #   mako
-  #   grim
-  #   slurp
-  # ];
   #
   # services.greetd = {
   #   enable = true;
@@ -64,14 +61,6 @@
   #       user = "ouz"; 
   #     };
   #   };
-  # };
-  #
-  # environment.sessionVariables = {
-  #   ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-  #   QT_QPA_PLATFORM = "wayland";
-  #   SDL_VIDEODRIVER = "wayland";
-  #   CLUTTER_BACKEND = "wayland";
-  #   MOZ_ENABLE_WAYLAND = "1";
   # };
 }
 

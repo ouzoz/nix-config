@@ -7,7 +7,6 @@
 
   environment.systemPackages = with pkgs; [ wl-clipboard ];
 
-
   services.udev.extraRules = ''
     SUBSYSTEM=="drm", KERNEL=="card*", DRIVERS=="nvidia", SYMLINK+="dri/by-driver/nvidia-card"
     SUBSYSTEM=="drm", KERNEL=="card*", DRIVERS=="i915", SYMLINK+="dri/by-driver/intel-card"
