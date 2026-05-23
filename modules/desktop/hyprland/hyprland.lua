@@ -4,6 +4,7 @@ hl.monitor({
   mode     = "1920x1080@165",
   position = "1920x0",
   scale    = 1,
+  mirror   = "HDMI-A-1",
 })
 
 hl.monitor({
