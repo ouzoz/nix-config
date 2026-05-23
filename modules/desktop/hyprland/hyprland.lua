@@ -26,12 +26,6 @@ end)
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
--- hl.config({
---   ecosystem = {
---     enforce_permissions = true,
---   },
--- })
-
 -- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
 -- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
 -- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
@@ -39,66 +33,75 @@ hl.env("HYPRCURSOR_SIZE", "24")
 
 hl.config({
   general = {
+    border_size = 0,
     gaps_in  = 6,
     gaps_out = 12,
-    border_size = 1,
-    col = {
-      active_border   = "rgba(000000ff)",
-      inactive_border = "rgba(100d14ff)",
-    },
-    resize_on_border = false,
     allow_tearing = false,
-    layout = "dwindle",
   },
   decoration = {
-    rounding       = 10,
-    rounding_power = 2,
-    active_opacity   = 1.0,
+    rounding       = 6, -- default 0
     inactive_opacity = 0.92,
-    shadow = { enabled = false },
+    -- dim_inactive = true,
+    -- dim_strength = 0.36,
+    -- dim_special = 0.36,
     blur = {
       enabled   = true,
       size      = 6,
       passes    = 1,
+      noise = 0.012,
+      contrast = 0.8916,
+      brightness = 0.8172,
       vibrancy  = 0.12,
+      vibrancy_darkness = 0.0,
+      special = false,
     },
+    shadow = { enabled = false },
   },
-  dwindle = {
-    preserve_split = true, -- You probably want this
-  },
-  master = {
-    new_status = "master",
-  },
-  scrolling = {
-    fullscreen_on_one_column = true,
-  },
-  misc = {
-    force_default_wallpaper = -1,
-    disable_hyprland_logo   = true,
-  },
+  animations = { enabled = true },
   input = {
     kb_layout  = "tr",
     kb_variant = "",
     kb_model   = "",
     kb_options = "caps:swapescape",
     kb_rules   = "",
-
-    follow_mouse = 1,
-
-    sensitivity = 1, -- -1.0 - 1.0, 0 means no modification.
-    accel_profile = "adaptive",
-
+    -- resolve_binds_by_sym
     repeat_rate = 60,
     repeat_delay = 240,
-
+    sensitivity = 1,
+    accel_profile = "adaptive",
     natural_scroll = true,
+    follow_mouse = 1,
 
     touchpad = {
       natural_scroll = true,
     },
   },
-  animations = {
-    enabled = true,
+  misc = {
+    disable_hyprland_logo = true,
+    -- disable_splash_rendering = true,
+    force_default_wallpaper = -1,
+    -- font_family = "oziosevka",
+    -- splash_font_family = "oziosevka",
+    -- vrr = 1,
+    close_special_on_empty = true,
+    render_unfocused_fps = 15,
+  },
+  binds = {
+    scroll_event_delay = 0,
+    workspace_back_and_forth = true,
+    hide_special_on_workspace_change = true,
+    workspace_center_on = 1,
+  },
+  cursor = {},
+  ecosystem = {
+    no_update_news = false,
+    no_donation_nag = true,
+    enforce_permissions = false,
+  },
+
+  master = {
+    new_status = "master",
+    orientation = "right",
   },
 })
 
