@@ -33,7 +33,7 @@
   '';
 
   environment.sessionVariables = {
-    KWIN_DRM_DEVICES = "/dev/dri/by-driver/nvidia-card:/dev/dri/by-driver/intel-card";
+    AQ_DRM_DEVICES = "/dev/dri/by-driver/nvidia-card:/dev/dri/by-driver/intel-card";
 #   ELECTRON_OZONE_PLATFORM_HINT = "wayland";
 #   QT_QPA_PLATFORM = "wayland";
 #   SDL_VIDEODRIVER = "wayland";
@@ -104,42 +104,7 @@
 #             "${monitor_prefix}"
 #           ]
 #           (builtins.readFile ./config.lua);
-#         systemd = { enable = true; };
-#         xwayland = { enable = true; };
 #       };
-#     };
-#   };
-#   home.file = {
-#     ".local/share/scripts/fuzzy-bookmarks.lua" = {
-#       source = ./scripts/fuzzy-bookmarks.lua;
-#     };
-#     ".local/share/scripts/toggle-mute.lua" = {
-#       source = ./scripts/toggle-mute.lua;
-#     };
-#     ".local/share/wallpapers/" = {
-#       source = ./../../../assets/wallpapers;
-#       recursive = true;
-#     };
-#     ".local/share/scripts/screenshot.sh" = {
-#       text = ''
-#         ${pkgs.grim}/bin/grim \
-#           -g "$(${pkgs.slurp}/bin/slurp)" - \
-#           | ${pkgs.satty}/bin/satty \
-#             --filename - \
-#             --output-filename "/home/${username}/screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"
-#       '';
-#     };
-#     ".local/share/scripts/screen-record.sh" = {
-#       text = ''
-#         if pidof wl-screenrec; then
-#           pkill wl-screenrec;
-#         else
-#           ${pkgs.wl-screenrec}/bin/wl-screenrec \
-#             --dri-device /dev/dri/card1 \
-#             -g "$(${pkgs.slurp}/bin/slurp)" \
-#             --filename "/home/${username}/screenshots/screenrec-$(date '+%Y%m%d-%H:%M:%S').mp4";
-#         fi
-#       '';
 #     };
 #   };
 # }
