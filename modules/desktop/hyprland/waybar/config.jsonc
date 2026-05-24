@@ -3,11 +3,11 @@
     "position": "top",
     "height": 24,
     "width": 1920,
-    "spacing": 15,
+    "spacing": 24,
 
     "modules-left": [ "hyprland/workspaces" ],
     "modules-center": [ "clock" ],
-    "modules-right": [ "sway/language", "network", "pulseaudio", "temperature", "cpu", "memory", "battery" ],
+    "modules-right": [ "hyprland/language", "network", "pulseaudio", "temperature", "cpu", "memory", "battery" ],
 
     "hyprland/workspaces": {
         "all-outputs": false,
@@ -24,7 +24,7 @@
         "tooltip": false
     },
 
-    "sway/language": {
+    "hyprland/language": {
       "format": "{short} {variant}"
     },
     "network": {
