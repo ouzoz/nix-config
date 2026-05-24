@@ -113,10 +113,10 @@ hl.config({
   },
   animations = { enabled = true },
   input = {
-    kb_layout  = "tr",
+    kb_layout  = "tr,us",
     kb_variant = "",
     kb_model   = "",
-    kb_options = "caps:swapescape",
+    kb_options = "caps:swapescape,grp:win_space_toggle",
     kb_rules   = "",
     -- resolve_binds_by_sym
     repeat_rate = 60,
