@@ -5,25 +5,25 @@
   "width": 1920,
   "spacing": 18,
 
-  "modules-left": [ "hyprland/workspaces", "hyprland/language", "pulseaudio" ],
+  "modules-left": [ "hyprland/workspaces", "hyprland/language", "pulseaudio", "hyprland/submap" ],
   "modules-center": [ "clock" ],
   "modules-right": [ "network", "temperature", "cpu", "memory", "battery" ],
 
   "hyprland/workspaces": {
-    "all-outputs": false,
-    "disable-scroll": true,
-    "warp-on-scroll": false,
     "format": " 🞄 ",
     "persistent-workspaces": { "1": "1", "2": "2", "3": "3", "4": "4", "5": "5", "6": "6" }
   },
   "hyprland/language": {
-    "format": "{short} {variant}"
+    "format": "{}"
   },
   "pulseaudio": {
     "scroll-step": 1,
-    "format": "%{volume}{icon}",
-    "format-muted": " - {icon}",
+    "format": "{icon}%{volume}",
+    "format-muted": "{icon} - ",
     "format-icons": { "headphone": "🞄", "hands-free": "▫", "headset": "▪", "default": "◦" }
+  },
+  "hyrpland/submap": {
+    "format": "{}"
   },
 
   "clock": {
