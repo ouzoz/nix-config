@@ -13,6 +13,7 @@ local monitors = {
       output = outs.hdmi.external,
       disabled = false,
       mode = "1920x1080@180",
+      position = "auto",
       scale = 1,
     })
     hl.monitor({
@@ -29,6 +30,7 @@ local monitors = {
       output = outs.hdmi.internal,
       disabled = false,
       mode = "1920x1080@165",
+      position = "auto",
       scale = 1
     })
   end,
@@ -37,6 +39,7 @@ local monitors = {
       output = outs.hdmi.external,
       disabled = false,
       mode = "preferred",
+      position = "auto",
       scale = 1,
       mirror = outs.hdmi.internal,
     })
@@ -44,6 +47,7 @@ local monitors = {
       output = outs.hdmi.internal,
       disabled = false,
       mode = "1920x1080@165",
+      position = "auto",
       scale = 1,
     })
   end,
@@ -52,12 +56,14 @@ local monitors = {
       output = outs.hdmi.external,
       disabled = false,
       mode = "preferred",
+      position = "auto",
       scale = 1
     })
     hl.monitor({
       output = outs.hdmi.internal,
       disabled = false,
       -- mode = "1920x1080@165",
+      position = "auto",
       scale = 1,
       mirror = outs.hdmi.external
     })
@@ -233,8 +239,8 @@ hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + D", hl.dsp.submap("display"))
 hl.define_submap("display", function()
   hl.bind("escape", hl.dsp.submap("reset"))
-  for i = 1, 3 do
-    hl.bind(tostring(i), monitors[i])
+  for i, v in ipairs(monitors) do
+    hl.bind(tostring(i), v)
   end
 end)
 
