@@ -1,9 +1,9 @@
 {
   "layer": "top",
   "position": "bottom",
-  "height": 22.5,
+  "height": 24,
   "width": 1920,
-  "spacing": 24,
+  "spacing": 18,
 
   "modules-left": [ "hyprland/workspaces", "hyprland/language", "pulseaudio" ],
   "modules-center": [ "clock" ],

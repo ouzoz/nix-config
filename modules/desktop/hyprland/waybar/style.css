@@ -5,7 +5,7 @@
 
 * {
     font-family: Oziosevka;
-    font-size: 15px;
+    font-size: 14.4px;
     font-weight: 500;
 
     text-shadow: none;
@@ -25,4 +25,4 @@ tooltip * { color: @fg; }
 #workspaces button.active { background-color: @bgs; }
 #workspaces button:hover { background: @bgs; }
 
-#battery { margin-right: 15px; }
+#battery { margin-right: 18px; }
