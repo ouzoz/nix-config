@@ -1,11 +1,11 @@
 @define-color bg #000000;
-@define-color bgs #232027;
+@define-color bgs #100d14;
 @define-color fge #4e4a53;
 @define-color fg #ffffff;
 
 * {
     font-family: Oziosevka;
-    font-size: 16px;
+    font-size: 14.4px;
     font-weight: 500;
 
     text-shadow: none;
@@ -22,7 +22,7 @@ tooltip * { color: @fg; }
 #workspaces { margin: 0; padding: 0; }
 #workspaces button { border-radius: 0; padding: 0; color: @fg; }
 #workspaces button.empty { color: @fge; }
+#workspaces button.active { background-color: @bgs; }
 #workspaces button:hover { background: @bgs; }
-#workspaces button.focused { background-color: @bgs; }
 
 #battery { margin-right: 15px; }

@@ -7,7 +7,7 @@
 
     "modules-left": [ "hyprland/workspaces" ],
     "modules-center": [ "clock" ],
-    "modules-right": [ "network", "pulseaudio", "temperature", "cpu", "memory", "battery" ],
+    "modules-right": [ "sway/language", "network", "pulseaudio", "temperature", "cpu", "memory", "battery" ],
 
     "hyprland/workspaces": {
         "all-outputs": false,
@@ -24,6 +24,9 @@
         "tooltip": false
     },
 
+    "sway/language": {
+      "format": "{short} {variant}"
+    },
     "network": {
         "interval": 1,
         "format": "{bandwidthTotalBytes}{icon}",
