@@ -11,9 +11,9 @@
       settings."org/gnome/desktop/interface" = {
   #       gtk-theme = "Adwaita";
   #       icon-theme = "Flat-Remix-Red-Dark";
-        font-name = "Noto Sans Medium 11";
-        document-font-name = "Noto Sans Medium 11";
-        monospace-font-name = "Noto Sans Mono Medium 11";
+        font-name = "Source Sans 3 12";
+        document-font-name = "Source Sans 3 12";
+        monospace-font-name = "Oziosevka 12";
       };
     }
   ];
