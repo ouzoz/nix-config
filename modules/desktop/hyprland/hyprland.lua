@@ -19,7 +19,7 @@ local monitors = {
   function ()
     hl.monitor({ output = outs.hdmi.external, mode = "preferred", scale = 1 })
     hl.monitor({ output = outs.hdmi.internal, mode = "1920x1080@165", scale = 1, mirror = outs.hdmi.external })
-  end
+  end,
 }
 
 monitors[0]()
@@ -189,7 +189,7 @@ hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
 for i = 1, 6 do
-  hl.bind(mainMod .. " + D", monitors[i])
+  hl.bind(mainMod .. " + D + " .. i, monitors[i])
 end
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
