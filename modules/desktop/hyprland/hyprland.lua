@@ -44,7 +44,7 @@ local monitors = {
     hl.monitor({
       output = outs.hdmi.internal,
       disabled = false,
-      mode = "1920x1080@165",
+      -- mode = "1920x1080@165",
       scale = 1,
       mirror = outs.hdmi.external
     })
@@ -217,22 +217,13 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:mag
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
-for i = 1, 3 do
-  hl.bind(mainMod .. " + D + " .. i, monitors[i])
-end
--- hl.bind("ALT + R", hl.dsp.submap("resize"))
--- hl.define_submap("resize", function()
---
---     -- Set repeating binds for resizing the active window.
---     hl.bind("right", hl.dsp.window.resize({ x = 10, y = 0, relative = true}), { repeating = true })
---     hl.bind("left", hl.dsp.window.resize({ x = -10, y = 0, relative = true}), { repeating = true })
---     hl.bind("up", hl.dsp.window.resize({ x = 0, y = 10, relative = true}), { repeating = true })
---     hl.bind("down", hl.dsp.window.resize({ x = 0, y = -10, relative = true}), { repeating = true })
---
---     -- Use `reset` to go back to the global submap
---     hl.bind("escape", hl.dsp.submap("reset"))
---
--- end)
+hl.bind(mainMod .. " + D", hl.dsp.submap("display"))
+hl.define_submap("display", function()
+  hl.bind("escape", hl.dsp.submap("reset"))
+  for i = 1, 3 do
+    hl.bind(tostring(i), monitors[i])
+  end
+end)
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
