@@ -18,7 +18,7 @@
     border: none;
 }
 
-#window, window#waybar { background-color: @bg; color: @fg; }
+#window, window#waybar { background-color: @bg; color: @fg; margin-top: 10px; }
 tooltip { opacity: 1; background-color: @bg; border-radius: 0; }
 tooltip * { color: @fg; }
 
