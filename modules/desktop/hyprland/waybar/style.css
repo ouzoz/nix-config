@@ -2,6 +2,7 @@
 @define-color bgs #100d14;
 @define-color fge #4e4a53;
 @define-color fg #ffffff;
+@define-color h1 #ff3a4c;
 
 * {
     font-family: Oziosevka;
@@ -26,3 +27,5 @@ tooltip * { color: @fg; }
 #workspaces button:hover { background: @bgs; }
 
 #battery { margin-right: 18px; }
+
+#submap { color: @h1; }
