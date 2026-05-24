@@ -18,7 +18,7 @@
       };
       cursor = {
         style = "beam";
-        beam-thickness = 3;
+        beam-thickness = 1.2;
       };
       mouse = {
         hide-when-typing = "yes";
