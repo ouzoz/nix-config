@@ -13,7 +13,6 @@ local monitors = {
       output = outs.hdmi.external,
       disabled = false,
       mode = "1920x1080@180",
-      position = "0x0",
       scale = 1,
     })
     hl.monitor({
@@ -30,8 +29,22 @@ local monitors = {
       output = outs.hdmi.internal,
       disabled = false,
       mode = "1920x1080@165",
-      position = "0x0",
       scale = 1
+    })
+  end,
+  function ()
+    hl.monitor({
+      output = outs.hdmi.external,
+      disabled = false,
+      mode = "preferred",
+      scale = 1,
+      mirror = outs.hdmi.internal,
+    })
+    hl.monitor({
+      output = outs.hdmi.internal,
+      disabled = false,
+      mode = "1920x1080@165",
+      scale = 1,
     })
   end,
   function ()
