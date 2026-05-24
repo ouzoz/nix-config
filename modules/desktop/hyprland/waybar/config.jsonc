@@ -1,68 +1,68 @@
 {
-    "layer": "top",
-    "position": "bottom",
-    "height": 24,
-    "width": 1920,
-    "spacing": 24,
+  "layer": "top",
+  "position": "bottom",
+  "height": 30,
+  "width": 1920,
+  "spacing": 24,
 
-    "modules-left": [ "hyprland/workspaces" ],
-    "modules-center": [ "clock" ],
-    "modules-right": [ "hyprland/language", "network", "pulseaudio", "temperature", "cpu", "memory", "battery" ],
+  "modules-left": [ "hyprland/workspaces", "hyprland/language", "pulseaudio" ],
+  "modules-center": [ "clock" ],
+  "modules-right": [ "network", "temperature", "cpu", "memory", "battery" ],
 
-    "hyprland/workspaces": {
-        "all-outputs": false,
-        "disable-scroll": true,
-        "warp-on-scroll": false,
-        "format": " 🞄 ",
-        "persistent-workspaces": { "1": "1", "2": "2", "3": "3", "4": "4", "5": "5", "6": "6" }
-    },
+  "hyprland/workspaces": {
+    "all-outputs": false,
+    "disable-scroll": true,
+    "warp-on-scroll": false,
+    "format": " 🞄 ",
+    "persistent-workspaces": { "1": "1", "2": "2", "3": "3", "4": "4", "5": "5", "6": "6" }
+  },
+  "hyprland/language": {
+    "format": "{short} {variant}"
+  },
+  "pulseaudio": {
+    "scroll-step": 1,
+    "format": "%{volume}{icon}",
+    "format-muted": " - {icon}",
+    "format-icons": { "headphone": "🞄", "hands-free": "▫", "headset": "▪", "default": "◦" }
+  },
 
-    "clock": {
-        "interval": 1,
-        "format": "{:%H:%M:%S}",
-        "format-alt": "{:%Y-%m-%d}",
-        "tooltip": false
-    },
+  "clock": {
+    "interval": 1,
+    "format": "{:%H:%M:%S}",
+    "format-alt": "{:%Y-%m-%d}",
+    "tooltip": false
+  },
 
-    "hyprland/language": {
-      "format": "{short} {variant}"
-    },
-    "network": {
-        "interval": 1,
-        "format": "{bandwidthTotalBytes}{icon}",
-        "format-disconnected": "-",
-        "format-alt": "{bandwidthDownBytes} {bandwidthUpBytes}🠙 %{signalStrength}{icon}",
-        "format-icons": { "wifi": "🞄", "ethernet": "▪", "linked": "◦" },
-        "tooltip-format": "{essid} - {ifname}: {ipaddr}/{cidr}"
-    },
-    "pulseaudio": {
-        "scroll-step": 1,
-        "format": "%{volume}{icon}",
-        "format-muted": " - {icon}",
-        "format-icons": { "headphone": "🞄", "hands-free": "▫", "headset": "▪", "default": "◦" }
-    },
-    "temperature": {
-        "interval": 1,
-        "thermal-zone": 6,
-        "format": "{temperatureC}°C",
-        "tooltip": false
-    },
-    "cpu": {
-        "interval": 1,
-        "format": "%{usage}",
-        "format-alt": "{avg_frequency:0.2f} %{usage}",
-        "tooltip": false
-    },
-    "memory": {
-        "interval": 1,
-        "format": "{used:0.2f}",
-        "tooltip": false
-    },
-    "battery": {
-        "interval": 5,
-        "format-time": "{H}:{m}",
-        "format": "{time} %{capacity}◦",
-        "format-full": "🞄",
-        "format-charging": "{time} %{capacity}🞄"
-    }
+  "network": {
+    "interval": 1,
+    "format": "{bandwidthTotalBytes}{icon}",
+    "format-disconnected": "-",
+    "format-alt": "{bandwidthDownBytes} {bandwidthUpBytes}🠙 %{signalStrength}{icon}",
+    "format-icons": { "wifi": "🞄", "ethernet": "▪", "linked": "◦" },
+    "tooltip-format": "{essid} - {ifname}: {ipaddr}/{cidr}"
+  },
+  "temperature": {
+    "interval": 1,
+    "thermal-zone": 6,
+    "format": "{temperatureC}°C",
+    "tooltip": false
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "%{usage}",
+    "format-alt": "{avg_frequency:0.2f} %{usage}",
+    "tooltip": false
+  },
+  "memory": {
+    "interval": 1,
+    "format": "{used:0.2f}",
+    "tooltip": false
+  },
+  "battery": {
+    "interval": 5,
+    "format-time": "{H}:{m}",
+    "format": "{time} %{capacity}◦",
+    "format-full": "🞄",
+    "format-charging": "{time} %{capacity}🞄"
+  }
 }
