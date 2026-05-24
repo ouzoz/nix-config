@@ -3,7 +3,7 @@
   "position": "top",
   "height": 24,
   "width": 1920,
-  "spacing": 24,
+  "spacing": 18,
 
   "modules-left": [ "hyprland/workspaces", "hyprland/language", "pulseaudio", "hyprland/submap" ],
   "modules-center": [ "clock" ],
