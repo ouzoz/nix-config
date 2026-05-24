@@ -188,7 +188,7 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:mag
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
-for i = 1, 6 do
+for i = 1, 3 do
   hl.bind(mainMod .. " + D + " .. i, monitors[i])
 end
 
