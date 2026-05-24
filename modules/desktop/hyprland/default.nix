@@ -45,8 +45,10 @@
     "xdg/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
     "xdg/hypr/hyprtoolkit.conf".source = ./hyprtoolkit.conf;
     "xdg/hypr/hyprlauncher.conf".source = ./hyprlauncher.conf;
+
     "xdg/waybar/config.jsonc".source = ./waybar/config.jsonc;
     "xdg/waybar/style.css".source = ./waybar/style.css;
+
     "xdg/mako/config".source = ./mako/config;
   };
 
