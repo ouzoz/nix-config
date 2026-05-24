@@ -9,8 +9,6 @@
     font-size: 16.2px;
     font-weight: 500;
 
-    min-height: 0;
-    margin: 0;
     text-shadow: none;
     box-shadow: none;
     transition: none;
@@ -21,14 +19,6 @@
 #window, window#waybar { background-color: @bg; color: @fg; }
 tooltip { opacity: 1; background-color: @bg; border-radius: 0; }
 tooltip * { color: @fg; }
-
-window#waybar label,
-window#waybar button {
-    padding-top: 0px;
-    padding-bottom: 4px;
-    padding-left: 8px;
-    padding-right: 8px;
-}
 
 #workspaces { margin: 0; padding: 0; }
 #workspaces button { border-radius: 0; padding: 0; color: @fg; }
