@@ -22,7 +22,7 @@ local monitors = {
   end,
 }
 
-monitors[0]()
+monitors[1]()
 
 hl.on("hyprland.start", function ()
   hl.exec_cmd("waybar")
