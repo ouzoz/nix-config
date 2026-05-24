@@ -9,16 +9,45 @@ local outs = {
 
 local monitors = {
   function ()
-    hl.monitor({ output = outs.hdmi.external, mode = "1920x1080@180", scale = 1 })
-    hl.monitor({ output = outs.hdmi.internal, disabled = true })
+    hl.monitor({
+      output = outs.hdmi.external,
+      disabled = false,
+      mode = "1920x1080@180",
+      position = "0x0",
+      scale = 1,
+    })
+    hl.monitor({
+      output = outs.hdmi.internal,
+      disabled = true,
+    })
   end,
   function ()
-    hl.monitor({ output = outs.hdmi.external, disabled = true })
-    hl.monitor({ output = outs.hdmi.internal, mode = "1920x1080@165", scale = 1 })
+    hl.monitor({
+      output = outs.hdmi.external,
+      disabled = true,
+    })
+    hl.monitor({
+      output = outs.hdmi.internal,
+      disabled = false,
+      mode = "1920x1080@165",
+      position = "0x0",
+      scale = 1
+    })
   end,
   function ()
-    hl.monitor({ output = outs.hdmi.external, mode = "preferred", scale = 1 })
-    hl.monitor({ output = outs.hdmi.internal, mode = "1920x1080@165", scale = 1, mirror = outs.hdmi.external })
+    hl.monitor({
+      output = outs.hdmi.external,
+      disabled = false,
+      mode = "preferred",
+      scale = 1
+    })
+    hl.monitor({
+      output = outs.hdmi.internal,
+      disabled = false,
+      mode = "1920x1080@165",
+      scale = 1,
+      mirror = outs.hdmi.external
+    })
   end,
 }
 
@@ -191,6 +220,19 @@ hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 for i = 1, 3 do
   hl.bind(mainMod .. " + D + " .. i, monitors[i])
 end
+-- hl.bind("ALT + R", hl.dsp.submap("resize"))
+-- hl.define_submap("resize", function()
+--
+--     -- Set repeating binds for resizing the active window.
+--     hl.bind("right", hl.dsp.window.resize({ x = 10, y = 0, relative = true}), { repeating = true })
+--     hl.bind("left", hl.dsp.window.resize({ x = -10, y = 0, relative = true}), { repeating = true })
+--     hl.bind("up", hl.dsp.window.resize({ x = 0, y = 10, relative = true}), { repeating = true })
+--     hl.bind("down", hl.dsp.window.resize({ x = 0, y = -10, relative = true}), { repeating = true })
+--
+--     -- Use `reset` to go back to the global submap
+--     hl.bind("escape", hl.dsp.submap("reset"))
+--
+-- end)
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
