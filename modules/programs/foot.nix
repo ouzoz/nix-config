@@ -18,6 +18,7 @@
       };
       cursor = {
         style = "beam";
+        beam-thickness = 3;
       };
       mouse = {
         hide-when-typing = "yes";
