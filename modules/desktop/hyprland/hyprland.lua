@@ -1,24 +1,30 @@
-hl.monitor({
-  output   = "eDP-1",
-  disabled = true,
-  mode     = "1920x1080@165",
-  position = "1920x0",
-  scale    = 1,
-  mirror   = "HDMI-A-1",
-})
+  -- code:28
 
-hl.monitor({
-  output   = "HDMI-A-1",
-  mode     = "1920x1080@180",
-  position = "0x0",
-  scale    = 1,
-})
+local outs = {
+  hdmi = {
+    internal = "eDP-1",
+    external = "HDMI-A-1",
+  }
+}
 
-local terminal    = "foot"
-local fileManager = "dolphin"
-local menu        = "hyprlauncher"
+local monitors = {
+  function ()
+    hl.monitor({ output = outs.hdmi.external, mode = "1920x1080@180", scale = 1 })
+    hl.monitor({ output = outs.hdmi.internal, disabled = true })
+  end,
+  function ()
+    hl.monitor({ output = outs.hdmi.external, disabled = true })
+    hl.monitor({ output = outs.hdmi.internal, mode = "1920x1080@165", scale = 1 })
+  end,
+  function ()
+    hl.monitor({ output = outs.hdmi.external, mode = "preferred", scale = 1 })
+    hl.monitor({ output = outs.hdmi.internal, mode = "1920x1080@165", scale = 1, mirror = outs.hdmi.external })
+  end
+}
 
-hl.on("hyprland.start", function () 
+monitors[0]()
+
+hl.on("hyprland.start", function ()
   hl.exec_cmd("waybar")
   hl.exec_cmd("hyprpaper")
 end)
@@ -151,34 +157,29 @@ hl.gesture({
 
 local mainMod = "SUPER"
 
-hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + BackSpace", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
-hl.bind(mainMod .. " + Q", hl.dsp.window.close())
-hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle"}))
-hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("foot"))
+hl.bind(mainMod .. " + BackSpace", hl.dsp.exec_cmd("hyprlauncher"))
+-- hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(fileManager))
 
-hl.bind(mainMod .. " + D", function ()
-  -- code:28
-  hl.dispatch()
-end)
-
-hl.bind(mainMod .. " + y", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-
--- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + H",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + K",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
 
-hl.bind(mainMod .. " + Tab", hl.dsp.focus({ workspace = "previous" }))
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-for i = 1, 10 do
-  local key = i % 10 -- 10 maps to key 0
-  hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i}))
-  hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle"}))
+hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + Q", hl.dsp.window.close())
+
+hl.bind(mainMod .. " + Tab", hl.dsp.focus({ workspace = "previous" }))
+for i = 1, 6 do
+  hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = i}))
+  hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
 
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
@@ -187,8 +188,9 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:mag
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+for i = 1, 6 do
+  hl.bind(mainMod .. " + D", monitors[i])
+end
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
