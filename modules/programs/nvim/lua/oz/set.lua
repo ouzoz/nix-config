@@ -2,13 +2,6 @@ local v, api, opt, key, con = vim, vim.api, vim.opt, vim.keymap.set, table.conca
 
 require('vim._core.ui2').enable({})
 
-api.nvim_create_autocmd("VimLeavePre", {
-  callback = function()
-    io.stdout:write("\033[2 q")
-    io.stdout:flush()
-  end,
-})
-
 -- options
 opt.cpoptions = 'aABceFs_'
 opt.autoread = true
