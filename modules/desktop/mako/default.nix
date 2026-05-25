@@ -15,7 +15,7 @@
     after = [ "graphical-session.target" ];
     partOf = [ "graphical-session.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.mako}/bin/mako";
+      ExecStart = "${pkgs.mako}/bin/mako --config /etc/xdg/mako/config";
       Restart = "on-failure";
       Slice = "session.slice";
     };

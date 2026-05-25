@@ -79,6 +79,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    apple-cursor
     grim
     slurp
     wl-clipboard
@@ -90,7 +91,6 @@
     hyprpwcenter
     hyprshutdown
     hyprtoolkit
-    hyprcursor
   ];
 
   environment.etc = {
@@ -110,6 +110,9 @@
   environment.sessionVariables = {
     AQ_DRM_DEVICES = "/dev/dri/by-driver/nvidia-card:/dev/dri/by-driver/intel-card";
     NIXOS_OZONE_WL = "1";
+
+    XCURSOR_THEME = "macOS";
+    XCURSOR_SIZE = "16";
 #   ELECTRON_OZONE_PLATFORM_HINT = "wayland";
 #   QT_QPA_PLATFORM = "wayland";
 #   SDL_VIDEODRIVER = "wayland";
