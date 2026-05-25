@@ -31,6 +31,15 @@
     ];
   };
 
+  # services.getty = {
+  #   loginOptions = "-- ouz";
+  #   extraArgs = [
+  #     "--skip-login"
+  #       "--noreset"
+  #       "--noclear"
+  #   ];
+  # };
+
   security.polkit.enable = true;
   systemd.user.services.hyprpolkitagent = {
     description = "Hyprland Polkit Authentication Agent";

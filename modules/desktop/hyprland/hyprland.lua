@@ -137,6 +137,7 @@ hl.config({
     -- font_family = "oziosevka",
     -- splash_font_family = "oziosevka",
     -- vrr = 1,
+    -- vfr = true,
     close_special_on_empty = true,
     render_unfocused_fps = 15,
   },
