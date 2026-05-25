@@ -42,7 +42,6 @@
 
   security.polkit.enable = true;
   systemd.user.services.hyprpolkitagent = {
-    enable = true;
     description = "Hyprland Polkit Authentication Agent";
     wantedBy = [ "graphical-session.target" ];
     after = [ "graphical-session.target" ];
@@ -56,13 +55,12 @@
   };
 
   systemd.user.services.hyprpaper = {
-    enable = true;
     description = "hyprpaper service";
     wantedBy = [ "graphical-session.target" ];
     after = [ "graphical-session.target" ];
     partOf = [ "graphical-session.target" ];
     serviceConfig = {
-      ExecStart = "hyprpaper";
+      ExecStart = "${pkgs.hyprpaper}/bin/hyprpaper";
       Restart = "on-failure";
       Slice = "session.slice";
     };
