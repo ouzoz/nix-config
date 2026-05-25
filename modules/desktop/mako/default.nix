@@ -10,6 +10,7 @@
   };
 
   systemd.user.services.mako = {
+    enable = true;
     description = "Mako notification daemon";
     wantedBy = [ "graphical-session.target" ];
     after = [ "graphical-session.target" ];
