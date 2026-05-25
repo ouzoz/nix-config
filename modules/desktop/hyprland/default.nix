@@ -19,13 +19,15 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    waybar
   #   wofi
-    mako
     grim
     slurp
+    waybar
+    mako
+    wl-clipboard
 
     hyprpaper
+    hyprpicker
     hyprlauncher
     hyprlock
     hyprsysteminfo
@@ -35,7 +37,6 @@
     hyprtoolkit
     hyprcursor
 
-    wl-clipboard
   ];
 
   environment.etc = {
@@ -59,6 +60,7 @@
 
   environment.sessionVariables = {
     AQ_DRM_DEVICES = "/dev/dri/by-driver/nvidia-card:/dev/dri/by-driver/intel-card";
+    NIXOS_OZONE_WL = "1";
 #   ELECTRON_OZONE_PLATFORM_HINT = "wayland";
 #   QT_QPA_PLATFORM = "wayland";
 #   SDL_VIDEODRIVER = "wayland";
@@ -72,6 +74,7 @@
 # env = NVD_BACKEND,direct
   };
 
+# part of the old sway config
   # services.gnome.gnome-keyring.enable = true;
   # security.pam.services.greetd.enableGnomeKeyring = true;
   # programs.sway = {
