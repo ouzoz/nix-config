@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     mako
+    libnotify
   ];
 
   environment.etc = {
