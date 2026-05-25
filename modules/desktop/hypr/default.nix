@@ -1,9 +1,12 @@
 { lib, pkgs, ... }:
 {
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    xwayland.enable = true;
+  programs = {
+    hyprland = {
+      enable = true;
+      withUWSM = true;
+      xwayland.enable = true;
+    };
+    hyprlock.enable = true;
   };
 
   services.gnome.gnome-keyring.enable = true;
@@ -51,6 +54,18 @@
     };
   };
 
+  systemd.user.services.hyprpaper = {
+    description = "hyprpaper service";
+    wantedBy = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+    serviceConfig = {
+      ExecStart = "hyprpaper";
+      Restart = "on-failure";
+      Slice = "session.slice";
+    };
+  };
+
   programs.dconf.profiles.user.databases = [
     {
       settings."org/gnome/desktop/interface" = {
@@ -66,13 +81,11 @@
   environment.systemPackages = with pkgs; [
     grim
     slurp
-    mako
     wl-clipboard
 
     hyprpaper
     hyprpicker
     hyprlauncher
-    hyprlock
     hyprpolkitagent
     hyprpwcenter
     hyprshutdown
@@ -87,8 +100,6 @@
     "xdg/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
     "xdg/hypr/hyprtoolkit.conf".source = ./hyprtoolkit.conf;
     "xdg/hypr/hyprlauncher.conf".source = ./hyprlauncher.conf;
-
-    "xdg/mako/config".source = ./mako/config;
   };
 
   services.udev.extraRules = ''

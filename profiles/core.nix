@@ -9,8 +9,8 @@
     ../modules/system/locale.nix
 
     ../modules/programs/git.nix
-    ../modules/programs/tmux/tmux.nix
-    ../modules/programs/nvim/nvim.nix
+    ../modules/programs/tmux
+    ../modules/programs/nvim
     ../modules/programs/yazi.nix
   ];
 }
