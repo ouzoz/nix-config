@@ -108,7 +108,8 @@
   '';
 
   environment.sessionVariables = {
-    AQ_DRM_DEVICES = "/dev/dri/by-driver/nvidia-card:/dev/dri/by-driver/intel-card";
+    AQ_DRM_DEVICES = "/dev/dri/by-driver/intel-card:/dev/dri/by-driver/nvidia-card";
+    # AQ_DRM_DEVICES = "/dev/dri/by-driver/nvidia-card:/dev/dri/by-driver/intel-card";
     NIXOS_OZONE_WL = "1";
 
     XCURSOR_THEME = "macOS";
