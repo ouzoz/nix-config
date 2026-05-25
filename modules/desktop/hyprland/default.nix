@@ -9,17 +9,14 @@
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.login.enableGnomeKeyring = true;
 
-  # exec uwsm start hyprland.desktop
-  # exec uwsm start -e -D Hyprland hyprland.desktop
   environment.loginShellInit = ''
     if [ "$USER" = "ouz" ] \
       && [ -z "$DISPLAY" ] \
       && [ -z "$WAYLAND_DISPLAY" ] \
       && [ "$(tty)" = "/dev/tty1" ] \
-      && ${pkgs.uwsm}/bin/uwsm check may-start \
-      && ${pkgs.uwsm}/bin/uwsm select \
+      && uwsm check may-start \
     ; then
-      exec ${pkgs.uwsm}/bin/uwsm start default
+      exec uwsm start hyprland.desktop
     fi
   '';
 
@@ -77,12 +74,11 @@
     hyprpicker
     hyprlauncher
     hyprlock
-    hyprsysteminfo
     hyprpolkitagent
     hyprpwcenter
     hyprshutdown
     hyprtoolkit
-    hyprcursor
+    # hyprcursor
   ];
 
   environment.etc = {
@@ -111,10 +107,8 @@
 #   QT_QPA_PLATFORM = "wayland";
 #   SDL_VIDEODRIVER = "wayland";
 #   CLUTTER_BACKEND = "wayland";
-#   MOZ_ENABLE_WAYLAND = "1";
 
 # env = LIBVA_DRIVER_NAME,nvidia
-# env = XDG_SESSION_TYPE,wayland
 # env = GBM_BACKEND,nvidia-drm
 # env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 # env = NVD_BACKEND,direct
