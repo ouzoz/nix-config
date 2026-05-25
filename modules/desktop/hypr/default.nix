@@ -113,6 +113,7 @@
 
     XCURSOR_THEME = "macOS";
     XCURSOR_SIZE = "16";
+
 #   ELECTRON_OZONE_PLATFORM_HINT = "wayland";
 #   QT_QPA_PLATFORM = "wayland";
 #   SDL_VIDEODRIVER = "wayland";
