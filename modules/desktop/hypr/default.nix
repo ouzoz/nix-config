@@ -112,7 +112,7 @@
     # AQ_DRM_DEVICES = "/dev/dri/by-driver/nvidia-card:/dev/dri/by-driver/intel-card";
     NIXOS_OZONE_WL = "1";
 
-    XCURSOR_THEME = "macOS";
+    XCURSOR_THEME = "macOS White";
     XCURSOR_SIZE = "20";
 
 #   ELECTRON_OZONE_PLATFORM_HINT = "wayland";

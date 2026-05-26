@@ -10,7 +10,28 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, ... }@inputs:
+  let
+    name = "system-flake";
+
+    pkgs-dev = with pkgs; [
+      lua-language-server
+      nixfmt-tree
+      nixd
+
+      zensical
+      just
+    ];
+
+    shellHook = ''
+      echo "- ${name} shell activated."
+    '';
+
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+    };
+  in {
     nixosConfigurations = {
       ouz = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -20,5 +41,14 @@
     };
 
     templates = import ./templates;
+
+    devShells.${system} = {
+      default = pkgs.mkShell {
+        inherit name;
+        inherit shellHook;
+        packages = pkgs-dev;
+        LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath pkgs-dev;
+      };
+    };
   };
 }
