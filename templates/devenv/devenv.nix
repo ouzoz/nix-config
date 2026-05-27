@@ -1,10 +1,22 @@
-{ pkgs ? import <nixpkgs> { config = { allowUnfree = true; cudaSupport = true; }; } }:
+{
+  pkgs ? import <nixpkgs> {
+    config = {
+      allowUnfree = true;
+      cudaSupport = true;
+    };
+  },
+}:
 let
   name = "moonai-shell";
 
   libs = with pkgs; [
     cudatoolkit
-    libx11 libxi libxrandr libxcursor libGL libGLU
+    libx11
+    libxi
+    libxrandr
+    libxcursor
+    libGL
+    libGLU
     udev
     zlib
     openssl

@@ -10,9 +10,9 @@ in
   ];
 
   environment.sessionVariables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-      MANPAGER = "nvim +Man!";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    MANPAGER = "nvim +Man!";
   };
   programs.neovim = {
     enable = true;

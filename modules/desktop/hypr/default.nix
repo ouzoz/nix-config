@@ -112,17 +112,17 @@
     # AQ_DRM_DEVICES = "/dev/dri/by-driver/nvidia-card:/dev/dri/by-driver/intel-card";
     NIXOS_OZONE_WL = "1";
 
-    XCURSOR_THEME = "macOS White";
+    XCURSOR_THEME = "macOS-White";
     XCURSOR_SIZE = "20";
 
-#   ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-#   QT_QPA_PLATFORM = "wayland";
-#   SDL_VIDEODRIVER = "wayland";
-#   CLUTTER_BACKEND = "wayland";
+    #   ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+    #   QT_QPA_PLATFORM = "wayland";
+    #   SDL_VIDEODRIVER = "wayland";
+    #   CLUTTER_BACKEND = "wayland";
 
-# env = LIBVA_DRIVER_NAME,nvidia
-# env = GBM_BACKEND,nvidia-drm
-# env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-# env = NVD_BACKEND,direct
+    # env = LIBVA_DRIVER_NAME,nvidia
+    # env = GBM_BACKEND,nvidia-drm
+    # env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+    # env = NVD_BACKEND,direct
   };
 }

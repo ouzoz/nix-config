@@ -113,12 +113,13 @@ let
     tree-sitter-zig
   ];
 
-  getLang = pkg:
+  getLang =
+    pkg:
     let
       name = pkg.pname or (builtins.parseDrvName pkg.name).name;
       stripped = pkgs.lib.removePrefix "tree-sitter-" name;
     in
-      builtins.replaceStrings ["-"] ["_"] stripped;
+    builtins.replaceStrings [ "-" ] [ "_" ] stripped;
 in
 
 pkgs.runCommand "treesitter-runtime" { } ''

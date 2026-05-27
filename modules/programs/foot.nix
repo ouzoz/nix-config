@@ -50,7 +50,6 @@
         # bright6 = "009689";
         # bright7 = "ffffff";
 
-
         regular0 = "000000";
         regular1 = "ff3a4c";
         regular2 = "00ea45";
@@ -68,7 +67,6 @@
         bright5 = "bd56ff";
         bright6 = "40e0d0";
         bright7 = "ffffff";
-
 
         "233" = "100d14";
         "235" = "232027";

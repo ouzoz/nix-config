@@ -39,7 +39,7 @@ opt.inccommand = 'split'
 -- completion
 opt.autocomplete = true
 opt.pumheight = 6
-opt.complete = { '.', 'w', 'b', 'kspell', 'i', 't', 'f' } -- '.,w,b'
+opt.complete = { '.', 'w', 'b', 'kspell', 'i', 't', 'f' }    -- '.,w,b'
 opt.completeopt = { 'menu', 'menuone', 'noselect', 'popup' } -- fuzzy.nosort
 opt.wildoptions = { 'pum', 'tagfile', 'fuzzy' }
 opt.wildignorecase = true
@@ -51,11 +51,17 @@ local has_word = function()
 end
 
 key('i', '<Tab>', function()
-  if v.fn.pumvisible() == 1 then return '<C-n>'
+  if v.fn.pumvisible() == 1 then
+    return '<C-n>'
   elseif has_word() then
-    if v.bo.omnifunc ~= '' then return '<C-x><C-o>'
-    else return '<C-n>' end
-  else return '<Tab>' end
+    if v.bo.omnifunc ~= '' then
+      return '<C-x><C-o>'
+    else
+      return '<C-n>'
+    end
+  else
+    return '<Tab>'
+  end
 end, { expr = true, silent = true })
 
 -- symbols
@@ -92,7 +98,6 @@ function OzFold()
   }
 end
 
-
 -- keymaps
 v.g.mapleader = ' '
 v.g.maplocalleader = ' '
@@ -103,7 +108,7 @@ local opts = { noremap = true, silent = true, nowait = true }
 key('n', '<leader><Tab>', '<cmd>b#<CR>')
 key('n', '<leader>n', '<cmd>bn<CR>')
 key('n', '<leader>p', '<cmd>bp<CR>')
-for i=1, 9, 1 do key('n', con{ '<leader>', i }, con{ '<cmd>b', i, '<CR>' }, opts) end
+for i = 1, 9, 1 do key('n', con { '<leader>', i }, con { '<cmd>b', i, '<CR>' }, opts) end
 
 key('n', '<leader>h', '<C-w><C-h>')
 key('n', '<leader>j', '<C-w><C-j>')
@@ -114,7 +119,7 @@ key('n', '<leader>v', '<C-w><C-v>')
 key('n', '<leader>s', '<cmd>w<CR>', opts)
 key('n', '<leader>q', '<cmd>bd<CR>', opts)
 key('n', '<leader>e', '<cmd>TogExplorer<CR>', opts)
-key('n', '<leader>w', '<cmd>set spell!<CR>', opts )
+key('n', '<leader>w', '<cmd>set spell!<CR>', opts)
 key('n', '<leader>t', '<cmd>ToggleBackground<CR>', opts)
 
 key('n', '<leader>gd', v.lsp.buf.definition, opts)
@@ -185,9 +190,10 @@ api.nvim_create_autocmd('LspAttach', {
     end
 
     if client:supports_method 'textDocument/formatting'
-      and not client:supports_method 'textDocument/willSaveWaitUntil' then
-      api.nvim_buf_create_user_command( args.buf, 'FormatBuf', function()
+        and not client:supports_method 'textDocument/willSaveWaitUntil' then
+      api.nvim_buf_create_user_command(args.buf, 'FormatBuf', function()
         v.lsp.buf.format { bufnr = args.buf, id = client.id, timeout_ms = 1000 }
+        print("Formatted")
       end, {})
     end
   end,
