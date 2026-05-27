@@ -7,8 +7,8 @@ commit:
   git add -A
   git commit -m "$(date)"
 
-build:
-  sudo nixos-rebuild switch --flake /etc/nixos#
+build NAME="":
+  sudo nixos-rebuild switch --flake /etc/nixos#{{NAME}}
 
 update:
   nix flake update
