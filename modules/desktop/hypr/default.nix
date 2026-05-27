@@ -113,7 +113,7 @@
     NIXOS_OZONE_WL = "1";
 
     XCURSOR_THEME = "macOS-White";
-    XCURSOR_SIZE = "20";
+    XCURSOR_SIZE = "24";
 
     #   ELECTRON_OZONE_PLATFORM_HINT = "wayland";
     #   QT_QPA_PLATFORM = "wayland";
