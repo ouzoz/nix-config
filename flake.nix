@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    vars = import ./vars;
+    # vars = import ./vars;
   };
 
   outputs =
@@ -40,7 +40,7 @@
       nixosConfigurations = {
         ouz = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs; vars = import ./vars; };
           modules = [ ./hosts/ouz/configuration.nix ];
         };
       };
