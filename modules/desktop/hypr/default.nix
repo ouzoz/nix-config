@@ -79,7 +79,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    apple-cursor
     grim
     slurp
     wl-clipboard
@@ -111,9 +110,6 @@
     AQ_DRM_DEVICES = "/dev/dri/by-driver/intel-card:/dev/dri/by-driver/nvidia-card";
     # AQ_DRM_DEVICES = "/dev/dri/by-driver/nvidia-card:/dev/dri/by-driver/intel-card";
     NIXOS_OZONE_WL = "1";
-
-    XCURSOR_THEME = "macOS-White";
-    XCURSOR_SIZE = "24";
 
     #   ELECTRON_OZONE_PLATFORM_HINT = "wayland";
     #   QT_QPA_PLATFORM = "wayland";
