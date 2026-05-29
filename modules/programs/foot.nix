@@ -1,4 +1,4 @@
-{ ... }:
+{ vars, ... }:
 {
   programs.foot = {
     enable = true;
