@@ -82,6 +82,7 @@
     grim
     slurp
     wl-clipboard
+    brightnessctl
 
     hyprpaper
     hyprpicker
