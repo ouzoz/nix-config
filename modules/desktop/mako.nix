@@ -5,10 +5,6 @@
     libnotify
   ];
 
-  environment.etc = {
-    "xdg/mako/config".source = ./config;
-  };
-
   systemd.user.services.mako = {
     description = "Mako notification daemon";
     wantedBy = [ "graphical-session.target" ];
@@ -19,5 +15,22 @@
       Restart = "on-failure";
       Slice = "session.slice";
     };
+  };
+
+  environment.etc = {
+    "xdg/mako/config".text = ''
+      sort=+time
+      layer=overlay
+      font=Oziosevka 16px
+      background-color=#000000
+      width=420
+      height=180
+      margin=6
+      padding=12
+      border-size=0
+      default-timeout=12000
+      ignore-timeout=1
+      max-visible=6
+    '';
   };
 }
