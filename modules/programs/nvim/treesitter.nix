@@ -95,7 +95,6 @@ let
     tree-sitter-sql
     tree-sitter-strace
     tree-sitter-svelte
-    tree-sitter-sway
     tree-sitter-swift
     tree-sitter-tablegen
     tree-sitter-todotxt
