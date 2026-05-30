@@ -203,6 +203,7 @@ hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("foot"))
 hl.bind(mainMod .. " + BackSpace", hl.dsp.exec_cmd("hyprlauncher"))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("thunar"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("grim"))
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("hyprpicker"))
 
 hl.bind(mainMod .. " + H",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
