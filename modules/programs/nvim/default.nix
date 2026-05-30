@@ -2,7 +2,7 @@
 
 let
   treesitter-runtime = import ./treesitter.nix { inherit pkgs; };
-  base-config = ./.;
+  # base-config = ./.;
 in
 {
   imports = [
@@ -21,12 +21,21 @@ in
     withNodeJs = true;
     withPython3 = true;
     withRuby = false;
-    configure = {
-      customRC = ''
-        set runtimepath+=${treesitter-runtime}
-        set runtimepath^=${base-config}
-        luafile ${base-config}/init.lua
-      '';
+
+    runtime = {
+      "init.lua".source = ./init.lua;
+      "lua".source = ./lua;
+      "lsp".source = ./lsp;
+      "spell".source = ./spell;
+      "parser".source = "${treesitter-runtime}/parser";
+      "queries".source = "${treesitter-runtime}/queries";
     };
+    # configure = {
+    #   customRC = ''
+    #     set runtimepath+=${treesitter-runtime}
+    #     set runtimepath^=${base-config}
+    #     luafile ${base-config}/init.lua
+    #   '';
+    # };
   };
 }
