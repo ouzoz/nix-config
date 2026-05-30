@@ -29,14 +29,11 @@ let
     tree-sitter-erlang
     tree-sitter-fish
     tree-sitter-fortran
-    tree-sitter-fsharp
-    tree-sitter-fstar
     tree-sitter-git-config
     tree-sitter-git-rebase
     tree-sitter-gitattributes
     tree-sitter-gitcommit
     tree-sitter-gitignore
-    tree-sitter-gleam
     tree-sitter-go
     tree-sitter-graphql
     tree-sitter-groovy
@@ -64,7 +61,6 @@ let
     tree-sitter-matlab
     tree-sitter-meson
     tree-sitter-nginx
-    tree-sitter-nim
     tree-sitter-nix
     tree-sitter-ocaml
     tree-sitter-opencl
@@ -73,13 +69,11 @@ let
     tree-sitter-phpdoc
     tree-sitter-powershell
     tree-sitter-prolog
-    tree-sitter-proto
     tree-sitter-python
     tree-sitter-ql
     tree-sitter-r
     tree-sitter-readline
     tree-sitter-regex
-    tree-sitter-river
     tree-sitter-ruby
     tree-sitter-rust
     tree-sitter-scala
