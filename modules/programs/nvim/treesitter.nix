@@ -126,7 +126,11 @@ pkgs.runCommand "treesitter-runtime" { } ''
   mkdir -p $out/parser
   mkdir -p $out/queries
   ${pkgs.lib.concatMapStrings (pkg: ''
-    ln -s ${pkg}/parser $out/parser/${getLang pkg}.so
+    lang=${getLang pkg}
+    ln -s ${pkg}/parser $out/parser/$lang.so
+
+    if [ -d ${pkgs.vimPlugins.nvim-treesitter.src}/runtime/queries/$lang ]; then
+      ln -s ${pkgs.vimPlugins.nvim-treesitter.src}/runtime/queries/$lang $out/queries/$lang
+    fi
   '') parsers}
-  ln -s ${pkgs.vimPlugins.nvim-treesitter.src}/runtime/queries/* $out/queries/
 ''
