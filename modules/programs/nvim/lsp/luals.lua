@@ -10,7 +10,6 @@ return {
     'selene.toml',
     'selene.yml',
     '.git',
-    'Makefile',
   },
   settings = {
     Lua = {
