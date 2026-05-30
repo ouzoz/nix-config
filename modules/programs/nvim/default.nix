@@ -2,7 +2,6 @@
 
 let
   treesitter-runtime = import ./treesitter.nix { inherit pkgs; };
-  # base-config = ./.;
 in
 {
   imports = [
@@ -30,12 +29,5 @@ in
       "parser".source = "${treesitter-runtime}/parser";
       "queries".source = "${treesitter-runtime}/queries";
     };
-    # configure = {
-    #   customRC = ''
-    #     set runtimepath+=${treesitter-runtime}
-    #     set runtimepath^=${base-config}
-    #     luafile ${base-config}/init.lua
-    #   '';
-    # };
   };
 }
