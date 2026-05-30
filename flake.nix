@@ -8,8 +8,6 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # vars = import ./vars;
   };
 
   outputs =
@@ -40,7 +38,10 @@
       nixosConfigurations = {
         ouz = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; vars = import ./vars; };
+          specialArgs = {
+            inherit inputs;
+            vars = import ./vars;
+          };
           modules = [ ./hosts/ouz/configuration.nix ];
         };
       };
