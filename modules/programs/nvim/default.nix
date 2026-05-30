@@ -20,6 +20,7 @@ in
     viAlias = true;
     withNodeJs = true;
     withPython3 = true;
+    withRuby = false;
     configure = {
       customRC = ''
         set runtimepath+=${treesitter-runtime}

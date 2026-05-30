@@ -7,6 +7,7 @@
     ../modules/desktop/mako.nix
     ../modules/desktop/hypr
     ../modules/desktop/waybar
+    ../modules/desktop/pipe.nix
 
     ../modules/programs/gui.nix
   ];
