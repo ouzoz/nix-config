@@ -24,12 +24,9 @@ let
       tree-sitter-dot
       tree-sitter-edoc
       tree-sitter-elisp
-      tree-sitter-elixir
-      tree-sitter-elm
       tree-sitter-embedded-template
       tree-sitter-erlang
       tree-sitter-fish
-      tree-sitter-fortran
       tree-sitter-git-config
       tree-sitter-git-rebase
       tree-sitter-gitattributes
@@ -44,7 +41,6 @@ let
       tree-sitter-html
       tree-sitter-htmldjango
       tree-sitter-http
-      tree-sitter-hyprlang
       tree-sitter-ini
       tree-sitter-java
       tree-sitter-javascript
@@ -102,10 +98,6 @@ let
   };
 in
 {
-  imports = [
-    ./lsp.nix
-  ];
-
   environment.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
