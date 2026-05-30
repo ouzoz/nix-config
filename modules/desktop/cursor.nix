@@ -6,6 +6,6 @@
 
   environment.sessionVariables = {
     XCURSOR_THEME = "macOS-White";
-    XCURSOR_SIZE = "24";
+    XCURSOR_SIZE = "20";
   };
 }
