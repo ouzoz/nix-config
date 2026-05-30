@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   treesitter-runtime = import ./treesitter.nix { inherit pkgs; };
