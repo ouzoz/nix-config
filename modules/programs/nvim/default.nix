@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  treesitter-runtime = import ./treesitter.nix { inherit pkgs; };
+  treesitter-runtime = pkgs.callPackage ../../../pkgs/treesitter-runtime { };
 in
 {
   imports = [

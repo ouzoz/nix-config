@@ -1,7 +1,12 @@
-{ pkgs }:
+{
+  lib,
+  runCommand,
+  tree-sitter-grammars,
+  vimPlugins,
+}:
 
 let
-  parsers = with pkgs.tree-sitter-grammars; [
+  parsers = with tree-sitter-grammars; [
     tree-sitter-awk
     tree-sitter-bash
     tree-sitter-bibtex
@@ -103,20 +108,20 @@ let
     pkg:
     let
       name = pkg.pname or (builtins.parseDrvName pkg.name).name;
-      stripped = pkgs.lib.removePrefix "tree-sitter-" name;
+      stripped = lib.removePrefix "tree-sitter-" name;
     in
     builtins.replaceStrings [ "-" ] [ "_" ] stripped;
 in
 
-pkgs.runCommand "treesitter-runtime" { } ''
+runCommand "treesitter-runtime" { } ''
   mkdir -p $out/parser
   mkdir -p $out/queries
-  ${pkgs.lib.concatMapStrings (pkg: ''
+  ${lib.concatMapStrings (pkg: ''
     lang=${getLang pkg}
     ln -s ${pkg}/parser $out/parser/$lang.so
 
-    if [ -d ${pkgs.vimPlugins.nvim-treesitter.src}/runtime/queries/$lang ]; then
-      ln -s ${pkgs.vimPlugins.nvim-treesitter.src}/runtime/queries/$lang $out/queries/$lang
+    if [ -d ${vimPlugins.nvim-treesitter.src}/runtime/queries/$lang ]; then
+      ln -s ${vimPlugins.nvim-treesitter.src}/runtime/queries/$lang $out/queries/$lang
     fi
   '') parsers}
 ''
