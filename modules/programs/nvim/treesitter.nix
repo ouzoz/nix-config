@@ -2,8 +2,6 @@
 
 let
   parsers = with pkgs.tree-sitter-grammars; [
-    tree-sitter-ada
-    tree-sitter-agda
     tree-sitter-awk
     tree-sitter-bash
     tree-sitter-bibtex
@@ -14,11 +12,9 @@ let
     tree-sitter-comment
     tree-sitter-commonlisp
     tree-sitter-cpp
-    tree-sitter-crystal
     tree-sitter-css
     tree-sitter-csv
     tree-sitter-cuda
-    tree-sitter-d
     tree-sitter-dart
     tree-sitter-debian
     tree-sitter-devicetree
@@ -54,7 +50,6 @@ let
     tree-sitter-ini
     tree-sitter-java
     tree-sitter-javascript
-    tree-sitter-jq
     tree-sitter-jsdoc
     tree-sitter-json
     tree-sitter-julia
@@ -72,9 +67,7 @@ let
     tree-sitter-nim
     tree-sitter-nix
     tree-sitter-ocaml
-    tree-sitter-odin
     tree-sitter-opencl
-    tree-sitter-pascal
     tree-sitter-perl
     tree-sitter-php
     tree-sitter-phpdoc
