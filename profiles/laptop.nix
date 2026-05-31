@@ -9,6 +9,8 @@
     ../modules/de/mako.nix
     ../modules/de/hypr
     ../modules/de/filemanager.nix
+    ../modules/de/hyprpaper.nix
+    ../modules/de/hyprlauncher.nix
 
     ../modules/programs/gui.nix
 

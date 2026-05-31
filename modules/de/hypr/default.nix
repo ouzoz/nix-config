@@ -73,7 +73,6 @@
     brightnessctl
 
     hyprpicker
-    hyprlauncher
     hyprpolkitagent
     hyprpwcenter
     hyprshutdown
@@ -85,7 +84,6 @@
     "xdg/hypr/hyprland.lua".source = ./hyprland.lua;
 
     "xdg/hypr/hyprtoolkit.conf".source = ./hyprtoolkit.conf;
-    "xdg/hypr/hyprlauncher.conf".source = ./hyprlauncher.conf;
   };
 
   services.udev.extraRules = ''
