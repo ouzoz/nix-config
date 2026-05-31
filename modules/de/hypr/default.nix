@@ -54,18 +54,6 @@
     };
   };
 
-  systemd.user.services.hyprpaper = {
-    description = "hyprpaper service";
-    wantedBy = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.hyprpaper}/bin/hyprpaper";
-      Restart = "on-failure";
-      Slice = "session.slice";
-    };
-  };
-
   programs.dconf.profiles.user.databases = [
     {
       settings."org/gnome/desktop/interface" = {
@@ -84,7 +72,6 @@
     wl-clipboard
     brightnessctl
 
-    hyprpaper
     hyprpicker
     hyprlauncher
     hyprpolkitagent
@@ -97,7 +84,6 @@
     "xdg/hypr/stubs".source = "${pkgs.hyprland}/share/hypr/stubs";
     "xdg/hypr/hyprland.lua".source = ./hyprland.lua;
 
-    "xdg/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
     "xdg/hypr/hyprtoolkit.conf".source = ./hyprtoolkit.conf;
     "xdg/hypr/hyprlauncher.conf".source = ./hyprlauncher.conf;
   };
