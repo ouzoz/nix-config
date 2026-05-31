@@ -70,7 +70,7 @@ local monitors = {
   end,
 }
 
-monitors[2]()
+monitors[1]()
 
 -- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
 -- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
