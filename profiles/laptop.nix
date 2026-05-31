@@ -2,14 +2,16 @@
 
 {
   imports = [
-    ../modules/desktop/fonts.nix
-    ../modules/desktop/cursor.nix
-    ../modules/desktop/waybar.nix
-    ../modules/desktop/sound.nix
-    ../modules/desktop/mako.nix
-    ../modules/desktop/hypr
+    ../modules/de/fonts.nix
+    ../modules/de/cursor.nix
+    ../modules/de/waybar.nix
+    ../modules/de/sound.nix
+    ../modules/de/mako.nix
+    ../modules/de/hypr
+    ../modules/de/filemanager.nix
 
     ../modules/programs/gui.nix
-    ../modules/programs/obs.nix
+
+    ../modules/gui/obs.nix
   ];
 }
