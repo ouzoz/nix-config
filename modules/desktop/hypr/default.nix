@@ -4,7 +4,7 @@
     hyprland = {
       enable = true;
       withUWSM = true;
-      xwayland.enable = true;
+      xwayland.enable = false;
     };
     hyprlock.enable = true;
   };
