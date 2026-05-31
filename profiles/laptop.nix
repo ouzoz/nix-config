@@ -10,5 +10,6 @@
     ../modules/desktop/hypr
 
     ../modules/programs/gui.nix
+    ../modules/programs/obs.nix
   ];
 }
