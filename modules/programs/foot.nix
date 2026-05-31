@@ -24,7 +24,7 @@
         hide-when-typing = "yes";
       };
       colors-dark = {
-        alpha = 0.92;
+        alpha = 0.83;
         blur = true;
         cursor = "${vars.theme.s1} ${vars.theme.s6}";
         selection-foreground = "ffffff";

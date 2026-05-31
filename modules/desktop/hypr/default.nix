@@ -117,9 +117,9 @@
     #   SDL_VIDEODRIVER = "wayland";
     #   CLUTTER_BACKEND = "wayland";
 
-    # env = LIBVA_DRIVER_NAME,nvidia
-    # env = GBM_BACKEND,nvidia-drm
-    # env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-    # env = NVD_BACKEND,direct
+    # LIBVA_DRIVER_NAME = nvidia
+    # GBM_BACKEND = nvidia-drm
+    # __GLX_VENDOR_LIBRARY_NAME = nvidia
+    # NVD_BACKEND = direct
   };
 }
