@@ -1,8 +1,5 @@
 default: commit build
 
-search:
-  nix search nixpkgs
-
 commit:
   git add -A
   git commit -m "$(date)"
