@@ -13,5 +13,6 @@
     ../modules/programs/gui.nix
 
     ../modules/gui/obs.nix
+    ../modules/gui/media.nix
   ];
 }
