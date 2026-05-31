@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  oziosevka = pkgs.callPackage ../../pkgs/oziosevka { };
+  oziosevka = pkgs.callPackage ../../packages/oziosevka { };
 in
 {
   fonts.packages = with pkgs; [

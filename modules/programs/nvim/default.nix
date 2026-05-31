@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  treesitter-runtime = pkgs.callPackage ../../../pkgs/treesitter-runtime {
+  treesitter-runtime = pkgs.callPackage ../../../packages/treesitter-runtime {
     parsers = with pkgs.tree-sitter-grammars; [
       tree-sitter-awk
       tree-sitter-bash
