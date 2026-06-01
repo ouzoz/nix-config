@@ -2,41 +2,52 @@
 let
   name = "system-config";
 
+  basePackages = with pkgs; [
+    just
+  ];
+  baseShellHook = "";
+
   shellDefs = {
     nix = import ./nix.nix { inherit pkgs; };
     docs = import ./docs.nix { inherit pkgs; };
     lua = import ./lua.nix { inherit pkgs; };
-    dev = import ./dev.nix { inherit pkgs; };
   };
 
-  mkShellHook =
+  shellDefs.default = {
+    packages = pkgs.lib.unique (
+      basePackages
+      ++ pkgs.lib.flatten (map (shell: shell.packages or [ ]) (builtins.attrValues shellDefs))
+    );
+
+    shellHook = pkgs.lib.concatStringsSep "\n" [
+      baseShellHook
+      ''
+        echo "- ${name} default-shell activated."
+      ''
+    ];
+  };
+
+  packagesFor = shell: pkgs.lib.unique (basePackages ++ (shell.packages or [ ]));
+  shellHookFor =
     shellName: shell:
-    (shell.shellHook or "")
-    + ''
-      echo "- ${name} ${shellName}-shell activated."
-    '';
+    pkgs.lib.concatStringsSep "\n" [
+      baseShellHook
+      (shell.shellHook or "")
+      ''
+        echo "- ${name} ${shellName}-shell activated."
+      ''
+    ];
 
   mkDevShell =
     shellName: shell:
+    let
+      packages = packagesFor shell;
+    in
     pkgs.mkShell {
       name = "${name}-${shellName}-shell";
-      packages = shell.packages;
-      LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath shell.packages;
-      shellHook = mkShellHook shellName shell;
+      inherit packages;
+      LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath packages;
+      shellHook = shellHookFor shellName shell;
     };
-
-  allPackages = pkgs.lib.unique (
-    pkgs.lib.flatten (map (shell: shell.packages) (builtins.attrValues shellDefs))
-  );
 in
 builtins.mapAttrs mkDevShell shellDefs
-// {
-  default = pkgs.mkShell {
-    name = "${name}-default-shell";
-    packages = allPackages;
-    LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath allPackages;
-    shellHook = ''
-      echo "- ${name} default-shell activated."
-    '';
-  };
-}
