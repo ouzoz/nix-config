@@ -25,3 +25,6 @@ update-rust:
 
 format:
   treefmt
+
+format-check:
+  treefmt --ci
