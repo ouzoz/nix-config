@@ -38,7 +38,7 @@ builtins.mapAttrs
   (
     shellName: shell:
     let
-      name = "${project} ${shellName} shell";
+      name = "${project} ${shellName}-shell";
       packages = pkgs.lib.unique (base.packages ++ (shell.packages or [ ]));
       shellHook = pkgs.lib.concatStringsSep "\n" [
         base.shellHook
