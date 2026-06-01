@@ -32,6 +32,6 @@
 
       templates = import ./templates;
 
-      devShells.${system} = import ./devshells { inherit pkgs; };
+      devShells.${system} = import ./devshells.nix { inherit pkgs; };
     };
 }
