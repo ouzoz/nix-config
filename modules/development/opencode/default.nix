@@ -2,6 +2,8 @@
 {
   environment.sessionVariables = {
     OPENCODE_ENABLE_EXA = 1;
+    OPENCODE_CONFIG = "/etc/xdg/opencode/opencode.json";
+    OPENCODE_CONFIG_DIR = "/etc/xdg/opencode";
   };
 
   environment.shellAliases = {
@@ -23,11 +25,11 @@
   #   '';
   # };
 
-  environment.etc = {
-    "opencode/agents".source = ./agents;
-    "opencode/commands".source = ./commands;
-    "opencode/themes".source = ./themes;
-    "opencode/opencode.json".source = ./opencode.json;
-    "opencode/RULES.md".source = ./RULES.md;
+  environment.etc."xdg/opencode/" = {
+    "agents".source = ./agents;
+    "commands".source = ./commands;
+    "themes".source = ./themes;
+    "opencode.json".source = ./opencode.json;
+    "RULES.md".source = ./RULES.md;
   };
 }
