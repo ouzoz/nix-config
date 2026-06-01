@@ -40,7 +40,9 @@
   # };
 
   security.polkit.enable = true;
-  systemd.user.services.hyprpolkitagent.wantedBy = [ "graphical-session.target" ];
+  systemd.user.units."hyprpolkitagent.service".wantedBy = [
+    "graphical-session.target"
+  ];
   # systemd.user.services.hyprpolkitagent = {
   #   description = "Hyprland Polkit Authentication Agent";
   #   wantedBy = [ "graphical-session.target" ];
