@@ -59,8 +59,8 @@
 
       clock = {
         interval = 1;
-        format = "{ =%H =%M =%S}";
-        format-alt = "{ =%Y-%m-%d}";
+        format = "{: =%H =%M =%S}";
+        format-alt = "{: =%Y-%m-%d}";
         tooltip = false;
       };
 
@@ -90,7 +90,7 @@
       };
       memory = {
         interval = 1;
-        format = "{used =0.2f}";
+        format = "{used:0.2f}";
         tooltip = false;
       };
       battery = {
