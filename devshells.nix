@@ -41,28 +41,22 @@ let
       map (shell: shell.shellHook or "") (builtins.attrValues shells)
     );
   };
-
-  packagesFor = shell: pkgs.lib.unique (base.Packages ++ (shell.packages or [ ]));
-  shellHookFor =
-    shellName: shell:
-    pkgs.lib.concatStringsSep "\n" [
+in
+builtins.mapAttrs (
+  shellName: shell:
+  let
+    packages = pkgs.lib.unique (base.Packages ++ (shell.packages or [ ]));
+    shellHook = pkgs.lib.concatStringsSep "\n" [
       base.shellHook
       (shell.shellHook or "")
       ''
         echo "- ${name} ${shellName}-shell activated."
       ''
     ];
-
-  mkDevShell =
-    shellName: shell:
-    let
-      packages = packagesFor shell;
-    in
-    pkgs.mkShell {
-      name = "${name}-${shellName}-shell";
-      inherit packages;
-      LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath packages;
-      shellHook = shellHookFor shellName shell;
-    };
-in
-builtins.mapAttrs mkDevShell shells
+  in
+  pkgs.mkShell {
+    name = "${name}-${shellName}-shell";
+    inherit packages shellHook;
+    LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath packages;
+  }
+) shells
