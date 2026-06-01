@@ -40,19 +40,18 @@
   # };
 
   security.polkit.enable = true;
-  systemd.user.units."hyprpolkitagent.service".wantedBy = [ "graphical-session.target" ];
-  # systemd.user.services.hyprpolkitagent = {
-  #   description = "Hyprland Polkit Authentication Agent";
-  #   wantedBy = [ "graphical-session.target" ];
-  #   after = [ "graphical-session.target" ];
-  #   partOf = [ "graphical-session.target" ];
-  #   serviceConfig = {
-  #     ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
-  #     Restart = "on-failure";
-  #     Slice = "session.slice";
-  #     TimeoutStopSec = "5sec";
-  #   };
-  # };
+  systemd.user.services.hyprpolkitagent = {
+    description = "Hyprland Polkit Authentication Agent";
+    wantedBy = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
+      Restart = "on-failure";
+      Slice = "session.slice";
+      TimeoutStopSec = "5sec";
+    };
+  };
 
   programs.dconf.profiles.user.databases = [
     {
