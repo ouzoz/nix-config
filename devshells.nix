@@ -45,7 +45,7 @@ builtins.mapAttrs
         (shell.shellHook or "")
         ''echo "${name} activated."''
       ];
-      env = (base.env or { }) // (shell.env or { });
+      env = base.env // shell.env;
       LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath packages;
     in
     pkgs.mkShell {
