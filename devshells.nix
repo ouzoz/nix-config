@@ -43,9 +43,7 @@ builtins.mapAttrs
       shellHook = pkgs.lib.concatStringsSep "\n" [
         base.shellHook
         (shell.shellHook or "")
-        ''
-          echo "${name} activated."
-        ''
+        ''echo "${name} activated."''
       ];
       env = (base.env or { }) // (shell.env or { });
       LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath packages;
