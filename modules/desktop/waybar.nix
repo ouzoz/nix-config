@@ -6,7 +6,7 @@
   };
 
   environment.etc = {
-    "xdg/waybar/config.jsonc".source = pkgs.formats.json { }.generate "waybar-config.jsonc" {
+    "xdg/waybar/config.jsonc".source = (pkgs.formats.json { }).generate "waybar-config.jsonc" {
       layer = "top";
       position = "top";
       height = 24;
