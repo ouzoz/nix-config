@@ -24,10 +24,10 @@
   # };
 
   environment.etc = {
-    "xdg/opencode/agents".source = ./agents;
-    "xdg/opencode/commands".source = ./commands;
-    "xdg/opencode/themes".source = ./themes;
-    "xdg/opencode/opencode.json".source = ./opencode.json;
-    "xdg/opencode/RULES.md".source = ./RULES.md;
+    "opencode/agents".source = ./agents;
+    "opencode/commands".source = ./commands;
+    "opencode/themes".source = ./themes;
+    "opencode/opencode.json".source = ./opencode.json;
+    "opencode/RULES.md".source = ./RULES.md;
   };
 }
