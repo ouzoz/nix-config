@@ -25,11 +25,11 @@
   #   '';
   # };
 
-  environment.etc."xdg/opencode/" = {
-    "agents".source = ./agents;
-    "commands".source = ./commands;
-    "themes".source = ./themes;
-    "opencode.json".source = ./opencode.json;
-    "RULES.md".source = ./RULES.md;
+  environment.etc = {
+    "xdg/opencode/agents".source = ./agents;
+    "xdg/opencode/commands".source = ./commands;
+    "xdg/opencode/themes".source = ./themes;
+    "xdg/opencode/opencode.json".source = ./opencode.json;
+    "xdg/opencode/RULES.md".source = ./RULES.md;
   };
 }
