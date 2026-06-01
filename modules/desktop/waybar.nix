@@ -59,8 +59,8 @@
 
       clock = {
         interval = 1;
-        format = "{: =%H =%M =%S}";
-        format-alt = "{: =%Y-%m-%d}";
+        format = "{:%H:%M:%S}";
+        format-alt = "{:%Y-%m-%d}";
         tooltip = false;
       };
 
