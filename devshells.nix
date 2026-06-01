@@ -7,7 +7,7 @@ let
       just
     ];
 
-    ShellHook = "";
+    shellHook = "";
   };
 
   shells = {
@@ -31,16 +31,6 @@ let
       ];
     };
   };
-
-  shells.default = {
-    packages = pkgs.lib.unique (
-      pkgs.lib.flatten (map (shell: shell.packages or [ ]) (builtins.attrValues shells))
-    );
-
-    shellHook = pkgs.lib.concatStringsSep "\n" (
-      map (shell: shell.shellHook or "") (builtins.attrValues shells)
-    );
-  };
 in
 builtins.mapAttrs (
   shellName: shell:
@@ -60,3 +50,14 @@ builtins.mapAttrs (
     LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath packages;
   }
 ) shells
+// {
+  default = {
+    packages = pkgs.lib.unique (
+      pkgs.lib.flatten (map (shell: shell.packages or [ ]) (builtins.attrValues shells))
+    );
+
+    shellHook = pkgs.lib.concatStringsSep "\n" (
+      map (shell: shell.shellHook or "") (builtins.attrValues shells)
+    );
+  };
+}
