@@ -3,7 +3,7 @@ let
   name = "system-config";
 
   base = {
-    Packages = with pkgs; [
+    packages = with pkgs; [
       just
     ];
 
@@ -49,7 +49,7 @@ builtins.mapAttrs (
     inherit packages shellHook;
     LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath packages;
   }
-) shells
+) (shells
 // {
   default = {
     packages = pkgs.lib.unique (
@@ -60,4 +60,4 @@ builtins.mapAttrs (
       map (shell: shell.shellHook or "") (builtins.attrValues shells)
     );
   };
-}
+})
