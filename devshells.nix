@@ -38,7 +38,7 @@ builtins.mapAttrs
   (
     shellName: shell:
     let
-      name = "${project}-${shellName}-shell";
+      name = "${project} ${shellName} shell";
       packages = pkgs.lib.unique (base.packages ++ (shell.packages or [ ]));
       shellHook = pkgs.lib.concatStringsSep "\n" [
         base.shellHook
@@ -67,13 +67,9 @@ builtins.mapAttrs
         packages = pkgs.lib.unique (
           pkgs.lib.flatten (map (shell: shell.packages or [ ]) (builtins.attrValues shells))
         );
-
-        env =
-          envs:
-          pkgs.lib.foldl' (acc: env: acc // env) { } envs (
-            map (shell: shell.env or { }) (builtins.attrValues shells)
-          );
-
+        env = pkgs.lib.foldl' (acc: env: acc // env) { } (
+          map (shell: shell.env or { }) (builtins.attrValues shells)
+        );
         shellHook = pkgs.lib.concatStringsSep "\n" (
           map (shell: shell.shellHook or "") (builtins.attrValues shells)
         );
