@@ -22,3 +22,6 @@ optimise:
 update-rust:
   rm -rf ~/.rustup/toolchains/*
   rustup default stable
+
+format:
+  treefmt
