@@ -38,14 +38,14 @@ builtins.mapAttrs
   (
     shellName: shell:
     let
-      name = "${project} ${shellName}-shell";
+      name = "${project}_${shellName}_shell";
       packages = pkgs.lib.unique (base.packages ++ (shell.packages or [ ]));
       shellHook = pkgs.lib.concatStringsSep "\n" [
         base.shellHook
         (shell.shellHook or "")
-        ''echo "${name} activated."''
+        ''echo "> ${name}"''
       ];
-      env = base.env // shell.env;
+      env = (base.env or { }) // (shell.env or { });
       LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath packages;
     in
     pkgs.mkShell {
