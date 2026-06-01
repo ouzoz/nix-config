@@ -17,6 +17,7 @@
 
       pkgs-dev = with pkgs; [
         lua-language-server
+
         nixfmt
         treefmt
         nixd
