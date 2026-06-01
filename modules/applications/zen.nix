@@ -1,10 +1,7 @@
 { inputs, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    libreoffice
-    # obsidian
-    # thunderbird
   ];
 }

@@ -1,20 +1,13 @@
-{ pkgs, ... }:
-
+{ ... }:
 {
   environment.sessionVariables = {
     OPENCODE_ENABLE_EXA = 1;
   };
   environment.shellAliases = {
     oc = "opencode";
-    tok = "tokei -C -s lines";
-    tokf = "tok -f";
-    lin = "github-linguist";
-    lan = "tok && lin";
   };
   environment.systemPackages = with pkgs; [
     opencode
-    tokei
-    github-linguist
   ];
   system.userActivationScripts.linkOpencode = {
     text = ''

@@ -1,5 +1,3 @@
-  -- code:28
-
 local outs = {
   hdmi = {
     internal = "eDP-1",

@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 {
-  environment.localBinInPath = true;
-
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
@@ -16,14 +14,17 @@
   };
 
   environment.systemPackages = with pkgs; [
-    ripgrep
     fastfetch
+
     wget
+    smartmontools
+
     zip
     unzip
     unrar
     p7zip
-    smartmontools
-    openconnect
+
+    ripgrep
+    just
   ];
 }

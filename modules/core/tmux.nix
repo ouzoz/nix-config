@@ -112,8 +112,6 @@
       bind -n M-S-Left    swapw -dt :-1
       bind -n M-S-Right   swapw -dt :+1
       bind -n M-n         command-prompt -I "#W" { renamew "%%" }
-      bind -n M-0         neww -n "ai" opencode
-      bind -n M-z         neww -n "file" yazi
       bind -n M-*         neww
       bind -n M-Q         killw
 

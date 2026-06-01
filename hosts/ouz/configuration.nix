@@ -1,16 +1,18 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
 
-    ../../modules/hardware/nvidia.nix
-    ../../modules/hardware/logitech.nix
-    ../../modules/hardware/swap.nix
+    ../../profiles/hardware.nix
+
+    ../../profiles/applications.nix
+    ../../profiles/desktop.nix
+
+    ../../profiles/development.nix
 
     ../../profiles/core.nix
-    ../../profiles/laptop.nix
-    ../../profiles/development.nix
+    ../../profiles/system.nix
   ];
 
   networking.hostName = "ouz";

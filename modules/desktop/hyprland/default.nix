@@ -6,7 +6,6 @@
       withUWSM = true;
       xwayland.enable = false;
     };
-    hyprlock.enable = true;
   };
 
   services.gnome.gnome-keyring.enable = true;
