@@ -24,6 +24,7 @@
     unrar
     p7zip
 
+    fd
     ripgrep
     just
   ];
