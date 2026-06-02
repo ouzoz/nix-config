@@ -14,7 +14,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    fastfetch
+    # fastfetch
 
     wget
     smartmontools
