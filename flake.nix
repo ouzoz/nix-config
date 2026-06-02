@@ -15,14 +15,14 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+      vars = import ./vars.nix;
     in
     {
       nixosConfigurations = {
         ouz = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs;
-            vars = import ./vars;
+            inherit inputs vars;
           };
           modules = [ ./hosts/ouz/configuration.nix ];
         };
