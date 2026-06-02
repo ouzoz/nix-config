@@ -43,6 +43,7 @@
       set -g cursor-style bar
 
       set -s extended-keys on
+      set -g extended-keys-format csi-u
       set-environment -g LC_CTYPE "en_US.UTF-8"
       set-environment -g LANG "en_US.UTF-8"
 
