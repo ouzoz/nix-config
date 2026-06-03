@@ -28,3 +28,6 @@ format:
 
 format-check:
   treefmt --ci
+
+size:
+  nix run nixpkgs#nix-tree -- /run/current-system
