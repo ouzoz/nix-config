@@ -1,10 +1,11 @@
 { pkgs, ... }:
+let 
+  tok_command = "tokei -C -s lines";
+in
 {
   environment.shellAliases = {
-    tok = "tokei -C -s lines";
-    tokf = "tok -f";
-    lin = "github-linguist";
-    lan = "tok && lin";
+    lanf ="${tok_command} -f";
+    lan = "${tok_command} && github-linguist";
   };
   environment.systemPackages = with pkgs; [
     tokei
