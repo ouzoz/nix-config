@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "instructions": ["~/.config/opencode/RULES.md", "docs/**/*.md", "justfile"],
+  "instructions": ["~/.config/opencode/RULES.md", "docs/**/*.md", "justfile", "README.md"],
   "default_agent": "plan",
   "agent": {
     "chat": {
