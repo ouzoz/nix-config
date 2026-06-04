@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   environment.sessionVariables = {
-    GH_TELEMETRY=false;
+    GH_TELEMETRY = "0";
   };
 
   environment.shellAliases = {
