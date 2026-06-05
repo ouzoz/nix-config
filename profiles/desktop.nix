@@ -1,6 +1,9 @@
 { ... }:
 {
   imports = [
+    ../modules/desktop/fuzzel.nix
+    ../modules/desktop/niri.nix
+
     ../modules/desktop/thunar.nix
     ../modules/desktop/foot.nix
 
