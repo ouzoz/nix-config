@@ -15,12 +15,12 @@
       terminal = "foot  -a '{cmd}' -T '{cmd}' {cmd}";
       list-executables-in-path = false;
       anchor = "top";
-      y-margin = 12;
+      y-margin = 6;
       lines = 6;
       minimal-lines = true;
-      width = 36;
+      width = 30;
       horizontal-pad = 24;
-      vertical-pad = 18;
+      vertical-pad = 12;
       inner-pad = 6;
       image-size-ratio = 0.3;
       line-height="30";
