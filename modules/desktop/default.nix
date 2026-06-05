@@ -1,13 +1,17 @@
-{ ... }:
+{ pkgs, ... }:
 {
-  imports = [
-    ./utils.nix
+  environment.systemPackages = with pkgs; [
+    grim
+    slurp
+    brightnessctl
+  ];
 
+  imports = [
     ./thunar.nix
     ./foot.nix
 
     ./fuzzel.nix
-    ./hyprpaper.nix
+    ./swaybg.nix
     ./hyprlock.nix
     ./waybar.nix
     ./mako.nix
