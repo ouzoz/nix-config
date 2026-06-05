@@ -20,7 +20,7 @@
       minimal-lines = true;
       width = 36;
       horizontal-pad = 24;
-      vertical-pad = 12;
+      vertical-pad = 18;
       inner-pad = 6;
       image-size-ratio = 0.3;
       line-height="30";
