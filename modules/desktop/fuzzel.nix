@@ -6,7 +6,7 @@
 
   environment.etc."xdg/fuzzel/fuzzel.ini".source = (pkgs.formats.ini {}).generate "fuzzel.ini" {
     main = {
-      font = "Oziosevka:size=18";
+      font = "Oziosevka:size=12";
       terminal = "foot";
       prompt = " ";
       icons-enabled = true;
