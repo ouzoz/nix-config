@@ -16,22 +16,35 @@
       list-executables-in-path = false;
       anchor = "top";
       y-margin = 12;
-
+      lines = 6;
+      minimal-lines = true;
+      width = 36;
+      horizontal-pad = 6;
+      vertical-pad = 6;
+      inner-pad = 0;
+      image-size-ratio = 0.3;
       line-height="18";
-      pad = "60x60";
-      initial-color-theme = "dark";
-      initial-window-size-chars = "12x50";
     };
 
     colors = {
       background = "000000ea";
       text = "ffffff";
+      message = "ff0000";
+      prompt = "ffffff";
+      placeholder = "cccccc";
+      input = "ffffff";
+      match = "00ff00";
       selection = "232027";
+      selection-text = "ffffff";
+      selection-match = "ffffff";
+      counter = "0000ff";
+      border = "aaaaaa";
     };
 
     border = {
       width = 0;
       radius = 12;
+      selection-radius = 6;
     };
   };
 }
