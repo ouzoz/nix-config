@@ -6,7 +6,7 @@
 
   environment.etc."xdg/fuzzel/fuzzel.ini".source = (pkgs.formats.ini {}).generate "fuzzel.ini" {
     main = {
-      font = "Oziosevka:size=18";
+      font = "Oziosevka:size=12";
       use-bold = true;
       placeholder = "";
       prompt = "";
@@ -16,14 +16,14 @@
       list-executables-in-path = false;
       anchor = "top";
       y-margin = 12;
-      lines = 6;
+      lines = 12;
       minimal-lines = true;
       width = 42;
       horizontal-pad = 24;
       vertical-pad = 12;
       inner-pad = 6;
       image-size-ratio = 0.3;
-      line-height="27";
+      line-height="24";
     };
 
     colors = {
