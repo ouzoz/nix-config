@@ -7,7 +7,7 @@
     ../../profiles/hardware.nix
 
     ../../profiles/applications.nix
-    ../../profiles/desktop.nix
+    ../../modules/desktop
 
     ../../profiles/development.nix
 
