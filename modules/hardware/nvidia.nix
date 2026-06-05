@@ -36,4 +36,19 @@
       RemainAfterExit = true;
     };
   };
+
+  services.udev.extraRules = ''
+    SUBSYSTEM=="drm", KERNEL=="card*", DRIVERS=="nvidia", SYMLINK+="dri/by-driver/nvidia-card"
+    SUBSYSTEM=="drm", KERNEL=="card*", DRIVERS=="i915", SYMLINK+="dri/by-driver/intel-card"
+  '';
+
+  environment.sessionVariables = {
+    # AQ_DRM_DEVICES = "/dev/dri/by-driver/intel-card:/dev/dri/by-driver/nvidia-card";
+    AQ_DRM_DEVICES = "/dev/dri/by-driver/nvidia-card:/dev/dri/by-driver/intel-card";
+
+    # LIBVA_DRIVER_NAME = nvidia
+    # GBM_BACKEND = nvidia-drm
+    # __GLX_VENDOR_LIBRARY_NAME = nvidia
+    # NVD_BACKEND = direct
+  };
 }

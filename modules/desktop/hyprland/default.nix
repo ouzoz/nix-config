@@ -66,11 +66,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    grim
-    slurp
-    wl-clipboard
-    brightnessctl
-
     hyprpicker
     hyprpolkitagent
     hyprpwcenter
@@ -85,24 +80,11 @@
     "xdg/hypr/hyprtoolkit.conf".source = ./hyprtoolkit.conf;
   };
 
-  services.udev.extraRules = ''
-    SUBSYSTEM=="drm", KERNEL=="card*", DRIVERS=="nvidia", SYMLINK+="dri/by-driver/nvidia-card"
-    SUBSYSTEM=="drm", KERNEL=="card*", DRIVERS=="i915", SYMLINK+="dri/by-driver/intel-card"
-  '';
-
   environment.sessionVariables = {
-    # AQ_DRM_DEVICES = "/dev/dri/by-driver/intel-card:/dev/dri/by-driver/nvidia-card";
-    AQ_DRM_DEVICES = "/dev/dri/by-driver/nvidia-card:/dev/dri/by-driver/intel-card";
     NIXOS_OZONE_WL = "1";
-
     #   ELECTRON_OZONE_PLATFORM_HINT = "wayland";
     #   QT_QPA_PLATFORM = "wayland";
     #   SDL_VIDEODRIVER = "wayland";
     #   CLUTTER_BACKEND = "wayland";
-
-    # LIBVA_DRIVER_NAME = nvidia
-    # GBM_BACKEND = nvidia-drm
-    # __GLX_VENDOR_LIBRARY_NAME = nvidia
-    # NVD_BACKEND = direct
   };
 }

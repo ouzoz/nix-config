@@ -1,6 +1,8 @@
 { ... }:
 {
   imports = [
+    ../modules/desktop/utils.nix
+
     ../modules/desktop/thunar.nix
     ../modules/desktop/foot.nix
 
