@@ -8,7 +8,7 @@
     main = {
       font = "monospace:size=14";
       terminal = "foot";
-      prompt = "> ";
+      prompt = "";
       icons-enabled = true;
     };
 
