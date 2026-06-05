@@ -1,12 +1,10 @@
 { ... }:
 {
   imports = [
-    ../modules/desktop/fuzzel.nix
-    ../modules/desktop/niri.nix
-
     ../modules/desktop/thunar.nix
     ../modules/desktop/foot.nix
 
+    ../modules/desktop/fuzzel.nix
     ../modules/desktop/hyprlauncher.nix
     ../modules/desktop/hyprpaper.nix
     ../modules/desktop/hyprlock.nix
@@ -18,5 +16,6 @@
     ../modules/desktop/fonts.nix
 
     ../modules/desktop/hyprland
+    ../modules/desktop/niri.nix
   ];
 }
