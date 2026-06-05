@@ -9,7 +9,7 @@
       font = "Oziosevka:size=12";
       use-bold = true;
       placeholder = "";
-      prompt = "asd";
+      prompt = "\" \"";
       icons-enabled = true;
       match-counter = true;
       terminal = "foot  -a '{cmd}' -T '{cmd}' {cmd}";
