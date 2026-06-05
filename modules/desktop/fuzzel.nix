@@ -6,10 +6,10 @@
 
   environment.etc."xdg/fuzzel/fuzzel.ini".source = (pkgs.formats.ini {}).generate "fuzzel.ini" {
     main = {
-      font = "Oziosevka:size=24";
+      font = "Oziosevka:size=18";
       use-bold = true;
       placeholder = "";
-      prompt = " ";
+      prompt = "";
       icons-enabled = true;
       match-counter = true;
       terminal = "foot  -a '{cmd}' -T '{cmd}' {cmd}";
@@ -21,24 +21,24 @@
       width = 42;
       horizontal-pad = 24;
       vertical-pad = 12;
-      inner-pad = 0;
+      inner-pad = 6;
       image-size-ratio = 0.3;
-      line-height="36";
+      line-height="27";
     };
 
     colors = {
       background = "000000ea";
-      text = "ffffff";
-      message = "ff0000";
-      prompt = "ffffff";
-      placeholder = "cccccc";
-      input = "ffffff";
-      match = "00ff00";
-      selection = "232027";
-      selection-text = "ffffff";
-      selection-match = "ffffff";
-      counter = "0000ff";
-      border = "aaaaaa";
+      text = "ffffffff";
+      message = "ff0000ff";
+      prompt = "ffffffff";
+      placeholder = "ccccccff";
+      input = "ffffffff";
+      match = "00ff00ff";
+      selection = "232027ff";
+      selection-text = "ffffffff";
+      selection-match = "ffffffff";
+      counter = "0000ffff";
+      border = "aaaaaaff";
     };
 
     border = {
