@@ -15,6 +15,7 @@
       terminal = "foot  -a '{cmd}' -T '{cmd}' {cmd}";
       list-executables-in-path = false;
       anchor = "top";
+      y-margin = 12;
 
       line-height="18";
       pad = "60x60";
