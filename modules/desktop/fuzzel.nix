@@ -28,16 +28,16 @@
 
     colors = {
       background = "000000ea";
-      text = "ffffffff";
+      text = "96929bff";
       message = "ff0000ff";
-      prompt = "ffffffff";
+      prompt = "4e4a53ff";
       placeholder = "ccccccff";
       input = "ffffffff";
-      match = "00ff00ff";
+      match = "ffffffff";
       selection = "232027ff";
-      selection-text = "ffffffff";
+      selection-text = "96929bff";
       selection-match = "ffffffff";
-      counter = "0000ffff";
+      counter = "96929bff";
       border = "aaaaaaff";
     };
 
