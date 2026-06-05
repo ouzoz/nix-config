@@ -16,9 +16,9 @@
       list-executables-in-path = false;
       anchor = "top";
       y-margin = 12;
-      lines = 12;
+      lines = 6;
       minimal-lines = true;
-      width = 42;
+      width = 36;
       horizontal-pad = 24;
       vertical-pad = 12;
       inner-pad = 6;
