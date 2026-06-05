@@ -5,7 +5,6 @@
     ../modules/desktop/foot.nix
 
     ../modules/desktop/fuzzel.nix
-    ../modules/desktop/hyprlauncher.nix
     ../modules/desktop/hyprpaper.nix
     ../modules/desktop/hyprlock.nix
     ../modules/desktop/waybar.nix
