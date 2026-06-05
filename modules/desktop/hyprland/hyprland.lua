@@ -202,6 +202,8 @@ hl.bind(mainMod .. " + BackSpace", hl.dsp.exec_cmd("fuzzel"))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("thunar"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("grim"))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("hyprpicker"))
+hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"))
+
 
 hl.bind(mainMod .. " + H",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))

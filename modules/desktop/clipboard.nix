@@ -25,6 +25,4 @@
     max-items 600
     preview-width 24
   '';
-
-  # cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
 }
