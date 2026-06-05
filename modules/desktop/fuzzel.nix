@@ -34,7 +34,7 @@
       placeholder = "ccccccff";
       input = "ffffffff";
       match = "ffffffff";
-      selection = "232027ff";
+      selection = "232027ea";
       selection-text = "96929bff";
       selection-match = "ffffffff";
       counter = "96929bff";
