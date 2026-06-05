@@ -18,12 +18,12 @@
       y-margin = 12;
       lines = 6;
       minimal-lines = true;
-      width = 36;
-      horizontal-pad = 6;
-      vertical-pad = 6;
+      width = 42;
+      horizontal-pad = 36;
+      vertical-pad = 12;
       inner-pad = 0;
       image-size-ratio = 0.3;
-      line-height="18";
+      line-height="30";
     };
 
     colors = {
