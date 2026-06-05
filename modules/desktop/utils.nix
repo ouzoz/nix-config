@@ -4,6 +4,7 @@
     grim
     slurp
     wl-clipboard
+    cliphist
     brightnessctl
   ];
 }
