@@ -11,7 +11,7 @@
     after = [ "graphical-session.target" ];
     partOf = [ "graphical-session.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.cliphist}/bin/cliphist";
+      ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch ${pkgs.cliphist}/bin/cliphist store";
       Restart = "on-failure";
       Slice = "session.slice";
     };
