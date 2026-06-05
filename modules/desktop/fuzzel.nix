@@ -23,7 +23,7 @@
       vertical-pad = 12;
       inner-pad = 6;
       image-size-ratio = 0.3;
-      line-height="30";
+      line-height="24";
     };
 
     colors = {
