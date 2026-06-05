@@ -7,6 +7,7 @@ in
     oziosevka
 
     source-sans
+    source-serif
     corefonts
   ];
 }

@@ -13,7 +13,7 @@
     };
 
     colors = {
-      background = "282a36ff";
+      background = "000000db";
       text = "f8f8f2ff";
       selection = "44475aff";
     };
