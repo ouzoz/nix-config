@@ -6,20 +6,20 @@
 
   environment.etc."xdg/fuzzel/fuzzel.ini".source = (pkgs.formats.ini {}).generate "fuzzel.ini" {
     main = {
-      font = "monospace:size=14";
+      font = "Oziosevka:size=18";
       terminal = "foot";
-      prompt = "";
+      prompt = " ";
       icons-enabled = true;
     };
 
     colors = {
       background = "000000db";
-      text = "f8f8f2ff";
+      text = "ffffff";
       selection = "44475aff";
     };
 
     border = {
-      width = 1;
+      width = 0;
       radius = 12;
     };
   };
