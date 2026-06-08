@@ -7,6 +7,45 @@
 }:
 
 let
+parsers =   with pkgs.tree-sitter-grammars; [
+    tree-sitter-bash
+    tree-sitter-cmake
+    tree-sitter-cpp
+    tree-sitter-css
+    tree-sitter-csv
+    tree-sitter-cuda
+    tree-sitter-dockerfile
+    tree-sitter-dot
+    tree-sitter-embedded-template
+    # tree-sitter-git-config
+    # tree-sitter-git-rebase
+    # tree-sitter-gitattributes
+    # tree-sitter-gitcommit
+    # tree-sitter-gitignore
+    tree-sitter-go
+    tree-sitter-html
+    tree-sitter-ini
+    tree-sitter-java
+    tree-sitter-javascript
+    tree-sitter-json
+    tree-sitter-julia
+    tree-sitter-just
+    tree-sitter-latex
+    tree-sitter-log
+    tree-sitter-make
+    tree-sitter-nix
+    tree-sitter-opencl
+    tree-sitter-php
+    tree-sitter-python
+    tree-sitter-rust
+    tree-sitter-sql
+    tree-sitter-toml
+    tree-sitter-tsx
+    tree-sitter-typescript
+    tree-sitter-xml
+    tree-sitter-yaml
+  ];
+
   getLang =
     pkg:
     let
@@ -25,44 +64,6 @@ runCommand "treesitter-runtime" { } ''
     if [ -d ${vimPlugins.nvim-treesitter.src}/runtime/queries/$lang ]; then
       ln -s ${vimPlugins.nvim-treesitter.src}/runtime/queries/$lang $out/queries/$lang
     fi
-  '') 
-  [
-    pkgs.tree-sitter-bash
-    pkgs.tree-sitter-cmake
-    pkgs.tree-sitter-cpp
-    pkgs.tree-sitter-css
-    pkgs.tree-sitter-csv
-    pkgs.tree-sitter-cuda
-    pkgs.tree-sitter-dockerfile
-    pkgs.tree-sitter-dot
-    pkgs.tree-sitter-embedded-template
-    # pkgs.tree-sitter-git-config
-    # pkgs.tree-sitter-git-rebase
-    # pkgs.tree-sitter-gitattributes
-    # pkgs.tree-sitter-gitcommit
-    # pkgs.tree-sitter-gitignore
-    pkgs.tree-sitter-go
-    pkgs.tree-sitter-html
-    pkgs.tree-sitter-ini
-    pkgs.tree-sitter-java
-    pkgs.tree-sitter-javascript
-    pkgs.tree-sitter-json
-    pkgs.tree-sitter-julia
-    pkgs.tree-sitter-just
-    pkgs.tree-sitter-latex
-    pkgs.tree-sitter-log
-    pkgs.tree-sitter-make
-    pkgs.tree-sitter-nix
-    pkgs.tree-sitter-opencl
-    pkgs.tree-sitter-php
-    pkgs.tree-sitter-python
-    pkgs.tree-sitter-rust
-    pkgs.tree-sitter-sql
-    pkgs.tree-sitter-toml
-    pkgs.tree-sitter-tsx
-    pkgs.tree-sitter-typescript
-    pkgs.tree-sitter-xml
-    pkgs.tree-sitter-yaml
-  ]
+  '') parsers
 }
 ''
