@@ -21,7 +21,7 @@
       pull.rebase = true;
       safe.directory = "/etc/nixos";
       user = {
-        name = "oguzhanozkaya";
+        name = "ouzoz";
         email = "ozkayaoguzhan67@gmail.com";
       };
       core = {
