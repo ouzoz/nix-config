@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   imports = [
     ../modules/applications/obs.nix

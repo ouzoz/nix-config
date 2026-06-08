@@ -19,6 +19,7 @@
     config = {
       init.defaultBranch = "main";
       pull.rebase = true;
+      safe.directory = "/etc/nixos";
       user = {
         name = "oguzhanozkaya";
         email = "ozkayaoguzhan67@gmail.com";

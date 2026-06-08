@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 {
   programs = {
     hyprland = {
@@ -8,83 +8,10 @@
     };
   };
 
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.login.enableGnomeKeyring = true;
-
-  environment.loginShellInit = ''
-    if [ "$USER" = "ouz" ] \
-      && [ -z "$DISPLAY" ] \
-      && [ -z "$WAYLAND_DISPLAY" ] \
-      && [ "$(tty)" = "/dev/tty1" ] \
-      && uwsm check may-start \
-    ; then
-      exec uwsm start hyprland.desktop
-    fi
-  '';
-
-  systemd.services."getty@tty1" = {
-    overrideStrategy = "asDropin";
-    serviceConfig.ExecStart = lib.mkForce [
-      ""
-      "${pkgs.util-linux}/bin/agetty -o '-- ouz' --skip-login --noreset --noclear tty1 $TERM"
-    ];
-  };
-
-  # services.getty = {
-  #   loginOptions = "-- ouz";
-  #   extraArgs = [
-  #     "--skip-login"
-  #       "--noreset"
-  #       "--noclear"
-  #   ];
-  # };
-
-  security.polkit.enable = true;
-  systemd.user.services.hyprpolkitagent = {
-    description = "Hyprland Polkit Authentication Agent";
-    wantedBy = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
-      Restart = "on-failure";
-      Slice = "session.slice";
-      TimeoutStopSec = "5sec";
-    };
-  };
-
-  programs.dconf.profiles.user.databases = [
-    {
-      settings."org/gnome/desktop/interface" = {
-        # gtk-theme = "Adwaita";
-        # icon-theme = "Flat-Remix-Red-Dark";
-        font-name = "Source Sans 3 12";
-        document-font-name = "Source Sans 3 12";
-        monospace-font-name = "Oziosevka 12";
-      };
-    }
-  ];
-
-  environment.systemPackages = with pkgs; [
-    hyprpicker
-    hyprpolkitagent
-    hyprpwcenter
-    hyprshutdown
-    hyprtoolkit
-  ];
-
   environment.etc = {
     "xdg/hypr/stubs".source = "${pkgs.hyprland}/share/hypr/stubs";
     "xdg/hypr/hyprland.lua".source = ./hyprland.lua;
 
     "xdg/hypr/hyprtoolkit.conf".source = ./hyprtoolkit.conf;
-  };
-
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    #   ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-    #   QT_QPA_PLATFORM = "wayland";
-    #   SDL_VIDEODRIVER = "wayland";
-    #   CLUTTER_BACKEND = "wayland";
   };
 }

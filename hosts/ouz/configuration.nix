@@ -1,20 +1,13 @@
-{ ... }:
+{ config, lib, ... }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-
-    ../../profiles/hardware.nix
-
-    ../../profiles/applications.nix
-    ../../modules/desktop
-
-    ../../profiles/development.nix
-
-    ../../profiles/core.nix
-    ../../profiles/system.nix
-  ];
-
-  networking.hostName = "ouz";
   system.stateVersion = "25.11";
+  networking.hostName = "ouz";
+
+  config.my.mod.desktop.external = true;
+
+  specialisation.configuration.onthego = {
+    system.nixos.tags = [ "onthego" ];
+    config.my.desktop.external = lib.mkForce false;
+  };
 }

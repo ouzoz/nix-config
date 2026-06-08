@@ -31,3 +31,6 @@ format-check:
 
 size:
   nix run nixpkgs#nix-tree -- /run/current-system
+
+key:
+  ssh-keygen

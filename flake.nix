@@ -15,21 +15,33 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      vars = import ./vars.nix;
-    in
-    {
-      nixosConfigurations = {
-        ouz = nixpkgs.lib.nixosSystem {
+
+      mkHost =
+        hostname:
+        nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs vars;
+            inherit inputs;
+            my = {
+              lib = import ./lib;
+              pkgs = import ./pkgs { inherit pkgs; };
+              overlays = import ./overlays;
+              assets = ./assets;
+            };
           };
-          modules = [ ./hosts/ouz/configuration.nix ];
+          modules = [
+            ./config
+            ./modules
+            ./hosts/${hostname}/configuration.nix
+            ./hosts/${hostname}/hardware-configuration.nix
+          ];
         };
-      };
-
+    in
+    {
       templates = import ./templates;
-
       devShells.${system} = import ./devshells.nix { inherit pkgs; };
+      nixosConfigurations = {
+        ouz = mkHost "ouz";
+      };
     };
 }

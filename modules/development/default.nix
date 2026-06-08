@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   imports = [
     ../modules/development/pi.nix

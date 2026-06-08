@@ -1,10 +1,7 @@
-{ pkgs, ... }:
-let
-  oziosevka = pkgs.callPackage ../../packages/oziosevka { };
-in
+{ pkgs, my, ... }:
 {
   fonts.packages = with pkgs; [
-    oziosevka
+    my.pkgs.oziosevka
 
     source-sans
     source-serif

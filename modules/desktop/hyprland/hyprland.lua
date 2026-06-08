@@ -1,79 +1,3 @@
-local outs = {
-  hdmi = {
-    internal = "eDP-1",
-    external = "HDMI-A-1",
-  }
-}
-
-local monitors = {
-  function ()
-    hl.monitor({
-      output = outs.hdmi.external,
-      disabled = false,
-      mode = "1920x1080@180",
-      position = "auto",
-      scale = 1,
-    })
-    hl.monitor({
-      output = outs.hdmi.internal,
-      disabled = true,
-    })
-  end,
-  function ()
-    hl.monitor({
-      output = outs.hdmi.external,
-      disabled = true,
-    })
-    hl.monitor({
-      output = outs.hdmi.internal,
-      disabled = false,
-      mode = "1920x1080@165",
-      position = "auto",
-      scale = 1
-    })
-  end,
-  function ()
-    hl.monitor({
-      output = outs.hdmi.external,
-      disabled = false,
-      mode = "preferred",
-      position = "auto",
-      scale = 1,
-      mirror = outs.hdmi.internal,
-    })
-    hl.monitor({
-      output = outs.hdmi.internal,
-      disabled = false,
-      mode = "1920x1080@165",
-      position = "auto",
-      scale = 1,
-    })
-  end,
-  function ()
-    hl.monitor({
-      output = outs.hdmi.external,
-      disabled = false,
-      mode = "preferred",
-      position = "auto",
-      scale = 1
-    })
-    hl.monitor({
-      output = outs.hdmi.internal,
-      disabled = false,
-      -- mode = "1920x1080@165",
-      position = "auto",
-      scale = 1,
-      mirror = outs.hdmi.external
-    })
-  end,
-}
-
-monitors[1]()
-
--- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
--- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
--- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
-
 hl.config({
   general = {
     border_size = 0,
@@ -102,14 +26,6 @@ hl.config({
   },
   animations = { enabled = true },
   input = {
-    kb_layout  = "tr,us",
-    kb_variant = "",
-    kb_model   = "",
-    kb_options = "caps:swapescape,grp:win_space_toggle",
-    kb_rules   = "",
-    -- resolve_binds_by_sym
-    repeat_rate = 60,
-    repeat_delay = 240,
     sensitivity = 1,
     accel_profile = "adaptive",
     natural_scroll = true,
@@ -186,24 +102,6 @@ hl.window_rule({
   border_size = 0,
   rounding    = 0,
 })
-
-hl.gesture({
-  fingers = 3,
-  direction = "horizontal",
-  action = "workspace"
-})
-
-local mainMod = "SUPER"
-
-hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-
-hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("foot"))
-hl.bind(mainMod .. " + BackSpace", hl.dsp.exec_cmd("fuzzel"))
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("thunar"))
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("grim"))
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("hyprpicker"))
-hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"))
-
 
 hl.bind(mainMod .. " + H",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
@@ -295,24 +193,3 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 -- 	$exitwm) swaymsg exit ;;
 -- 	*) exit 1 ;;
 -- esac
-
-hl.window_rule({
-  name  = "fix-xwayland-drags",
-  match = {
-    class      = "^$",
-    title      = "^$",
-    xwayland   = true,
-    float      = true,
-    fullscreen = false,
-    pin        = false,
-  },
-  no_focus = true,
-})
-
-hl.window_rule({
-  name  = "move-hyprland-run",
-  match = { class = "hyprland-run" },
-
-  move  = "20 monitor_h-120",
-  float = true,
-})
