@@ -31,13 +31,13 @@
     #   CLUTTER_BACKEND = "wayland";
   };
 
-  systemd.services."getty@tty1" = {
-    overrideStrategy = "asDropin";
-    serviceConfig.ExecStart = lib.mkForce [
-      ""
-      "${pkgs.util-linux}/bin/agetty -o '-- ouz' --skip-login --noreset --noclear tty1 $TERM"
-    ];
-  };
+  # systemd.services."getty@tty1" = {
+  #   overrideStrategy = "asDropin";
+  #   serviceConfig.ExecStart = lib.mkForce [
+  #     ""
+  #     "${pkgs.util-linux}/bin/agetty -o '-- ouz' --skip-login --noreset --noclear tty1 $TERM"
+  #   ];
+  # };
 
   # services.getty = {
   #   loginOptions = "-- ouz";
