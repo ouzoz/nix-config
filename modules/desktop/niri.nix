@@ -15,8 +15,8 @@
   environment.etc."niri/config.kdl".text = ''
     input {
         keyboard {
-            repeat-rate = 60
-            repeat-delay = 240
+            repeat-rate 60
+            repeat-delay 240
 
             xkb {
                 layout "tr,us"
