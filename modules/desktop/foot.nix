@@ -1,4 +1,4 @@
-{ vars, ... }:
+{ ... }:
 {
   programs.foot = {
     enable = true;
@@ -26,7 +26,7 @@
       colors-dark = {
         alpha = 0.92;
         blur = true;
-        cursor = "${vars.theme.c0} ${vars.theme.c5}";
+        cursor = "000000 ffffff";
         selection-foreground = "ffffff";
         selection-background = "4e4a53";
         foreground = "ffffff";
