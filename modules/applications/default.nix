@@ -1,8 +1,8 @@
 {
   imports = [
-    ../modules/applications/obs.nix
-    ../modules/applications/media.nix
-    ../modules/applications/office.nix
-    ../modules/applications/zen.nix
+    ./obs.nix
+    ./media.nix
+    ./office.nix
+    ./zen.nix
   ];
 }
