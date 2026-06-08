@@ -263,7 +263,7 @@
         Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
         Mod+BackSpace hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
         Mod+A { spawn "thunar"; }
-        Mod+C { spawn "cliphist list | fuzzel --dmenu --width 72 | cliphist decode | wl-copy"}
+        Mod+C { spawn "cliphist list | fuzzel --dmenu --width 72 | cliphist decode | wl-copy"; }
         Mod+P { spawn "grim"; }
         Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
