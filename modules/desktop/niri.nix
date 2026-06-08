@@ -17,6 +17,7 @@
       xcursor-theme "macOS"
       xcursor-size 24
     }
+
     input {
         keyboard {
             repeat-rate 60
