@@ -167,15 +167,12 @@
 
         // You can also add a border. It's similar to the focus ring, but always visible.
         border {
-            // The settings are the same as for the focus ring.
-            // If you enable the border, you probably want to disable the focus ring.
             off
 
             width 4
             active-color "#ffc87f"
             inactive-color "#505050"
 
-            // Color of the border around windows that request your attention.
             urgent-color "#9b0000"
 
             // Gradients can use a few different interpolation color spaces.

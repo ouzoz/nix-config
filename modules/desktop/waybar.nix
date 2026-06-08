@@ -131,8 +131,6 @@
       /* #workspaces button:hover { background: @bgs; } */
 
       #battery { margin-right: 18px; }
-
-      #submap { color: @h1; }
     '';
   };
 }
