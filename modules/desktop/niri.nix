@@ -15,7 +15,7 @@
   environment.etc."niri/config.kdl".text = ''
     cursor {
       xcursor-theme "macOS"
-      xcursor-size 24
+      xcursor-size 20
     }
 
     input {
@@ -46,18 +46,19 @@
             natural-scroll
             accel-speed 1
             accel-profile "adaptive"
-            // scroll-method "no-scroll"
+            middle-emulation
+            scroll-factor 1.0
         }
 
-        trackpoint {
-            // off
-            // natural-scroll
-            // accel-speed 0.2
-            // accel-profile "flat"
-            // scroll-method "on-button-down"
-            // scroll-button 273
-            // scroll-button-lock
-            // middle-emulation
+        touchpad {
+            tap
+            dwt
+            dwtp
+            natural-scroll
+            accel-speed 0.3
+            accel-profile "flat"
+            middle-emulation
+            scroll-factor 1.0
         }
 
         // warp-mouse-to-focus
