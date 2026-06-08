@@ -14,6 +14,7 @@
 
   environment.etc."niri/config.kdl".text = ''
     cursor {
+      xcursor-theme "macOS"
       xcursor-size 24
     }
     input {
