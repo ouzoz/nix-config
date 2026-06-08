@@ -15,7 +15,7 @@
   environment.etc."niri/config.kdl".text = ''
     cursor {
       xcursor-theme "breeze_cursors"
-      xcursor-size 20
+      xcursor-size 24
     }
     input {
         keyboard {
