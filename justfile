@@ -34,3 +34,6 @@ size:
 
 key:
   ssh-keygen
+
+niri-conf:
+  niri validate

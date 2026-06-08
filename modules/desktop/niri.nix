@@ -8,15 +8,15 @@
       && [ -z "$DISPLAY" ] \
       && [ -z "$WAYLAND_DISPLAY" ] \
     ; then
-      exec niri-session
+      exec niri-session -l
     fi
   '';
 
   environment.etc."niri/config.kdl".text = ''
     input {
         keyboard {
-            repeat_rate = 60
-            repeat_delay = 240
+            repeat-rate = 60
+            repeat-delay = 240
 
             xkb {
                 layout "tr,us"
