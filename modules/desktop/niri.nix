@@ -123,7 +123,7 @@
     }
 
     layout {
-        gaps 6
+        gaps 10
         center-focused-column "on-overflow"
         always-center-single-column
         default-column-display "normal"
@@ -151,7 +151,7 @@
 
         focus-ring {
             // off
-            width 1
+            width 2
             active-color "#7fc8ff"
             inactive-color "#505050"
             urgent-color "#9b0000"
