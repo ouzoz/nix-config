@@ -7,6 +7,9 @@ commit:
 build NAME="":
   sudo nixos-rebuild switch --flake .#{{NAME}}
 
+specialization NAME:
+  sudo nixos-rebuild switch --flake .# --specialisation {{NAME}}
+
 update:
   nix flake update
 
