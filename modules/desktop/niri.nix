@@ -186,21 +186,9 @@
         block-out-from "screen-capture"
     }
 
-    /-window-rule {
-        geometry-corner-radius 12
-        clip-to-geometry true
-    }
-
     layer-rule {
         match namespace="^wallpaper$"
         place-within-backdrop true
-    }
-
-    window-rule {
-      match app-id="^foot$"
-        background-effect {
-          blur true
-        }
     }
 
     window-rule {
