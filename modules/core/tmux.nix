@@ -116,7 +116,7 @@
       bind -n M-S-Right   swapw -dt :+1
       bind -n M-n         command-prompt -I "#W" { renamew "%%" }
       bind -n M-*         neww
-      binn -n M-0         neww "nix develop"
+      bind -n M-0         neww "nix develop"
       bind -n M-Q         killw
 
       bind -n M-r         refresh

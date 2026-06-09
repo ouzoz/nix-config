@@ -12,7 +12,13 @@ in
     };
 
     theme.wallpaperMode = lib.mkOption {
-      type = lib.types.enum [ "stretch" "fill" "fit" "center" "tile" ];
+      type = lib.types.enum [
+        "stretch"
+        "fill"
+        "fit"
+        "center"
+        "tile"
+      ];
       default = "fill";
     };
 

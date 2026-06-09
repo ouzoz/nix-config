@@ -7,7 +7,7 @@
 }:
 
 let
-parsers =   with pkgs.tree-sitter-grammars; [
+  parsers = with pkgs.tree-sitter-grammars; [
     tree-sitter-bash
     tree-sitter-cmake
     tree-sitter-cpp
@@ -64,6 +64,5 @@ runCommand "treesitter-runtime" { } ''
     if [ -d ${vimPlugins.nvim-treesitter.src}/runtime/queries/$lang ]; then
       ln -s ${vimPlugins.nvim-treesitter.src}/runtime/queries/$lang $out/queries/$lang
     fi
-  '') parsers
-}
+  '') parsers}
 ''
