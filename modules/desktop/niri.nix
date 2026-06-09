@@ -305,7 +305,7 @@
         Mod+N                             { spawn-sh "top -b -o +RES -n 1 -Em -em | head -n 60 | fuzzel --dmenu --width 96"; }
         Mod+Escape                        { spawn-sh "selected=$(printf '%s\n' '⎋ Lock' '🆥 Monitors' '⏼ Reboot' '⏻ Shutdown' '⏾ Suspend' '⏎ Exit' | fuzzel --dmenu); case \"$selected\" in '⎋ Lock') hyprlock ;; '🆥 Monitors') niri msg action power-off-monitors ;; '⏼ Reboot') systemctl reboot ;; '⏻ Shutdown') systemctl poweroff ;; '⏾ Suspend') systemctl suspend-then-hibernate ;; '⏎ Exit') niri msg action quit ;; esac"; }
 
-        Mod+U                             { spawn "hyprpicker"; }
+        Mod+U                             { spawn "hyprpicker" "--autocopy" "--notify"; }
 
         Mod+P                             { screenshot; }
         Mod+Shift+P                       { screenshot-screen; }
