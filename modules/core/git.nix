@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   environment.shellAliases = {
     gs = "git status";
@@ -24,15 +24,12 @@
         name = "ouzoz";
         email = "ozkayaoguzhan67@gmail.com";
       };
-      core = {
-        excludesfile = "${pkgs.writeText "gitignore-global" ''
-          shell.nix
-          .envrc
-          .direnv/
-
-          .agents/
-        ''}";
-      };
+      # core = {
+      #   excludesfile = "${pkgs.writeText "gitignore-global" ''
+      #     .envrc
+      #     .direnv/
+      #   ''}";
+      # };
     };
   };
 }
