@@ -4,6 +4,7 @@
     ./thunar.nix
     ./foot.nix
 
+    ./picker.nix
     ./fuzzel.nix
     ./swaybg.nix
     ./hyprlock.nix
