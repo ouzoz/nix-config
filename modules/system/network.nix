@@ -1,19 +1,30 @@
 { ... }:
-
 {
-  networking.networkmanager.enable = true;
-  # networking.wireless.enable = true;
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  services.openssh.enable = true;
-
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
+  services.blueman.enable = true;
 
   users.users.ouz.extraGroups = [ "networkmanager" ];
+  networking.networkmanager = {
+    enable = true;
+    wifi = {
+      backend = "iwd";
+      scanRandMacAddress = true;
+      powersave = false;
+    };
+  };
+
+  networking.wireless.iwd.settings = {
+    General = {
+      AddressRandomization = "network";
+    };
+  };
+
+  services.resolved = {
+    enable = true;
+    dnssec = "allow-downgrade";
+    dnsovertls = "true";
+  };
 }

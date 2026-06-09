@@ -130,7 +130,6 @@
         background-color "transparent"
 
         default-column-width { proportion 0.5; }
-        // default-column-width { }
         preset-column-widths {
             proportion 0.25
             proportion 0.33333
@@ -163,7 +162,6 @@
         }
 
         insert-hint {
-          // off
           color "#ffc87f80"
         }
 
@@ -173,11 +171,6 @@
             // top 64
             // bottom 64
         }
-    }
-
-    window-rule {
-        match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-        open-floating true
     }
 
     /-window-rule {
@@ -195,14 +188,21 @@
       draw-border-with-background false
     }
 
+    window-rule {
+      match app-id="^foot$"
+      match app-id="^zen$"
+
+      open-maximized-to-edges true
+    }
+
     layer-rule {
       match namespace="^launcher$"
+      match namespace="^notifications$"
 
-        // xray true
-        geometry-corner-radius 12
-        background-effect {
-          blur true
-        }
+      background-effect {
+        xray false
+        blur true
+      }
     }
 
     animations {
