@@ -25,26 +25,9 @@ hl.config({
     shadow = { enabled = false },
   },
   animations = { enabled = true },
-  input = {
-    sensitivity = 1,
-    accel_profile = "adaptive",
-    natural_scroll = true,
-    follow_mouse = 1,
-
-    touchpad = {
-      natural_scroll = true,
-    },
-  },
   misc = {
-    disable_hyprland_logo = true,
-    -- disable_splash_rendering = true,
-    force_default_wallpaper = -1,
     -- font_family = "oziosevka",
     -- splash_font_family = "oziosevka",
-    -- vrr = 1,
-    -- vfr = true,
-    close_special_on_empty = true,
-    render_unfocused_fps = 15,
   },
   binds = {
     scroll_event_delay = 0,

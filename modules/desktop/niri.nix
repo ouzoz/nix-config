@@ -29,19 +29,6 @@
             }
         }
 
-        touchpad {
-            tap
-            dwt
-            // dwtp
-            // drag false
-            // drag-lock
-            natural-scroll
-            accel-speed 1.0
-            // accel-profile "flat"
-            // scroll-method "two-finger"
-            // disabled-on-external-mouse
-        }
-
         mouse {
             natural-scroll
             accel-speed 1
@@ -59,13 +46,15 @@
             accel-profile "flat"
             middle-emulation
             scroll-factor 1.0
+            disabled-on-external-mouse
         }
 
-        // warp-mouse-to-focus
+        disable-power-key-handling
+        warp-mouse-to-focus mode="center-xy-always"
+        focus-follows-mouse
+        // focus-follows-mouse max-scroll-amount="0%" // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
+        workspace-auto-back-and-forth
 
-        // Focus windows and outputs automatically when moving the mouse into them.
-        // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-        // focus-follows-mouse max-scroll-amount="0%"
         mod-key "Super"
         mod-key-nested "Alt"
     }
@@ -86,6 +75,10 @@
         scale 1
         transform "normal"
         position x=0 y=0
+        focus-at-startup
+        hot-corners {
+          bottom-left
+        }
     }
 
     /-output "HDMI-A-1" {
@@ -260,7 +253,7 @@
     }
 
     binds {
-        Mod+Shift+question { show-hotkey-overlay; }
+        Mod+question { show-hotkey-overlay; }
 
         // Suggested binds for running programs: terminal, app launcher, screen locker.
         Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
