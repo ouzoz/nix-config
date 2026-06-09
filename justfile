@@ -37,3 +37,6 @@ key:
 
 niri-conf:
   niri validate
+
+waybar-reload:
+  systemctl --user restart waybar.service

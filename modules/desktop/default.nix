@@ -1,10 +1,5 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    grim
-    slurp
-  ];
-
   imports = [
     ./thunar.nix
     ./foot.nix
@@ -78,4 +73,5 @@
     }
   ];
 
+  # xdg-desktop-portal-gnome xdg-desktop-portal-gtk
 }

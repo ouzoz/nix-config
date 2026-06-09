@@ -13,9 +13,36 @@
   '';
 
   environment.etc."niri/config.kdl".text = ''
+    prefer-no-csd
+    screenshot-path "~/Pictures/Screenshot_%Y-%m-%d_%H-%M-%S.png"
+
     cursor {
+      hide-when-typing
       xcursor-theme "macOS"
       xcursor-size 20
+    }
+
+    overview {
+      zoom 0.42
+      backdrop-color "#777777"
+      workspace-shadow {
+        off
+      }
+    }
+
+    clipboard {
+      disable-primary
+    }
+
+    hotkey-overlay {
+      skip-at-startup
+    }
+
+    blur {
+      passes 1
+      offset 3
+      noise 0.02
+      saturation 1.5
     }
 
     input {
@@ -76,112 +103,65 @@
         transform "normal"
         position x=0 y=0
         focus-at-startup
-        hot-corners {
-          bottom-left
-        }
     }
 
     /-output "HDMI-A-1" {
         off
     }
 
+    /-switch-events {
+      lid-close { spawn "notify-send" "The laptop lid is closed!"; }
+      lid-open { spawn "notify-send" "The laptop lid is open!"; }
+    }
+
     layout {
         gaps 12
-        center-focused-column "never"
+        center-focused-column "on-overflow"
+        always-center-single-column
+        default-column-display "normal"
+        background-color "transparent"
 
-        // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
+        // default-column-width { proportion 1.0; }
+        default-column-width { }
         preset-column-widths {
-            // Proportion sets the width as a fraction of the output width, taking gaps into account.
-            // For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
-            // The default preset widths are 1/3, 1/2 and 2/3 of the output.
             proportion 0.33333
             proportion 0.5
             proportion 0.66667
-
-            // Fixed sets the width in logical pixels exactly.
-            // fixed 1920
+            proportion 1.0
         }
 
-        // You can also customize the heights that "switch-preset-window-height" (Mod+Ctrl+Shift+R) toggles between.
         // preset-window-heights { }
+        /-preset-window-heights {
+          proportion 0.33333
+            proportion 0.5
+            proportion 0.66667
+            fixed 720
+        }
 
-        // You can change the default width of the new windows.
-        default-column-width { proportion 0.5; }
-        // If you leave the brackets empty, the windows themselves will decide their initial width.
-        // default-column-width {}
-
-        // By default focus ring and border are rendered as a solid background rectangle
-        // behind windows. That is, they will show up through semitransparent windows.
-        // This is because windows using client-side decorations can have an arbitrary shape.
-        //
-        // If you don't like that, you should uncomment `prefer-no-csd` below.
-        // Niri will draw focus ring and border *around* windows that agree to omit their
-        // client-side decorations.
-        //
         // Alternatively, you can override it with a window rule called
         // `draw-border-with-background`.
 
-        // You can change how the focus ring looks.
         focus-ring {
-            // Uncomment this line to disable the focus ring.
             // off
-
-            // How many logical pixels the ring extends out from the windows.
             width 4
-
-            // Colors can be set in a variety of ways:
-            // - CSS named colors: "red"
-            // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
-            // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
-
-            // Color of the ring on the active monitor.
             active-color "#7fc8ff"
-
-            // Color of the ring on inactive monitors.
-            //
-            // The focus ring only draws around the active window, so the only place
-            // where you can see its inactive-color is on other monitors.
             inactive-color "#505050"
-
-            // You can also use gradients. They take precedence over solid colors.
-            // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
-            // The angle is the same as in linear-gradient, and is optional,
-            // defaulting to 180 (top-to-bottom gradient).
-            // You can use any CSS linear-gradient tool on the web to set these up.
-            // Changing the color space is also supported, check the wiki for more info.
-            //
-            // active-gradient from="#80c8ff" to="#c7ff7f" angle=45
-
-            // You can also color the gradient relative to the entire view
-            // of the workspace, rather than relative to just the window itself.
-            // To do that, set relative-to="workspace-view".
-            //
-            // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+            urgent-color "#9b0000"
         }
 
-        // You can also add a border. It's similar to the focus ring, but always visible.
         border {
             off
-
-            width 4
-            active-color "#ffc87f"
-            inactive-color "#505050"
-
-            urgent-color "#9b0000"
-
-            // Gradients can use a few different interpolation color spaces.
-            // For example, this is a pastel rainbow gradient via in="oklch longer hue".
-            //
-            // active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
-
-            // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
         }
 
-        // Struts shrink the area occupied by windows, similarly to layer-shell panels.
-        // You can think of them as a kind of outer gaps. They are set in logical pixels.
-        // Left and right struts will cause the next window to the side to always be visible.
-        // Top and bottom struts will simply add outer gaps in addition to the area occupied by
-        // layer-shell panels and regular gaps.
+        tab-indicator {
+            hide-when-single-tab
+        }
+
+        insert-hint {
+          // off
+          color "#ffc87f80"
+        }
+
         struts {
             // left 64
             // right 64
@@ -190,83 +170,93 @@
         }
     }
 
-    hotkey-overlay {
-        // skip-at-startup
-    }
-
-    // Uncomment this line to ask the clients to omit their client-side decorations if possible.
-    // If the client will specifically ask for CSD, the request will be honored.
-    // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
-    // This option will also fix border/focus ring drawing behind some semitransparent windows.
-    // After enabling or disabling this, you need to restart the apps for this to take effect.
-    // prefer-no-csd
-
-    // You can change the path where screenshots are saved.
-    // A ~ at the front will be expanded to the home directory.
-    // The path is formatted with strftime(3) to give you the screenshot date and time.
-    screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
-    animations {
-        slowdown 0.3
-    }
-
-    // Window rules let you adjust behavior for individual windows.
-    // Find more information on the wiki:
-    // https://niri-wm.github.io/niri/Configuration:-Window-Rules
-
-    // Work around WezTerm's initial configure bug
-    // by setting an empty default-column-width.
     window-rule {
-        // This regular expression is intentionally made as specific as possible,
-        // since this is the default config, and we want no false positives.
-        // You can get away with just app-id="wezterm" if you want.
-        match app-id=r#"^org\.wezfurlong\.wezterm$"#
-        default-column-width {}
-    }
-
-    // Open the Firefox picture-in-picture player as floating by default.
-    window-rule {
-        // This app-id regular expression will work for both:
-        // - host Firefox (app-id is "firefox")
-        // - Flatpak Firefox (app-id is "org.mozilla.firefox")
         match app-id=r#"firefox$"# title="^Picture-in-Picture$"
         open-floating true
     }
 
-    // Example: block out two password managers from screen capture.
-    // (This example rule is commented out with a "/-" in front.)
     /-window-rule {
         match app-id=r#"^org\.keepassxc\.KeePassXC$"#
         match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
         block-out-from "screen-capture"
-
-        // Use this instead if you want them visible on third-party screenshot tools.
-        // block-out-from "screencast"
     }
 
-    // Example: enable rounded corners for all windows.
-    // (This example rule is commented out with a "/-" in front.)
     /-window-rule {
         geometry-corner-radius 12
         clip-to-geometry true
     }
 
+    layer-rule {
+        match namespace="^wallpaper$"
+        place-within-backdrop true
+    }
+
+    animations {
+      workspace-switch { off }
+      window-open { duration-ms 120 curve "ease-out-expo" }
+      window-close { duration-ms 120 curve "ease-out-quad" }
+      horizontal-view-movement { spring damping-ratio=1.0 stiffness=800 epsilon=0.0001 }
+      window-movement { spring damping-ratio=1.0 stiffness=800 epsilon=0.0001 }
+      window-resize { spring damping-ratio=1.0 stiffness=800 epsilon=0.0001 }
+      config-notification-open-close { off }
+      exit-confirmation-open-close { spring damping-ratio=0.6 stiffness=500 epsilon=0.01 }
+      screenshot-ui-open { off }
+      overview-open-close { spring damping-ratio=1.0 stiffness=800 epsilon=0.0001 }
+      recent-windows-close { spring damping-ratio=1.0 stiffness=800 epsilon=0.001 }
+    }
+
+    gestures {
+      dnd-edge-view-scroll {
+        trigger-width 30
+        delay-ms 100
+        max-speed 1500
+      }
+
+      dnd-edge-workspace-switch {
+        trigger-height 50
+        delay-ms 100
+        max-speed 1500
+      }
+
+      hot-corners {
+        // off
+        bottom-left
+      }
+    }
+
+    recent-windows {
+      debounce-ms 0
+      open-delay-ms 0
+
+      highlight {
+        active-color "#999999ff"
+        urgent-color "#ff9999ff"
+        padding 30
+        corner-radius 12
+      }
+
+      previews {
+        max-height 480
+        max-scale 0.5
+      }
+
+      binds {
+        Mod+quotedbl { next-window scope="output"; }
+        Mod+Shift+quotedbl { previous-window scope="output"; }
+      }
+    }
+
     binds {
-        Mod+question { show-hotkey-overlay; }
+        Mod+Shift+asterisk { show-hotkey-overlay; }
 
-        // Suggested binds for running programs: terminal, app launcher, screen locker.
-        Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
-        Mod+BackSpace hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+        Mod+Return { spawn "foot"; }
+        Mod+BackSpace { spawn "fuzzel"; }
         Mod+A { spawn "thunar"; }
-        Mod+C { spawn "cliphist list | fuzzel --dmenu --width 72 | cliphist decode | wl-copy"; }
-        Mod+P { spawn "grim"; }
-        Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+        Mod+C { spawn-sh "cliphist list | fuzzel --dmenu --width 72 | cliphist decode | wl-copy"; }
 
-        // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
-        // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
-        // For example, this is a standard bind to toggle the screen reader (orca).
-        Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+        Mod+P { screenshot; }
+        Mod+Shift+P { screenshot-screen; }
+        Mod+Ctrl+P { screenshot-window; }
 
         // Example volume keys mappings for PipeWire & WirePlumber.
         // The allow-when-locked=true property makes them work even when the session is locked.
@@ -433,8 +423,7 @@
         // Alternatively, there are commands to move just a single window:
         // Mod+Ctrl+1 { move-window-to-workspace 1; }
 
-        // Switches focus between the current and the previous workspace.
-        // Mod+Tab { focus-workspace-previous; }
+        Mod+Tab { focus-workspace-previous; }
 
         // The following binds move the focused window in and out of a column.
         // If the window is alone, they will consume it into the nearby column to the side.
@@ -505,10 +494,6 @@
         // Mod+Space       { switch-layout "next"; }
         // Mod+Shift+Space { switch-layout "prev"; }
 
-        Print { screenshot; }
-        Ctrl+Print { screenshot-screen; }
-        Alt+Print { screenshot-window; }
-
         // Applications such as remote-desktop clients and software KVM switches may
         // request that niri stops processing the keyboard shortcuts defined here
         // so they may, for example, forward the key presses as-is to a remote machine.
@@ -525,7 +510,7 @@
 
         // Powers off the monitors. To turn them back on, do any input like
         // moving the mouse or pressing any other key.
-        Mod+Shift+P { power-off-monitors; }
+        Mod+Shift+Return { power-off-monitors; }
     }
   '';
 }
