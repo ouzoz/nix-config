@@ -4,7 +4,6 @@
     enable = true;
     powerOnBoot = false;
   };
-  services.blueman.enable = true;
 
   users.users.ouz.extraGroups = [ "networkmanager" ];
   networking.networkmanager = {

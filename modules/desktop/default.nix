@@ -3,6 +3,8 @@
   imports = [
     ./thunar.nix
     ./foot.nix
+    ./blueman.nix
+    ./zen.nix
 
     ./picker.nix
     ./fuzzel.nix
