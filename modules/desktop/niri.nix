@@ -12,6 +12,14 @@
     fi
   '';
 
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    #   ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+    #   QT_QPA_PLATFORM = "wayland";
+    #   SDL_VIDEODRIVER = "wayland";
+    #   CLUTTER_BACKEND = "wayland";
+  };
+
   environment.etc."niri/config.kdl".text = ''
     prefer-no-csd
     screenshot-path "~/Pictures/Screenshot_%Y-%m-%d_%H-%M-%S.png"
@@ -191,18 +199,63 @@
         place-within-backdrop true
     }
 
+    window-rule {
+      match app-id="^foot$"
+        background-effect {
+          blur true
+        }
+    }
+
+    window-rule {
+      draw-border-with-background false
+    }
+
+    layer-rule {
+      match namespace="^launcher$"
+
+        // xray true
+        geometry-corner-radius 12
+        background-effect {
+          blur true
+        }
+    }
+
     animations {
-      workspace-switch { off }
-      window-open { duration-ms 120 curve "ease-out-expo" }
-      window-close { duration-ms 120 curve "ease-out-quad" }
-      horizontal-view-movement { spring damping-ratio=1.0 stiffness=800 epsilon=0.0001 }
-      window-movement { spring damping-ratio=1.0 stiffness=800 epsilon=0.0001 }
-      window-resize { spring damping-ratio=1.0 stiffness=800 epsilon=0.0001 }
-      config-notification-open-close { off }
-      exit-confirmation-open-close { spring damping-ratio=0.6 stiffness=500 epsilon=0.01 }
-      screenshot-ui-open { off }
-      overview-open-close { spring damping-ratio=1.0 stiffness=800 epsilon=0.0001 }
-      recent-windows-close { spring damping-ratio=1.0 stiffness=800 epsilon=0.001 }
+      workspace-switch {
+        off
+      }
+      window-open {
+        duration-ms 120
+        curve "ease-out-expo"
+      }
+      window-close {
+        duration-ms 120
+        curve "ease-out-quad"
+      }
+      horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+      }
+      window-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+      }
+      window-resize {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+      }
+      config-notification-open-close {
+        off
+      }
+      exit-confirmation-open-close {
+        spring damping-ratio=0.6 stiffness=500 epsilon=0.01
+      }
+      screenshot-ui-open {
+        off
+      }
+      overview-open-close {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+      }
+      recent-windows-close {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.001
+      }
     }
 
     gestures {
@@ -250,35 +303,15 @@
         Mod+Shift+asterisk { show-hotkey-overlay; }
 
         Mod+Return { spawn "foot"; }
-        Mod+BackSpace { spawn "fuzzel"; }
         Mod+A { spawn "thunar"; }
-        Mod+C { spawn-sh "cliphist list | fuzzel --dmenu --width 72 | cliphist decode | wl-copy"; }
+        Mod+BackSpace { spawn "fuzzel"; }
+        Mod+C { spawn-sh "cliphist list | fuzzel --dmenu --width 60 | cliphist decode | wl-copy"; }
+        Mod+Escape { spawn-sh "selected=$(printf '%s\n' '⎋ Lock' '⏼ Reboot' '⏻ Shutdown' '⏾ Suspend' '⏎ Exit' | fuzzel --dmenu); case \"$selected\" in '⎋ Lock') swaylock ;; '⏼ Reboot') systemctl reboot ;; '⏻ Shutdown') systemctl poweroff ;; '⏾ Suspend') systemctl suspend-then-hibernate ;; '⏎ Exit') niri msg action quit ;; esac"; }
+        Mod+U { spawn-sh "top -b -o +RES -n 1 -Em -em | head -n 60 | fuzzel --dmenu --width 96"; }
 
         Mod+P { screenshot; }
         Mod+Shift+P { screenshot-screen; }
         Mod+Ctrl+P { screenshot-window; }
-
-        // Example volume keys mappings for PipeWire & WirePlumber.
-        // The allow-when-locked=true property makes them work even when the session is locked.
-        // Using spawn-sh allows to pass multiple arguments together with the command.
-        // "-l 1.0" limits the volume to 100%.
-        XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
-        XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
-        XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-        XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-
-        // Example media keys mapping using playerctl.
-        // This will work with any MPRIS-enabled media player.
-        XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-        XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
-        XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
-        XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
-
-        // Example brightness key mappings for brightnessctl.
-        // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
-        // but you need to manually put each argument in separate "" quotes.
-        XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-        XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
         // Open/close the Overview: a zoomed-out view of workspaces and windows.
         // You can also move the mouse into the top-left hot corner,
@@ -345,7 +378,7 @@
 
         Mod+Page_Down      { focus-workspace-down; }
         Mod+Page_Up        { focus-workspace-up; }
-        Mod+U              { focus-workspace-down; }
+        // Mod+U              { focus-workspace-down; }
         Mod+I              { focus-workspace-up; }
         Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
         Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
@@ -393,14 +426,6 @@
         // Mod+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
         // Mod+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
 
-        // You can refer to workspaces by index. However, keep in mind that
-        // niri is a dynamic workspace system, so these commands are kind of
-        // "best effort". Trying to refer to a workspace index bigger than
-        // the current workspace count will instead refer to the bottommost
-        // (empty) workspace.
-        //
-        // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
-        // will all refer to the 3rd workspace.
         Mod+1 { focus-workspace 1; }
         Mod+2 { focus-workspace 2; }
         Mod+3 { focus-workspace 3; }
@@ -502,7 +527,7 @@
         //
         // The allow-inhibiting=false property can be applied to other binds as well,
         // which ensures niri always processes them, even when an inhibitor is active.
-        Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+        // Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
         // The quit action will show a confirmation dialog to avoid accidental exits.
         Mod+Shift+E { quit; }
@@ -511,6 +536,24 @@
         // Powers off the monitors. To turn them back on, do any input like
         // moving the mouse or pressing any other key.
         Mod+Shift+Return { power-off-monitors; }
+
+        XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
+        XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+        XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+        XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+        // Example media keys mapping using playerctl.
+        // This will work with any MPRIS-enabled media player.
+        XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+        XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
+        XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
+        XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+
+        // Example brightness key mappings for brightnessctl.
+        // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
+        // but you need to manually put each argument in separate "" quotes.
+        XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+        XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
     }
   '';
 }

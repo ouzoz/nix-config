@@ -15,8 +15,6 @@
 
   environment.shellAliases = {
     l = "ls -ACxX --group-directories-first --color=auto";
-    oz-token = "openssl rand -hex 16";
-    oz-ram = "top -b -o +RES -n 1 -Em -em | head -n 60";
   };
 
   environment.variables = {

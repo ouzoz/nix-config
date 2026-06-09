@@ -23,6 +23,6 @@
 
   environment.etc."xdg/cliphist/config".text = ''
     max-items 600
-    preview-width 24
+    preview-width 60
   '';
 }
