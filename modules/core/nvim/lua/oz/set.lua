@@ -201,7 +201,7 @@ api.nvim_create_autocmd('LspAttach', {
     --     v.lsp.buf.format { bufnr = args.buf, id = client.id, timeout_ms = 1000 }
     --     print("Formatted")
     --   end, {})
-    end
+    -- end
   end,
 })
 
