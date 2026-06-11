@@ -190,12 +190,17 @@ api.nvim_create_autocmd('LspAttach', {
       v.opt_local.foldexpr = 'v:lua.vim.lsp.foldexpr()'
     end
 
-    if client:supports_method 'textDocument/formatting'
-        and not client:supports_method 'textDocument/willSaveWaitUntil' then
-      api.nvim_buf_create_user_command(args.buf, 'FormatBuf', function()
-        v.lsp.buf.format { bufnr = args.buf, id = client.id, timeout_ms = 1000 }
-        print("Formatted")
-      end, {})
+    api.nvim_buf_create_user_command(args.buf, 'FormatBuf', function()
+      v.lsp.buf.format { bufnr = args.buf, id = client.id, timeout_ms = 1000 }
+      print("Formatted")
+    end, {})
+
+    -- if client:supports_method 'textDocument/formatting'
+    --     and not client:supports_method 'textDocument/willSaveWaitUntil' then
+    --   api.nvim_buf_create_user_command(args.buf, 'FormatBuf', function()
+    --     v.lsp.buf.format { bufnr = args.buf, id = client.id, timeout_ms = 1000 }
+    --     print("Formatted")
+    --   end, {})
     end
   end,
 })
