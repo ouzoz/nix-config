@@ -311,3 +311,4 @@ ht('@markup.italic.markdown_inline', c.t, c.f2, italic)
 --customs
 hl('@property.css', '@keyword')
 hl('@property.json', '@keyword')
+hl('@property.yaml', '@keyword')
