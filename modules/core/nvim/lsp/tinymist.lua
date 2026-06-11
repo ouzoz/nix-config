@@ -15,10 +15,4 @@ return {
       semanticTokens = "enable",
     },
   },
-  capabilities = {
-    documentFormattingProvider = true,
-    textDocument = {
-      formatting = true,
-    }
-  },
 }
