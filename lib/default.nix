@@ -3,11 +3,8 @@ let
     attrNames
     attrValues
     filter
-    isList
-    isString
     listToAttrs
     map
-    mapAttrs
     pathExists
     readDir
     stringLength
@@ -24,7 +21,7 @@ let
 
   removeSuffix = suffix: value: substring 0 (stringLength value - stringLength suffix) value;
 
-  discoveredFiles =
+  scanNixFiles =
     path:
     let
       entries = readDir path;
@@ -47,74 +44,17 @@ let
         value = path + "/${name}/default.nix";
       }) childDefaults
     );
-in
-rec {
-  scanNixFiles = discoveredFiles;
 
-  mkImports = path: {
-    imports = attrValues (scanNixFiles path);
+  mapNixFiles = f: path: builtins.mapAttrs f (scanNixFiles path);
+
+  importNixFiles = path: mapNixFiles (_name: file: import file) path;
+
+  base = {
+    inherit scanNixFiles mapNixFiles importNixFiles;
   };
 
-  mkEnableModules =
-    optionPath: path:
-    {
-      config,
-      lib,
-      ...
-    }@args:
-    let
-      files = scanNixFiles path;
-      names = attrNames files;
-      pathParts =
-        if isList optionPath then
-          optionPath
-        else if isString optionPath then
-          lib.splitString "." optionPath
-        else
-          throw "mkEnableModules: optionPath must be a list or dot-separated string";
+  imported = mapNixFiles (_name: file: import file base) ./.;
 
-      enablePath =
-        name:
-        pathParts
-        ++ [
-          name
-          "enable"
-        ];
-      enabled = name: lib.attrByPath (enablePath name) false config;
-
-      generatedOptions = lib.foldl' lib.recursiveUpdate { } (
-        map (name: lib.setAttrByPath (enablePath name) (lib.mkEnableOption name)) names
-      );
-
-      evalModule =
-        file:
-        let
-          imported = import file;
-        in
-        if builtins.isFunction imported then
-          imported (args // { pkgs = config.nixpkgs.pkgs; })
-        else
-          imported;
-
-      moduleConfig =
-        name:
-        let
-          module = evalModule files.${name};
-        in
-        if module ? config then
-          module.config
-        else
-          removeAttrs module [
-            "config"
-            "imports"
-            "options"
-            "_module"
-          ];
-    in
-    {
-      options = generatedOptions;
-      config = lib.mkMerge (map (name: lib.mkIf (enabled name) (moduleConfig name)) names);
-    };
-
-  mkPackages = pkgs: path: mapAttrs (_name: file: pkgs.callPackage file { }) (scanNixFiles path);
-}
+  mergeAttrsets = builtins.foldl' (acc: value: acc // value) { };
+in
+base // mergeAttrsets (attrValues imported)
