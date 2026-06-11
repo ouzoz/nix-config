@@ -17,5 +17,8 @@ return {
   },
   capabilities = {
     documentFormattingProvider = true,
+    textDocument = {
+      formatting = true,
+    }
   },
 }
