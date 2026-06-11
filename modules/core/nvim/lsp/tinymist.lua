@@ -14,5 +14,8 @@ return {
       },
       semanticTokens = "enable",
     },
-  }
+  },
+  capabilities = {
+    documentFormattingProvider = true,
+  },
 }
