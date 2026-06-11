@@ -155,6 +155,7 @@ v.lsp.enable {
   'rust-analyzer',
   'sqls',
   'texlab',
+  'tinymist',
   'tsls',
   'ty',
   'yamlls',
