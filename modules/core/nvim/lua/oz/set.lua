@@ -105,6 +105,9 @@ key({ 'n', 'v' }, '<leader>', '<Nop>', { silent = true })
 local float_set = { max_width = 72, border = 'single' }
 local opts = { noremap = true, silent = true, nowait = true }
 
+key('n', '<Leader>a', ':!just<CR>')
+key('n', '<Leader><CR>', ':!just<CR>')
+
 key('n', '<leader><Tab>', '<cmd>b#<CR>')
 key('n', '<leader>n', '<cmd>bn<CR>')
 key('n', '<leader>p', '<cmd>bp<CR>')
