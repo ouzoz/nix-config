@@ -286,7 +286,7 @@
 
     binds {
         Mod+Return                        { spawn "foot"; }
-        Mod+I                             { spawn "thunar"; }
+        Mod+I                             { spawn "nautilus"; }
 
         Mod+BackSpace                     { spawn "fuzzel"; }
         Mod+C                             { spawn-sh "cliphist list | fuzzel --dmenu --width 60 | cliphist decode | wl-copy"; }
