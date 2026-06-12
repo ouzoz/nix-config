@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./thunar.nix
+    ./nautilus.nix
     ./foot.nix
     ./blueman.nix
     ./zen.nix
