@@ -73,10 +73,9 @@
       unbind -a
       unbind -T copy-mode-vi MouseDragEnd1Pane
 
-      bind -n M-i         send "exec nix develop" \; send Enter
+      bind -n 0           send C-l \; run "sleep 0" \; clearhist \; send just \; send Enter
       bind -n M-a         send just \; send Enter
-      bind -n M-S-Enter   send just \; send Enter
-      bind -n M-Enter     send C-l \; run "sleep 0" \; clearhist \; send just \; send Enter
+      bind -n M-i         send "exec nix develop" \; send Enter
       bind -n M-c         send C-l \; run "sleep 0" \; clearhist
 
       bind -n M-\"        lastp
@@ -115,8 +114,8 @@
       bind -n M-S-Left    swapw -dt :-1
       bind -n M-S-Right   swapw -dt :+1
       bind -n M-n         command-prompt -I "#W" { renamew "%%" }
-      bind -n M-*         neww
-      bind -n M-0         neww "nix develop"
+      bind -n M-S-Enter   neww
+      bind -n M-Enter     neww "nix develop"
       bind -n M-Q         killw
 
       bind -n M-r         refresh
