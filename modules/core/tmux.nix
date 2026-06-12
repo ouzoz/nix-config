@@ -73,8 +73,8 @@
       unbind -a
       unbind -T copy-mode-vi MouseDragEnd1Pane
 
-      bind -n M-i         popup -w 92% -h 83% -d "#{pane_current_path}" "just" # '-B' no popup border
-      bind -n M-İ         popup -w 92% -h 83% "just"
+      bind -n M-i         send "exec nix develop"
+      bind -n M-a         send just \; send Enter
       bind -n M-S-Enter   send just \; send Enter
       bind -n M-Enter     send C-l \; run "sleep 0" \; clearhist \; send just \; send Enter
       bind -n M-c         send C-l \; run "sleep 0" \; clearhist
@@ -88,7 +88,7 @@
       bind -n M-J         resizep -D
       bind -n M-K         resizep -U
       bind -n M-L         resizep -R
-      bind -n M-a         resizep -Z
+      bind -n M-f         resizep -Z
       bind -n M-?         breakp
       bind -n M-O         rotatew -D
       bind -n M-o         rotatew

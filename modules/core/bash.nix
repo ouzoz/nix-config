@@ -15,7 +15,7 @@
 
   environment.shellAliases = {
     l = "ls -ACxX --group-directories-first --color=auto";
-    nd = "nix develop";
+    nd = "exec nix develop";
   };
 
   environment.variables = {
