@@ -73,7 +73,7 @@
       unbind -a
       unbind -T copy-mode-vi MouseDragEnd1Pane
 
-      bind -n 0           send C-l \; run "sleep 0" \; clearhist \; send just \; send Enter
+      bind -n M-0         send C-l \; run "sleep 0" \; clearhist \; send just \; send Enter
       bind -n M-a         send just \; send Enter
       bind -n M-i         send "exec nix develop" \; send Enter
       bind -n M-c         send C-l \; run "sleep 0" \; clearhist
