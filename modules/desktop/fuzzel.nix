@@ -6,7 +6,7 @@
 
   environment.etc."xdg/fuzzel/fuzzel.ini".source = (pkgs.formats.ini { }).generate "fuzzel.ini" {
     main = {
-      font = "Oziosevka:size=12";
+      font = "Oziosevka:size=14.4";
       use-bold = true;
       placeholder = "\"\"";
       prompt = "\"\"";
@@ -23,7 +23,7 @@
       vertical-pad = 12;
       inner-pad = 6;
       image-size-ratio = 0.3;
-      line-height = "24";
+      line-height = "28.8";
     };
 
     colors = {

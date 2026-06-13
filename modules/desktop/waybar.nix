@@ -9,9 +9,9 @@
     "xdg/waybar/config.jsonc".source = (pkgs.formats.json { }).generate "waybar-config.jsonc" {
       layer = "top";
       position = "top";
-      height = 24;
+      height = 30;
       width = 1920;
-      spacing = 18;
+      spacing = 24;
 
       "modules-left" = [
         "niri/workspaces"
@@ -110,7 +110,7 @@
 
       * {
           font-family: Oziosevka;
-          font-size: 16.2px;
+          font-size: 20.25px;
           /* font-weight: 500; */
 
           text-shadow: none;
@@ -130,7 +130,7 @@
       #workspaces button.active { background-color: @bgs; }
       /* #workspaces button:hover { background: @bgs; } */
 
-      #battery { margin-right: 18px; }
+      #battery { margin-right: 24px; }
     '';
   };
 }
