@@ -1,10 +1,14 @@
 { pkgs, my, ... }:
 {
   fonts.packages = with pkgs; [
+    corefonts
+
     my.pkgs.oziosevka
+    source-code-pro
 
     source-sans
     source-serif
-    corefonts
+
+    crimson-pro
   ];
 }
