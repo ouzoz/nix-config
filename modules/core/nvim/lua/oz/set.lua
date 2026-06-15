@@ -119,7 +119,7 @@ key('n', '<leader>k', '<C-w><C-k>')
 key('n', '<leader>l', '<C-w><C-l>')
 key('n', '<leader>v', '<C-w><C-v>')
 
-key('n', '<leader>o', ':sort<CR>', opts)
+key({'n', "v"}, '<leader>o', ':sort<CR>', opts)
 key('n', '<leader>s', '<cmd>w<CR>', opts)
 key('n', '<leader>q', '<cmd>bd<CR>', opts)
 key('n', '<leader>e', '<cmd>TogExplorer<CR>', opts)
