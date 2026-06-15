@@ -21,7 +21,7 @@
     "xdg/mako/config".text = ''
       sort=+time
       layer=overlay
-      font=Oziosevka 20px
+      font=Oziosevka 16px
       background-color=#000000EA
       border-radius=12
       width=420
