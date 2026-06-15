@@ -6,12 +6,12 @@
       # corefonts
 
       my.pkgs.oziosevka
-      source-code-pro
-
-      source-sans
-      source-serif
-
-      crimson-pro
+      # source-code-pro
+      #
+      # source-sans
+      # source-serif
+      #
+      # crimson-pro
     ];
   };
 }
