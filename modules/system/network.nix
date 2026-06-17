@@ -9,7 +9,7 @@
   networking.networkmanager = {
     enable = true;
     wifi = {
-      backend = "iwd";
+      # backend = "iwd";
       scanRandMacAddress = true;
       powersave = false;
     };
