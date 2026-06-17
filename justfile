@@ -43,3 +43,6 @@ niri-conf:
 
 waybar-reload:
   systemctl --user restart waybar.service
+
+wifir:
+  nmcli device wifi rescan && nmcli device wifi list
