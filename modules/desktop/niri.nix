@@ -105,6 +105,10 @@
         off
     }
 
+    debug {
+        render-drm-device "/dev/dri/by-driver/nvidia-card"
+      }
+
     output "HDMI-A-1" {
         mode "1920x1080@180"
         scale 1
