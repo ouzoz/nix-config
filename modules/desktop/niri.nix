@@ -85,7 +85,7 @@
         }
 
         disable-power-key-handling
-        warp-mouse-to-focus mode="center-xy-always"
+        warp-mouse-to-focus mode="center-xy"
         focus-follows-mouse
         // focus-follows-mouse max-scroll-amount="0%" // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
         workspace-auto-back-and-forth
