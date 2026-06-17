@@ -111,6 +111,7 @@
         transform "normal"
         position x=0 y=0
         focus-at-startup
+        max-bpc 8
     }
 
     /-output "HDMI-A-1" {
