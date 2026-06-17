@@ -81,7 +81,7 @@
             accel-profile "flat"
             middle-emulation
             scroll-factor 1.0
-            disabled-on-external-mouse
+            // disabled-on-external-mouse
         }
 
         disable-power-key-handling
