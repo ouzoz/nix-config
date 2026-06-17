@@ -69,7 +69,7 @@
             accel-speed 0.3
             accel-profile "adaptive"
             middle-emulation
-            scroll-factor 1
+            scroll-factor 0.72
         }
 
         touchpad {
