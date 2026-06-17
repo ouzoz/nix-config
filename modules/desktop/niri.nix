@@ -94,18 +94,18 @@
         mod-key-nested "Alt"
     }
 
-    /-output "eDP-1" {
+    output "eDP-1" {
         mode "1920x1080@165"
         scale 1
         transform "normal"
         position x=0 y=0
     }
 
-    output "eDP-1" {
+    /-output "eDP-1" {
         off
     }
 
-    output "HDMI-A-1" {
+    /-output "HDMI-A-1" {
         mode "1920x1080@180"
         scale 1
         transform "normal"
