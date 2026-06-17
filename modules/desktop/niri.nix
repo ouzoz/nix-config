@@ -101,7 +101,7 @@
         position x=0 y=0
     }
 
-    output "eDP-1" {
+    /-output "eDP-1" {
         off
     }
 
@@ -113,7 +113,7 @@
         focus-at-startup
     }
 
-    /-output "HDMI-A-1" {
+    output "HDMI-A-1" {
         off
     }
 
