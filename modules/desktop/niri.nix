@@ -98,7 +98,7 @@
         mode "1920x1080@165"
         scale 1
         transform "normal"
-        position x=0 y=0
+        position x=1920 y=0
     }
 
     /-output "eDP-1" {
@@ -111,7 +111,6 @@
         transform "normal"
         position x=0 y=0
         focus-at-startup
-        max-bpc 8
     }
 
     /-output "HDMI-A-1" {
