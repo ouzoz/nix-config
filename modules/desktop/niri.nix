@@ -69,7 +69,7 @@
             accel-speed 0.3
             accel-profile "adaptive"
             middle-emulation
-            scroll-factor 0.6
+            scroll-factor 1
         }
 
         touchpad {
@@ -80,7 +80,7 @@
             accel-speed 0.3
             accel-profile "flat"
             middle-emulation
-            scroll-factor 1.0
+            scroll-factor 1
             // disabled-on-external-mouse
         }
 
