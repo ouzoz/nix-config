@@ -101,7 +101,7 @@
         position x=1920 y=0
     }
 
-    /-output "eDP-1" {
+    output "eDP-1" {
         off
     }
 
