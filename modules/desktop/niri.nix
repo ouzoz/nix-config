@@ -94,7 +94,7 @@
         mod-key-nested "Alt"
     }
 
-    /-output "eDP-1" {
+    output "eDP-1" {
         mode "1920x1080@165"
         scale 1
         transform "normal"
