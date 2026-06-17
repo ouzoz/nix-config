@@ -45,4 +45,7 @@ waybar-reload:
   systemctl --user restart waybar.service
 
 wifir:
-  nmcli device wifi rescan && nmcli device wifi list
+  nmcli r wifi off
+  nmcli r wifi on
+  nmcli d wifi rescan
+  nmcli d wifi list
