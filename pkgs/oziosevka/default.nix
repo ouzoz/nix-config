@@ -20,7 +20,7 @@ pkgs.iosevka.override {
     nine = "open-contour"
     zero = "oval-unslashed"
     capital-d = "more-rounded-serifless"
-    capital-g = "toothless-corner-serifless-hooked"
+    capital-g = "toothless-rounded-serifless-hooked"
     f = "flat-hook-serifless"
     g = "double-storey"
     i = "hooky"
