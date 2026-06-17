@@ -66,7 +66,7 @@
 
         mouse {
             natural-scroll
-            accel-speed 1
+            accel-speed 0.6
             accel-profile "adaptive"
             middle-emulation
             scroll-factor 1.0
