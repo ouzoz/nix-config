@@ -18,6 +18,8 @@
       mona-sans
 
       # source-serif
+      eb-garamond
+      libre-baskerville
 
       # crimson-pro
     ];
