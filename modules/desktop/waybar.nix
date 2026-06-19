@@ -28,7 +28,7 @@
       ];
 
       "niri/workspaces" = {
-        format = " 🞄{value}{index} ";
+        format = " 🞄{value} ";
       };
       "niri/language" = {
         format = "{short}";
