@@ -28,7 +28,7 @@
       ];
 
       "niri/workspaces" = {
-        format = " 🞄 ";
+        format = " 🞄 {value}-{name}-{index} ";
         persistent-workspaces = {
           "1" = "1";
           "2" = "2";
