@@ -125,9 +125,9 @@
       tooltip * { color: @fg; }
 
       #workspaces { margin: 0; padding: 0; }
-      #workspaces button { border-radius: 0; padding: 0; color: @fg; }
-      #workspaces button.empty { color: @fge; }
-      #workspaces button.active { background-color: @bgs; }
+      #workspaces button { border-radius: 0; padding: 0; color: @fge; }
+      /* workspaces button.empty { color: @fge; } */
+      #workspaces button.active { color: @fg; }
       /* #workspaces button:hover { background: @bgs; } */
 
       #battery { margin-right: 18px; }
