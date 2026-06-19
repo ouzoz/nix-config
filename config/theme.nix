@@ -35,6 +35,8 @@ in
   theme = themes.dark;
 
   fonts = {
-    main = "JetBrainsMono Nerd Font";
+    sans = "Mona Sans";
+    serif = "Spectral";
+    mono = "Oziosevka";
   };
 }

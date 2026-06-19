@@ -14,14 +14,14 @@
       my.pkgs.oziosevka
       source-code-pro
 
-      # source-sans
+      source-sans
       mona-sans
 
-      # source-serif
+      # crimson-pro
+      source-serif
       eb-garamond
       libre-baskerville
 
-      # crimson-pro
     ];
   };
 }
