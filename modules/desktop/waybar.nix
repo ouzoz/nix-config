@@ -28,15 +28,7 @@
       ];
 
       "niri/workspaces" = {
-        format = " 🞄 {value}-{name}-{index} ";
-        persistent-workspaces = {
-          "1" = "1";
-          "2" = "2";
-          "3" = "3";
-          "4" = "4";
-          "5" = "5";
-          "6" = "6";
-        };
+        format = " 🞄{value}{index} ";
       };
       "niri/language" = {
         format = "{short}";
