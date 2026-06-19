@@ -118,7 +118,7 @@
 
       #workspaces { margin: 0; padding: 0; }
       #workspaces button { border-radius: 0; padding: 0; color: @fge; }
-      /* workspaces button.empty { color: @fge; } */
+      workspaces button.empty { color: @bg; }
       #workspaces button.active { color: @fg; }
       /* #workspaces button:hover { background: @bgs; } */
 
