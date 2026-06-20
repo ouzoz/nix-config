@@ -15,7 +15,6 @@
     extraConfig = ''
       set -g default-terminal "tmux-256color"
       set -ga terminal-overrides ",*:Tc"
-      set -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[6 q'
       set -ga terminal-overrides ",xterm-256color:Tc"
       set -sa terminal-features ',xterm-256color:RGB'
       set -sa terminal-features ',tmux-256color:RGB'
@@ -40,7 +39,6 @@
       set -g mode-keys vi
       set -g focus-events on
       set -g exit-empty off
-      set -g cursor-style bar
 
       set -s extended-keys on
       set -g extended-keys-format csi-u
