@@ -22,12 +22,12 @@
       sort=+time
       layer=overlay
       font=Oziosevka 16px
-      background-color=#000000EA
+      background-color=#000000E0
       border-radius=12
       width=420
       height=180
       margin=6
-      padding=12
+      padding=24
       border-size=0
       default-timeout=12000
       ignore-timeout=1

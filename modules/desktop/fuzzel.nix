@@ -27,14 +27,14 @@
     };
 
     colors = {
-      background = "000000ea";
+      background = "000000e0";
       text = "96929bff";
       message = "ff0000ff";
       prompt = "4e4a53ff";
       placeholder = "ccccccff";
       input = "ffffffff";
       match = "ffffffff";
-      selection = "232027ea";
+      selection = "232027e0";
       selection-text = "96929bff";
       selection-match = "ffffffff";
       counter = "96929bff";
