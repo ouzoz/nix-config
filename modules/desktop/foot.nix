@@ -17,7 +17,7 @@
         indicator-position = "none";
       };
       cursor = {
-        style = "beam";
+        style = "block";
         beam-thickness = 1.2;
       };
       mouse = {
