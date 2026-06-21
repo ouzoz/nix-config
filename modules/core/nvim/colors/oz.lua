@@ -3,7 +3,7 @@ vim.cmd 'filetype on'
 vim.cmd 'syntax clear'
 vim.cmd 'syntax on'
 
-vim.g.colors_name = 'poz'
+vim.g.colors_name = 'oz'
 vim.opt.background = 'dark'
 vim.opt.termguicolors = false
 
@@ -34,7 +34,7 @@ local strikethrough = { strikethrough = true }
 local underline_italic = { underline = true, italic = true }
 
 
-local is_transparent = false
+local is_transparent = true
 local function toggle_background()
   h('Normal', (is_transparent and c.t) or c.b1, c.f1)
   is_transparent = not is_transparent

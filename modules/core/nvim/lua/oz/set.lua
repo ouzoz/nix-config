@@ -2,6 +2,8 @@ local v, api, opt, key, con = vim, vim.api, vim.opt, vim.keymap.set, table.conca
 
 require('vim._core.ui2').enable({})
 
+vim.cmd "colorscheme oz"
+
 -- options
 opt.cpoptions = 'aABceFs_'
 opt.autoread = true

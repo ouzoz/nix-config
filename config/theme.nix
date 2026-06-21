@@ -1,7 +1,7 @@
 let
   themes = {
     dark = {
-      var = "dark";
+      var = "dark"; # 0e f0
 
       s1 = "000000";
       s2 = "100d14";

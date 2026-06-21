@@ -78,7 +78,6 @@ end
 
 
 require 'oz.set'
-require 'oz.colorscheme'
 require 'oz.statusline'
 require 'oz.pattern'
 require 'oz.explorer'
