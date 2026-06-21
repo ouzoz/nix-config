@@ -77,7 +77,7 @@ function M.Float:win_create()
 end
 
 
-require 'oz.set'
-require 'oz.statusline'
-require 'oz.pattern'
-require 'oz.explorer'
+require 'core.set'
+require 'core.statusline'
+require 'core.pattern'
+require 'core.explorer'

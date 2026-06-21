@@ -17,6 +17,7 @@
       "init.lua".source = ./init.lua;
       "lua".source = ./lua;
       "lsp".source = ./lsp;
+      "colors".source = ./colors;
       "spell".source = ./spell;
       "parser".source = "${my.pkgs.treesitter-runtime}/parser";
       "queries".source = "${my.pkgs.treesitter-runtime}/queries";

@@ -1,1 +1,1 @@
-require 'oz'
+require 'core'
