@@ -38,6 +38,12 @@ size:
 key:
   ssh-keygen
 
+hash HASH:
+  nix hash convert --to sri --hash-algo sha256 {{HASH}}
+
+hash-url URL:
+  nix store prefetch-file --hash-type sha256 {{URL}}
+
 niri-conf:
   niri validate
 
