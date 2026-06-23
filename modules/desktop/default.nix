@@ -5,6 +5,7 @@
     ./foot.nix
     ./blueman.nix
     ./zen.nix
+    ./helium.nix
 
     ./picker.nix
     ./fuzzel.nix
