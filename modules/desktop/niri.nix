@@ -195,7 +195,7 @@
 
     window-rule {
       match app-id="^foot$"
-      match app-id="^zen$"
+      match app-id="^helium$"
 
       open-maximized-to-edges true
     }

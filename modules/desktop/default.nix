@@ -4,7 +4,6 @@
     ./nautilus.nix
     ./foot.nix
     ./blueman.nix
-    ./zen.nix
     ./helium.nix
 
     ./picker.nix
