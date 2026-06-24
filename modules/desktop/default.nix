@@ -15,6 +15,7 @@
     ./mako.nix
 
     ./dconf.nix
+    ./pass.nix
     ./polkit.nix
     ./clipboard.nix
     ./sound.nix
