@@ -1,4 +1,8 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [ keepassxc ];
+  environment.systemPackages = with pkgs; [
+    # keepassxc
+  ];
+
+  services.passSecretService.enable = true;
 }
