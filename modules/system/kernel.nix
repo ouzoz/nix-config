@@ -1,15 +1,19 @@
 { pkgs }:
-pkgs.linuxPackages_latest.extend (
-  self: super: {
-    kernel = super.kernel.overrideAttrs (oldAttrs: {
-      pname = "linux-native-optimized";
-      structuredExtraConfig = with pkgs.lib.kernel; {
-        GENERIC_CPU = mkForce no;
-        X86_NATIVE_CPU = yes;
-      };
-    });
-  }
-)
+{
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+}
+
+# pkgs.linuxPackages_latest.extend (
+#   self: super: {
+#     kernel = super.kernel.overrideAttrs (oldAttrs: {
+#       pname = "linux-native-optimized";
+#       structuredExtraConfig = with pkgs.lib.kernel; {
+#         GENERIC_CPU = mkForce no;
+#         X86_NATIVE_CPU = yes;
+#       };
+#     });
+#   }
+# )
 
 # { config, lib, pkgs, ... }:
 #
