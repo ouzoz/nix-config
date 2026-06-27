@@ -1,13 +1,13 @@
 { pkgs, ... }:
 {
-  environment.sessionVariables = {
-    GH_TELEMETRY = "0";
-  };
+  environment = {
+    systemPackages = with pkgs; [ gh ];
 
-  environment.shellAliases = {
-  };
+    sessionVariables = {
+      GH_TELEMETRY = "0";
+    };
 
-  environment.systemPackages = with pkgs; [
-    gh
-  ];
+    shellAliases = {
+    };
+  };
 }

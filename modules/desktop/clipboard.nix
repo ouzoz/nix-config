@@ -1,9 +1,20 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    wl-clipboard
-    cliphist
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      wl-clipboard
+      cliphist
+    ];
+
+    sessionVariables = {
+      CLIPHIST_CONFIG_PATH = "/etc/xdg/cliphist/config";
+    };
+
+    etc."xdg/cliphist/config".text = ''
+      max-items 600
+      preview-width 60
+    '';
+  };
 
   systemd.user.services.cliphist = {
     description = "Cliphist clipboard history";
@@ -16,13 +27,4 @@
       Slice = "session.slice";
     };
   };
-
-  environment.sessionVariables = {
-    CLIPHIST_CONFIG_PATH = "/etc/xdg/cliphist/config";
-  };
-
-  environment.etc."xdg/cliphist/config".text = ''
-    max-items 600
-    preview-width 60
-  '';
 }

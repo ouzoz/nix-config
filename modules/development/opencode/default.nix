@@ -1,23 +1,23 @@
 { pkgs, ... }:
 {
-  environment.sessionVariables = {
-    OPENCODE_ENABLE_EXA = 1;
-  };
+  environment = {
+    systemPackages = with pkgs; [ opencode ];
 
-  environment.shellAliases = {
-    oc = "opencode";
-  };
+    sessionVariables = {
+      OPENCODE_ENABLE_EXA = 1;
+    };
 
-  environment.systemPackages = with pkgs; [
-    opencode
-  ];
+    shellAliases = {
+      oc = "opencode";
+    };
 
-  environment.etc = {
-    "xdg/opencode/agents".source = ./agents;
-    "xdg/opencode/commands".source = ./commands;
-    "xdg/opencode/themes".source = ./themes;
-    "xdg/opencode/opencode.json".source = ./opencode.json;
-    "xdg/opencode/RULES.md".source = ./RULES.md;
+    etc = {
+      "xdg/opencode/agents".source = ./agents;
+      "xdg/opencode/commands".source = ./commands;
+      "xdg/opencode/themes".source = ./themes;
+      "xdg/opencode/opencode.json".source = ./opencode.json;
+      "xdg/opencode/RULES.md".source = ./RULES.md;
+    };
   };
 
   system.userActivationScripts.linkOpencode = {

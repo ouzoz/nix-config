@@ -1,10 +1,17 @@
-{ config, lib, ... }:
+_:
 
 {
   system.stateVersion = "25.11";
   networking.hostName = "ouz";
 
-  # config.my.mod.desktop.external = true;
+  my = {
+    mod = {
+      applications = {
+        obs.enable = false;
+      };
+    };
+  };
+
   #
   # specialisation.configuration.onthego = {
   #   system.nixos.tags = [ "onthego" ];
