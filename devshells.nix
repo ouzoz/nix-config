@@ -15,6 +15,8 @@ let
   shells = {
     nix = {
       packages = with pkgs; [
+        statix
+        deadnix
         nixfmt
         treefmt
         nixd

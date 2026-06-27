@@ -1,13 +1,8 @@
-default: commit build
-
-commit:
-  git add -A
-  git commit -m "$(date)"
-
-build NAME="":
+[default]
+build NAME="": check
   sudo nixos-rebuild switch --flake .#{{NAME}}
 
-specialization NAME:
+specialization NAME: check
   sudo nixos-rebuild switch --flake .# --specialisation {{NAME}}
 
 update:
@@ -22,9 +17,10 @@ gc-images:
 optimise:
   nix-store --optimise -v
 
-update-rust:
-  rm -rf ~/.rustup/toolchains/*
-  rustup default stable
+check:
+  nix flake check --show-trace
+  deadnix --fail .
+  statix check .
 
 format:
   treefmt
@@ -43,6 +39,10 @@ hash HASH:
 
 hash-url URL:
   nix store prefetch-file --hash-type sha256 {{URL}}
+
+update-rust:
+  rm -rf ~/.rustup/toolchains/*
+  rustup default stable
 
 niri-conf:
   niri validate
