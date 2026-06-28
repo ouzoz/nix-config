@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./nautilus.nix
+    ./file.nix
     ./foot.nix
     ./blueman.nix
     ./helium.nix
