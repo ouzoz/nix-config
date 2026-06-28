@@ -1,3 +1,3 @@
 {
-  mono.path = ./mono;
+  # mono.path = ./mono;
 }
