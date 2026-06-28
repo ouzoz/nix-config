@@ -1,4 +1,3 @@
-_ :
-{
+_: {
   programs.hyprlock.enable = true;
 }

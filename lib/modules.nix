@@ -15,11 +15,9 @@ let
         let
           type = entries.${name};
         in
-        if !(lib.hasPrefix "_" name) then
+        if lib.hasPrefix "_" name then
           [ ]
-        else if
-          type == "regular" && lib.hasSuffix ".nix" name && name != "default.nix"
-        then
+        else if type == "regular" && lib.hasSuffix ".nix" name && name != "default.nix" then
           [
             {
               name = lib.removeSuffix ".nix" name;

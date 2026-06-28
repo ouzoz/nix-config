@@ -1,5 +1,4 @@
-_ :
-{
+_: {
   environment.shellAliases = {
     gs = "git status";
     gc = "git add -A && git commit -m";

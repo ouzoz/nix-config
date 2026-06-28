@@ -1,5 +1,4 @@
-_ :
-{
+_: {
   programs.dconf.profiles.user.databases = [
     {
       settings."org/gnome/desktop/interface" = {
