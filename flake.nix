@@ -8,6 +8,18 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+      myLib =
+        (import ./lib/modules.nix {
+          inherit (nixpkgs) lib;
+          self = myLib;
+        }).act
+          {
+            dir = ./lib;
+            args = {
+              inherit (nixpkgs) lib;
+              self = myLib;
+            };
+          };
 
       mkHost =
         hostname:
@@ -16,18 +28,18 @@
           specialArgs = {
             inherit inputs;
             my = {
-              lib = import ./lib;
+              lib = myLib;
               pkgs = import ./pkgs { inherit pkgs; };
               overlays = import ./overlays;
               assets = ./assets;
             };
           };
           modules = [
-            ./config
-            ./modules
             ./hosts/${hostname}/configuration.nix
             ./hosts/${hostname}/hardware-configuration.nix
-          ];
+          ]
+          ++ myLib.modules.paths { dir = ./modules; }
+          ++ myLib.modules.paths { dir = ./config; };
         };
     in
     {
