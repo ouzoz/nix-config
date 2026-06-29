@@ -1,8 +1,8 @@
 [default]
-build NAME="": check
+build NAME="":
   sudo nixos-rebuild switch --flake .#{{NAME}}
 
-specialization NAME: check
+specialization NAME:
   sudo nixos-rebuild switch --flake .# --specialisation {{NAME}}
 
 update:
