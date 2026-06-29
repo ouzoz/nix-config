@@ -77,19 +77,19 @@ in
           n0 = "000000"; # oklch(0 0.0042 180)
 
           ansi0 = n0;
-          ansi1 = s0;
-          ansi2 = p0;
-          ansi3 = n1;
-          ansi4 = n6;
-          ansi5 = n2;
-          ansi6 = p0;
+          ansi1 = s1;
+          ansi2 = p1;
+          ansi3 = p1;
+          ansi4 = s1;
+          ansi5 = s1;
+          ansi6 = p1;
           ansi7 = n4;
 
           ansi8 = n3;
           ansi9 = s1;
           ansiA = p1;
-          ansiB = n2;
-          ansiC = n5;
+          ansiB = p1;
+          ansiC = s1;
           ansiD = s1;
           ansiE = p1;
           ansiF = n7;
