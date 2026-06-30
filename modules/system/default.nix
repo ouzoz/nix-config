@@ -1,10 +1,3 @@
-{
-  imports = [
-    ./network.nix
-    ./users.nix
-    ./locale.nix
-    ./boot.nix
-    ./kernel.nix
-    ./nix.nix
-  ];
-}
+{ my, ... }:
+
+{ imports = my.lib.modules.paths { dir = ./.; }; }
