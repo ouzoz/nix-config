@@ -1,8 +1,5 @@
-{ pkgs, ... }:
-{
-  environment.systemPackages = with pkgs; [
-    apple-cursor
-  ];
+{ pkgs, ... }: {
+  environment.systemPackages = with pkgs; [ apple-cursor ];
 
   environment.sessionVariables = {
     XCURSOR_THEME = "macOS";

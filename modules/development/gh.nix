@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   environment = {
     systemPackages = with pkgs; [ gh ];
 
@@ -7,7 +6,6 @@
       GH_TELEMETRY = "0";
     };
 
-    shellAliases = {
-    };
+    shellAliases = { };
   };
 }

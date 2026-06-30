@@ -1,7 +1,3 @@
 { pkgs, ... }:
 
-{
-  environment.systemPackages = with pkgs; [
-    libreoffice
-  ];
-}
+{ environment.systemPackages = with pkgs; [ libreoffice ]; }

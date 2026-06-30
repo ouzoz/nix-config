@@ -1,5 +1,4 @@
-{ my, ... }:
-{
+{ my, ... }: {
   environment.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";

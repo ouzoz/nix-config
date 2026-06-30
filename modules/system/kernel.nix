@@ -1,7 +1,4 @@
-{ pkgs, ... }:
-{
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-}
+{ pkgs, ... }: { boot.kernelPackages = pkgs.linuxPackages_latest; }
 
 # pkgs.linuxPackages_latest.extend (
 #   self: super: {

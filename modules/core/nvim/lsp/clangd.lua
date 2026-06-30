@@ -1,26 +1,26 @@
 return {
-  cmd = { 'clangd' },
+  cmd = { "clangd" },
   filetypes = {
-    'c',
-    'cpp',
-    'cuda',
+    "c",
+    "cpp",
+    "cuda",
   },
   root_markers = {
-    '.clangd',
-    '.clang-tidy',
-    '.clang-format',
-    'compile_commands.json',
-    'compile_flags.txt',
-    'configure.ac',
-    '.git',
-    'Makefile'
+    ".clangd",
+    ".clang-tidy",
+    ".clang-format",
+    "compile_commands.json",
+    "compile_flags.txt",
+    "configure.ac",
+    ".git",
+    "Makefile",
   },
   capabilities = {
     offsetEncoding = { "utf-8", "utf-16" },
     textDocument = {
       completion = {
-        editsNearCursor = true
-      }
-    }
+        editsNearCursor = true,
+      },
+    },
   },
 }

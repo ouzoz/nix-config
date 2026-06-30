@@ -3,6 +3,7 @@ description: Automates git commit workflow with smart messages
 temperature: 0.1
 agent: build
 ---
+
 Automate the git commit process. Follow these steps:
 
 1. **Check Status**: Run `git status` to see current changes
@@ -20,6 +21,7 @@ Automate the git commit process. Follow these steps:
 6. **Verify**: Run `git log --oneline -3` to confirm the commit
 
 **Safety Rules - NEVER make destructive changes:**
+
 - NEVER run `git checkout` (branch switching, file checkout)
 - NEVER run `git reset` (hard, soft, or mixed)
 - NEVER run `git push --force` or `-f`

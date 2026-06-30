@@ -1,7 +1,7 @@
 return {
-  cmd = { 'tinymist' },
-  filetypes = { 'typst' },
-  root_markers = { '.git' },
+  cmd = { "tinymist" },
+  filetypes = { "typst" },
+  root_markers = { ".git" },
   settings = {
     tinymist = {
       formatterMode = "typstyle",

@@ -1,7 +1,3 @@
 { pkgs, ... }:
 
-{
-  environment.systemPackages = with pkgs; [
-    pi-coding-agent
-  ];
-}
+{ environment.systemPackages = with pkgs; [ pi-coding-agent ]; }

@@ -1,4 +1,1 @@
-{ my, ... }:
-{
-  environment.systemPackages = [ my.pkgs.helium ];
-}
+{ my, ... }: { environment.systemPackages = [ my.pkgs.helium ]; }

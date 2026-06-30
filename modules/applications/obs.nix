@@ -8,7 +8,5 @@ in
     obs.enable = lib.mkEnableOption "obs studio";
   };
 
-  config = lib.mkIf cfg.obs.enable {
-    programs.obs-studio.enable = true;
-  };
+  config = lib.mkIf cfg.obs.enable { programs.obs-studio.enable = true; };
 }

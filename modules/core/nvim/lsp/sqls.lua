@@ -1,8 +1,8 @@
 return {
-  cmd = { 'sqls' },
-  filetypes = { 'sql', 'mysql' },
+  cmd = { "sqls" },
+  filetypes = { "sql", "mysql" },
   root_markers = {
-    'config.yml',
-    '.git'
+    "config.yml",
+    ".git",
   },
 }

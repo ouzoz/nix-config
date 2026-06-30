@@ -1,8 +1,5 @@
-{ pkgs, ... }:
-{
-  environment.systemPackages = with pkgs; [
-    fuzzel
-  ];
+{ pkgs, ... }: {
+  environment.systemPackages = with pkgs; [ fuzzel ];
 
   environment.etc."xdg/fuzzel/fuzzel.ini".source = (pkgs.formats.ini { }).generate "fuzzel.ini" {
     main = {

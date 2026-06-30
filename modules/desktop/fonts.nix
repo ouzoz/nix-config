@@ -1,15 +1,10 @@
-{ pkgs, my, ... }:
-{
+{ pkgs, my, ... }: {
   fonts = {
     enableDefaultPackages = false;
     packages = with pkgs; [
       # corefonts
 
-      (google-fonts.override {
-        fonts = [
-          "Spectral"
-        ];
-      })
+      (google-fonts.override { fonts = [ "Spectral" ]; })
 
       my.pkgs.oziosevka
       source-code-pro
