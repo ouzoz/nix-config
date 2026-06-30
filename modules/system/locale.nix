@@ -1,6 +1,4 @@
-_:
-
-{
+_: {
   time.timeZone = "Europe/Istanbul";
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -17,14 +15,4 @@ _:
       LC_TIME = "tr_TR.UTF-8";
     };
   };
-
-  console.keyMap = "trq";
-  services.xserver.xkb = {
-    layout = "tr";
-    variant = "";
-  };
-
-  # environment.variables = {
-  #   LC_ = "en_US.UTF-8";
-  # };
 }
