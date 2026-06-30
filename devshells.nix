@@ -3,9 +3,7 @@ let
   project = "system-config";
 
   base = {
-    packages = with pkgs; [
-      just
-    ];
+    packages = with pkgs; [ just ];
 
     env = { };
 
@@ -14,25 +12,15 @@ let
 
   shells = {
     nix = {
-      packages = with pkgs; [
-        statix
-        deadnix
-        nixfmt
-        treefmt
-        nixd
-      ];
+      packages = with pkgs; [ nixd ];
     };
 
     docs = {
-      packages = with pkgs; [
-        zensical
-      ];
+      packages = with pkgs; [ zensical ];
     };
 
     lua = {
-      packages = with pkgs; [
-        lua-language-server
-      ];
+      packages = with pkgs; [ lua-language-server ];
     };
   };
 in

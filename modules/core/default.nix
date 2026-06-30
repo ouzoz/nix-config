@@ -1,9 +1,3 @@
-{
-  imports = [
-    ./utils.nix
-    ./nvim
-    ./tmux.nix
-    ./git.nix
-    ./bash.nix
-  ];
-}
+{ my, ... }:
+
+{ imports = my.lib.modules.paths { dir = ./.; }; }

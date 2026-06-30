@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 
 let
   inherit (builtins) attrNames readDir pathExists;
@@ -43,10 +43,10 @@ in
       inherit dir;
     });
 
-  act =
+  call =
     {
       dir,
-      act ? import,
+      act ? pkgs.callPackage,
       args ? { },
     }:
     lib.listToAttrs (
