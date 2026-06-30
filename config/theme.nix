@@ -35,6 +35,13 @@ let
       ansi-muted = "7";
       ansi-overlay = "8";
       ansi-background = "0";
+
+      t1 = 0.88;
+      t0 = 0.94;
+      hex-t1 = "e0"; # 88%
+      hex-t0 = "f0"; # 94%
+
+      blur = true;
     };
     light = rec {
       p = cfg.colors.palette.p0;
@@ -67,6 +74,13 @@ let
       ansi-muted = "7";
       ansi-overlay = "8";
       ansi-background = "0";
+
+      t1 = 0.88;
+      t0 = 0.94;
+      hex-t1 = "e0"; # 88%
+      hex-t0 = "f0"; # 94%
+
+      blur = false;
     };
   };
 in
@@ -92,9 +106,6 @@ in
           m = "7e8180"; # oklch(0.60 0.0042 180)
           o1 = "101212"; # oklch(0.18 0.0042 180)
           b = "000000"; # oklch(0 0.0042 180)
-
-          t1 = "e0"; # 88%
-          t0 = "f0"; # 94%
         };
         description = "Colors.";
       };
