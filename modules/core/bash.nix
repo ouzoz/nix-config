@@ -2,7 +2,7 @@ _:
 
 {
   environment.shellAliases = {
-    l = "ls -ACxX --group-directories-first --color=auto";
+    l = "ls -ACxX --group-directories-first --color=auto"; # -F (symbols)
     nd = "exec nix develop";
   };
 
