@@ -30,6 +30,7 @@ let
     tree-sitter-json
     tree-sitter-julia
     tree-sitter-just
+    tree-sitter-kdl
     tree-sitter-latex
     tree-sitter-log
     tree-sitter-make
