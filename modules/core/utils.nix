@@ -13,19 +13,25 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    fastfetch
+  environment = {
+    shellAliases = {
+      j = "just";
+    };
 
-    wget
-    smartmontools
+    systemPackages = with pkgs; [
+      fastfetch
 
-    zip
-    unzip
-    unrar
-    p7zip
+      wget
+      smartmontools
 
-    fd
-    ripgrep
-    just
-  ];
+      zip
+      unzip
+      unrar
+      p7zip
+
+      fd
+      ripgrep
+      just
+    ];
+  };
 }
