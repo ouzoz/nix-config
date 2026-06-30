@@ -1,5 +1,8 @@
-_:
+{ config, ... }:
 
+let
+  col = config.my.theme.colors;
+in
 {
   programs.foot = {
     enable = true;
@@ -25,31 +28,31 @@ _:
         hide-when-typing = "yes";
       };
       colors-dark = {
-        alpha = 0.94;
-        blur = true;
-        cursor = "000000 ffffff";
-        selection-foreground = "ffffff";
-        selection-background = "4e4a53";
-        foreground = "ffffff";
-        background = "000000";
+        alpha = col.tokens.t0;
+        blur = col.tokens.blur;
+        cursor = "${col.tokens.b} ${col.tokens.f}";
+        selection-foreground = col.tokens.f;
+        selection-background = col.tokens.o;
+        foreground = col.tokens.f;
+        background = col.tokens.b;
 
-        regular0 = "000000";
-        regular1 = "ff3a4c";
-        regular2 = "00ea45";
-        regular3 = "cccb00";
-        regular4 = "6687ff";
-        regular5 = "bd56ff";
-        regular6 = "40e0d0";
-        regular7 = "cbc6d0";
+        regular0 = col.tokens.ansi0;
+        regular1 = col.tokens.ansi1;
+        regular2 = col.tokens.ansi2;
+        regular3 = col.tokens.ansi3;
+        regular4 = col.tokens.ansi4;
+        regular5 = col.tokens.ansi5;
+        regular6 = col.tokens.ansi6;
+        regular7 = col.tokens.ansi7;
 
-        bright0 = "65616a";
-        bright1 = "ff3a4c";
-        bright2 = "00ea45";
-        bright3 = "cccb00";
-        bright4 = "6687ff";
-        bright5 = "bd56ff";
-        bright6 = "40e0d0";
-        bright7 = "ffffff";
+        bright0 = col.tokens.ansi8;
+        bright1 = col.tokens.ansi9;
+        bright2 = col.tokens.ansiA;
+        bright3 = col.tokens.ansiB;
+        bright4 = col.tokens.ansiC;
+        bright5 = col.tokens.ansiD;
+        bright6 = col.tokens.ansiE;
+        bright7 = col.tokens.ansiF;
       };
       csd = {
         preferred = "none";
