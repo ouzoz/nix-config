@@ -1,4 +1,4 @@
-local con, u, v, api = table.concat, UTILS, vim, vim.api
+local con, v, api = table.concat, UTILS, vim, vim.api
 local col = function (color) return con { "%#", color, "#" } end
 
 v.opt.laststatus = 3
@@ -25,6 +25,12 @@ local modes = {
   n = con { col "OzStatModeN", " N " },
 }
 
+function M.get_buf_color (buf)
+  return buf.hidden == 1 and (buf.changed == 1 and "OzBufHiddenChanged" or "OzBufHidden")
+    or buf.changed == 1 and "OzBufChanged"
+    or "OzBuf"
+end
+
 function OzStatusline ()
   local buffers = {}
   for i, b in ipairs(v.fn.getbufinfo { buflisted = 1 }) do
@@ -33,7 +39,7 @@ function OzStatusline ()
       " ",
       b.bufnr,
       ":",
-      col(u.get_buf_color(b)),
+      col(get_buf_color(b)),
       v.fn.fnamemodify(b.name, ":p:."),
     }
   end
