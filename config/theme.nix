@@ -4,51 +4,69 @@ let
   cfg = config.my.theme;
 
   tokens = {
-    dark = {
-      primary = cfg.colors.palette.p1;
-      primary-dim = cfg.colors.palette.p0;
-      secondary = cfg.colors.palette.s1;
-      secondary-dim = cfg.colors.palette.s0;
-      foreground = cfg.colors.palette.n7;
-      muted = cfg.colors.palette.n4;
-      subtle = cfg.colors.palette.n3;
-      overlay = cfg.colors.palette.n2;
-      surface = cfg.colors.palette.n1;
-      background = cfg.colors.palette.n0;
+    dark = rec {
+      p = cfg.colors.palette.p1;
+      s = cfg.colors.palette.s1;
+      f = cfg.colors.palette.w;
+      m = cfg.colors.palette.m;
+      o = cfg.colors.palette.o1;
+      b = cfg.colors.palette.b;
 
-      ansi-primary = "14";
-      ansi-primary-dim = "6";
-      ansi-secondary = "9";
-      ansi-secondary-dim = "1";
-      ansi-foreground = "15";
-      ansi-muted = "7";
-      ansi-subtle = "8";
-      ansi-overlay = "11";
-      ansi-surface = "3";
-      ansi-background = "0";
-    };
-    light = {
-      primary = cfg.colors.palette.p0;
-      primary-dim = cfg.colors.palette.p1;
-      secondary = cfg.colors.palette.s0;
-      secondary-dim = cfg.colors.palette.s1;
-      foreground = cfg.colors.palette.n0;
-      muted = cfg.colors.palette.n3;
-      subtle = cfg.colors.palette.n4;
-      overlay = cfg.colors.palette.n5;
-      surface = cfg.colors.palette.n6;
-      background = cfg.colors.palette.n7;
+      ansi0 = b;
+      ansi1 = s;
+      ansi2 = p;
+      ansi3 = p;
+      ansi4 = s;
+      ansi5 = s;
+      ansi6 = p;
+      ansi7 = m;
+      ansi8 = o;
+      ansi9 = s;
+      ansiA = p;
+      ansiB = p;
+      ansiC = s;
+      ansiD = s;
+      ansiE = p;
+      ansiF = f;
 
       ansi-primary = "6";
-      ansi-primary-dim = "14";
       ansi-secondary = "1";
-      ansi-secondary-dim = "9";
-      ansi-foreground = "0";
-      ansi-muted = "8";
-      ansi-subtle = "7";
-      ansi-overlay = "12";
-      ansi-surface = "4";
-      ansi-background = "15";
+      ansi-foreground = "15";
+      ansi-muted = "7";
+      ansi-overlay = "8";
+      ansi-background = "0";
+    };
+    light = rec {
+      p = cfg.colors.palette.p0;
+      s = cfg.colors.palette.s0;
+      f = cfg.colors.palette.b;
+      m = cfg.colors.palette.m;
+      o = cfg.colors.palette.o0;
+      b = cfg.colors.palette.w;
+
+      ansi0 = b;
+      ansi1 = s;
+      ansi2 = p;
+      ansi3 = p;
+      ansi4 = s;
+      ansi5 = s;
+      ansi6 = p;
+      ansi7 = m;
+      ansi8 = o;
+      ansi9 = s;
+      ansiA = p;
+      ansiB = p;
+      ansiC = s;
+      ansiD = s;
+      ansiE = p;
+      ansiF = f;
+
+      ansi-primary = "6";
+      ansi-secondary = "1";
+      ansi-foreground = "15";
+      ansi-muted = "7";
+      ansi-overlay = "8";
+      ansi-background = "0";
     };
   };
 in
@@ -62,37 +80,18 @@ in
       };
       palette = lib.mkOption {
         type = lib.types.attrs;
-        default = rec {
-          p1 = "03aa95"; # oklch(0.66 0.1194 180)
+        default = {
+          p1 = "09bea8"; # oklch(0.72 0.1296 180)
           p0 = "026f61"; # oklch(0.486 0.0876 180)
+
           s1 = "ff3c5b"; # oklch(0.66 0.228 18)
           s0 = "c30d3a"; # oklch(0.522 0.204 18)
-          n7 = "ffffff"; # oklch(1 0.0042 180)
-          n6 = "e4e8e7"; # oklch(0.928 0.0042 180)
-          n5 = "d8dcdb"; # oklch(0.892 0.0042 180)
-          n4 = "929695"; # oklch(0.6696 0.0042 180)
-          n3 = "565a59"; # oklch(0.4632 0.0042 180)
-          n2 = "1d201f"; # oklch(0.24 0.0042 180)
-          n1 = "101212"; # oklch(0.18 0.0042 180)
-          n0 = "000000"; # oklch(0 0.0042 180)
 
-          ansi0 = n0;
-          ansi1 = s1;
-          ansi2 = p1;
-          ansi3 = p1;
-          ansi4 = s1;
-          ansi5 = s1;
-          ansi6 = p1;
-          ansi7 = n4;
-
-          ansi8 = n3;
-          ansi9 = s1;
-          ansiA = p1;
-          ansiB = p1;
-          ansiC = s1;
-          ansiD = s1;
-          ansiE = p1;
-          ansiF = n7;
+          w = "ffffff"; # oklch(1 0.0042 180)
+          o0 = "e4e8e7"; # oklch(0.928 0.0042 180)
+          m = "7e8180"; # oklch(0.60 0.0042 180)
+          o1 = "101212"; # oklch(0.18 0.0042 180)
+          b = "000000"; # oklch(0 0.0042 180)
 
           t1 = "e0"; # 88%
           t0 = "f0"; # 94%
