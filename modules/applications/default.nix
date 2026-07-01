@@ -1,7 +1,3 @@
-{
-  imports = [
-    ./obs.nix
-    ./media.nix
-    ./office.nix
-  ];
+{ my, ... }: {
+  imports = my.lib.modules.paths { dir = ./.; };
 }
