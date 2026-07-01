@@ -1,8 +1,5 @@
 { pkgs, ... }: {
-  environment.systemPackages = with pkgs; [
-    mako
-    libnotify
-  ];
+  environment.systemPackages = with pkgs; [ mako ];
 
   systemd.user.services.mako = {
     description = "Mako notification daemon";
