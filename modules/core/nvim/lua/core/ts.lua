@@ -1,3 +1,5 @@
+local v, api, opt, key, con = vim, vim.api, vim.opt, vim.keymap.set, table.concat
+
 -- tree-sitter
 api.nvim_create_autocmd("FileType", {
   callback = function (args)

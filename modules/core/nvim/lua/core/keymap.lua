@@ -1,3 +1,5 @@
+local v, api, opt, key, con = vim, vim.api, vim.opt, vim.keymap.set, table.concat
+
 v.g.mapleader = " "
 v.g.maplocalleader = " "
 key({ "n", "v" }, "<leader>", "<Nop>", { silent = true })

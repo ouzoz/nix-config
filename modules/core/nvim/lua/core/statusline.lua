@@ -1,4 +1,4 @@
-local con, v, api = table.concat, UTILS, vim, vim.api
+local con, v, api = table.concat, vim, vim.api
 local col = function (color) return con { "%#", color, "#" } end
 
 v.opt.laststatus = 3
@@ -25,7 +25,7 @@ local modes = {
   n = con { col "OzStatModeN", " N " },
 }
 
-function M.get_buf_color (buf)
+local function get_buf_color (buf)
   return buf.hidden == 1 and (buf.changed == 1 and "OzBufHiddenChanged" or "OzBufHidden")
     or buf.changed == 1 and "OzBufChanged"
     or "OzBuf"

@@ -1,3 +1,5 @@
+local v, api, opt, key, con = vim, vim.api, vim.opt, vim.keymap.set, table.concat
+
 v.lsp.enable {
   "bashls",
   "clangd",
@@ -63,4 +65,3 @@ api.nvim_create_autocmd("LspAttach", {
     -- end
   end,
 })
-
