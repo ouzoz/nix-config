@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 let
-  cfg = config.my.mod.applications;
+  cfg = config.my.mod.programs;
 in
 {
-  options.my.mod.applications = {
+  options.my.mod.programs = {
     obs.enable = lib.mkEnableOption "obs studio";
   };
 

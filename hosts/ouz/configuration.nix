@@ -6,13 +6,12 @@ _:
 
   my = {
     mod = {
-      applications = {
+      programs = {
         obs.enable = false;
       };
     };
   };
 
-  #
   # specialisation.configuration.onthego = {
   #   system.nixos.tags = [ "onthego" ];
   #   config.my.desktop.external = lib.mkForce false;
