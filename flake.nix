@@ -27,9 +27,9 @@
             };
           };
           modules =
-            myLib.modules.paths { dir = ./hosts/${hostname}; }
-            ++ myLib.modules.paths { dir = ./modules; }
-            ++ myLib.modules.paths { dir = ./config; };
+            myLib.modules.paths ./hosts/${hostname}
+            ++ myLib.modules.paths ./modules
+            ++ myLib.modules.paths ./config;
         };
     in
     {

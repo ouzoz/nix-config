@@ -38,7 +38,7 @@ let
 in
 {
   paths =
-    { dir }:
+    dir:
     map (entry: entry.path) (selectedEntries {
       inherit dir;
     });

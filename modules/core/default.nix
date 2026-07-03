@@ -1,3 +1,1 @@
-{ my, ... }:
-
-{ imports = my.lib.modules.paths { dir = ./.; }; }
+{ my, ... }: { imports = my.lib.modules.paths ./.; }
