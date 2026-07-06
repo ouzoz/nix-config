@@ -21,8 +21,10 @@ pkgs.iosevka.override {
     zero = "oval-unslashed"
     capital-d = "more-rounded-serifless"
     capital-g = "toothless-rounded-serifless-hooked"
+    capital-m = "flat-bottom-serifless"
+    capital-w = "straight-flat-top-serifless"
     f = "flat-hook-serifless"
-    g = "double-storey"
+    g = "single-storey-serifless"
     i = "hooky"
     j = "flat-hook-serifed"
     l = "serifed-flat-tailed"
@@ -88,11 +90,6 @@ pkgs.iosevka.override {
     shape = 800
     menu = 800
     css = 800
-
-    [buildPlans.IosevkaOziosevka.widths.Condensed]
-    shape = 500
-    menu = 3
-    css = "condensed"
 
     [buildPlans.IosevkaOziosevka.widths.Normal]
     shape = 600
