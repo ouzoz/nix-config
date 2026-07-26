@@ -1,8 +1,11 @@
 { config, ... }:
 
 {
-  hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   # boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_drm" "nvidia_uvm" ];
   # hardware.nvidia.forceFullCompositionPipeline = true;
