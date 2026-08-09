@@ -8,6 +8,8 @@ _:
     mod = {
       programs = {
         obs.enable = false;
+        gimp.enable = false;
+        steam.enable = false;
       };
     };
   };
