@@ -18,11 +18,7 @@ in
       noto-fonts-color-emoji
       # corefonts
 
-      (google-fonts.override {
-        fonts = [
-          "Manuale"
-        ];
-      })
+      (google-fonts.override { fonts = [ "Manuale" ]; })
 
       my.pkgs.oziosevka
       inter

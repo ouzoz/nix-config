@@ -13,10 +13,10 @@ update:
 
 # Remove generations older than 6 days or provided number, if parameter is 'all' delete all older generations
 gc days="6":
-    @if [ "{{days}}" = "all" ]; then \
+    @if [ "{{ days }}" = "all" ]; then \
         sudo nix-collect-garbage -d; \
     else \
-        sudo nix-collect-garbage --delete-older-than "{{days}}d"; \
+        sudo nix-collect-garbage --delete-older-than "{{ days }}d"; \
     fi
 
 # Optimise store

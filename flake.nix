@@ -2,7 +2,7 @@
   description = "ouz system config";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   outputs =
-    { nixpkgs, ... }@inputs:
+    inputs@{ nixpkgs, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
