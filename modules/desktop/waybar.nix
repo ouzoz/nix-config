@@ -7,7 +7,7 @@
   environment.etc = {
     "xdg/waybar/config.jsonc".source = (pkgs.formats.json { }).generate "waybar-config.jsonc" {
       layer = "top";
-      position = "top";
+      position = "bottom";
       height = 24;
       width = 1920;
       spacing = 18;
