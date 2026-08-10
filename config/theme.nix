@@ -139,18 +139,23 @@ in
     fonts = {
       sans = lib.mkOption {
         type = lib.types.str;
-        default = "Mona Sans";
+        default = "Inter";
         description = "Sans font.";
       };
       serif = lib.mkOption {
         type = lib.types.str;
-        default = "Spectral";
+        default = "Manuale";
         description = "Serif font.";
       };
       mono = lib.mkOption {
         type = lib.types.str;
         default = "Oziosevka";
         description = "Monospace font.";
+      };
+      emoji = lib.mkOption {
+        type = lib.types.str;
+        default = "Noto Color Emoji";
+        description = "Emoji font.";
       };
     };
   };
