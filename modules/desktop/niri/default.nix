@@ -1,5 +1,10 @@
-_: {
-  programs.niri.enable = true;
+_:
+
+{
+  programs.niri = {
+    enable = true;
+    useNautilus = true;
+  };
 
   environment = {
     loginShellInit = ''

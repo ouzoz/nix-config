@@ -173,6 +173,7 @@ window-rule {
 }
 
 window-rule {
+  match app-id="^emacs$"
   match app-id="^foot$"
   match app-id="^helium$"
 
@@ -269,8 +270,9 @@ recent-windows {
 }
 
 binds {
+    Mod+A                             { spawn "emacs"; }
     Mod+Return                        { spawn "foot"; }
-    Mod+I                             { spawn "thunar"; }
+    Mod+I                             { spawn "nautilus"; }
 
     Mod+BackSpace                     { spawn "fuzzel"; }
     Mod+C                             { spawn-sh "cliphist list | fuzzel --dmenu --width 60 | cliphist decode | wl-copy"; }
