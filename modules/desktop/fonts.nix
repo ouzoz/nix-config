@@ -18,24 +18,19 @@ in
       noto-fonts-color-emoji
       # corefonts
 
-      (google-fonts.override { fonts = [ "Spectral" ]; })
+      (google-fonts.override {
+        fonts = [
+          "Manuale"
+        ];
+      })
 
       my.pkgs.oziosevka
-      source-code-pro
-
-      source-sans
-      mona-sans
-
-      # crimson-pro
-      source-serif
-      eb-garamond
-      libre-baskerville
-
+      inter
     ];
 
     fontconfig = {
       enable = true;
-      useEmbeddedBitmaps = true;
+      useEmbeddedBitmaps = false;
       antialias = true;
 
       hinting = {
@@ -53,7 +48,7 @@ in
         serif = [ cfg.serif ];
         sansSerif = [ cfg.sans ];
         monospace = [ cfg.mono ];
-        emoji = [ "Noto Color Emoji" ];
+        emoji = [ cfg.emoji ];
       };
     };
   };
