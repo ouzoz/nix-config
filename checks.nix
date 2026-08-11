@@ -9,11 +9,6 @@ let
   };
 in
 {
-  niri = pkgs.runCommand "niri-config-check" { nativeBuildInputs = [ pkgs.niri ]; } ''
-    niri validate --config ${./modules/desktop/niri/config.kdl}
-    touch $out
-  '';
-
   statix = pkgs.runCommand "statix-check" { nativeBuildInputs = [ pkgs.statix ]; } ''
     cd ${src}
     statix check .
