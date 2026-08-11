@@ -13,9 +13,10 @@
       spacing = 18;
 
       "modules-left" = [
-        "niri/workspaces"
-        "niri/language"
+        "hyprland/workspaces"
+        "hyprland/language"
         "pulseaudio"
+        "hyprland/submap"
       ];
       "modules-center" = [ "clock" ];
       "modules-right" = [
@@ -26,10 +27,18 @@
         "battery"
       ];
 
-      "niri/workspaces" = {
+      "hyprland/workspaces" = {
         format = " 🞄 ";
+        persistent-workspaces = {
+          "1" = "1";
+          "2" = "2";
+          "3" = "3";
+          "4" = "4";
+          "5" = "5";
+          "6" = "6";
+        };
       };
-      "niri/language" = {
+      "hyprland/language" = {
         format = "{short}";
       };
       pulseaudio = {
