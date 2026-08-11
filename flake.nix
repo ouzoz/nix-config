@@ -26,10 +26,12 @@
               assets = ./assets;
             };
           };
-          modules =
-            myLib.modules.paths ./hosts/${hostname}
-            ++ myLib.modules.paths ./modules
-            ++ myLib.modules.paths ./config;
+          modules = [
+            myLib.home
+          ]
+          ++ myLib.modules.paths ./hosts/${hostname}
+          ++ myLib.modules.paths ./modules
+          ++ myLib.modules.paths ./config;
         };
     in
     {

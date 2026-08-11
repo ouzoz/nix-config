@@ -6,7 +6,6 @@ _:
     powerOnBoot = false;
   };
 
-  users.users.ouz.extraGroups = [ "networkmanager" ];
   networking.networkmanager = {
     enable = true;
     wifi = {
