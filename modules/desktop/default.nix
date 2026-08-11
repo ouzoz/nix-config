@@ -4,7 +4,10 @@
   imports = my.lib.modules.paths ./.;
 
   # services.gvfs.enable = true;
+
   services.gnome.gnome-keyring.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
+
   services.blueman.enable = true;
   programs.hyprlock.enable = true;
 
