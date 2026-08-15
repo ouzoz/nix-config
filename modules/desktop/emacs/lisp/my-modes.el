@@ -33,7 +33,7 @@
   (markdown-ts-enable-code-block-context-mode t)
   (markdown-ts-enable-table-mode t)
   (markdown-ts-default-folding 'show-all)
-  (markdown-ts-unordered-list-marker '(("∙⋅ " . "- ")))
+  (markdown-ts-unordered-list-marker '(("∙ " . "- "))) ; ⋅
   (markdown-ts-checked-checkbox '("✔ " . "* "))
   (markdown-ts-unchecked-checkbox '("⬦ " . "+ "))
   :hook
