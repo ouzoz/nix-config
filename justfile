@@ -1,17 +1,21 @@
 # Build with current host name
 [default]
+[group('main')]
 build NAME="":
     sudo nixos-rebuild switch --flake .#{{ NAME }}
 
 # Built with a specific specialization
+[group('main')]
 specialization NAME:
     sudo nixos-rebuild switch --flake .# --specialisation {{ NAME }}
 
 # Update flake inputs
+[group('main')]
 update:
     nix flake update
 
 # Remove generations older than 6 days or provided number, if parameter is 'all' delete all older generations
+[group('main')]
 gc days="6":
     @if [ "{{ days }}" = "all" ]; then \
         sudo nix-collect-garbage -d; \
@@ -20,29 +24,37 @@ gc days="6":
     fi
 
 # Optimise store
+[group('main')]
 optimise:
     nix-store --optimise -v
 
+# Custom env with pkg-size
+[group('main')]
+pkg-size:
+    nix run .#pkg-size
+
+
 # Show flake outputs
+[group('dev')]
 show:
     nix flake show
 
 # Check flake outputs
+[group('dev')]
 check:
     nix flake check --show-trace
 
 # Format
+[group('dev')]
 fmt:
     nix fmt
 
-# Custom env with pkg-size
-pkg-size:
-    nix run .#pkg-size
-
 # Generate ssh key
+[group('dev')]
 key:
     ssh-keygen
 
 # Generate hash for package
+[group('dev')]
 hash HASH:
     nix hash convert --to sri --hash-algo sha256 {{ HASH }}
