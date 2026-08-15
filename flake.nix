@@ -1,5 +1,5 @@
 {
-  description = "ouz system config";
+  description = "nixos system config";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   outputs =
     inputs@{ nixpkgs, ... }:
@@ -22,7 +22,6 @@
             my = {
               lib = myLib;
               pkgs = myLib.modules.call { dir = ./pkgs; };
-              overlays = import ./overlays;
               assets = ./assets;
             };
           };
@@ -30,8 +29,7 @@
             myLib.home
           ]
           ++ myLib.modules.paths ./hosts/${hostname}
-          ++ myLib.modules.paths ./modules
-          ++ myLib.modules.paths ./config;
+          ++ myLib.modules.paths ./modules;
         };
     in
     {
