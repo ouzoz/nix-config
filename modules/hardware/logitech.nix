@@ -2,7 +2,7 @@
 
 {
   hardware.logitech.wireless.enable = true;
-  hardware.logitech.wireless.enableGraphical = true;
+  programs.solaar.enable = true;
   systemd.user.services.solaar = {
     description = "Solaar background service";
     wantedBy = [ "graphical-session.target" ];
