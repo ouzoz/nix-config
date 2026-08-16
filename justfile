@@ -14,25 +14,15 @@ specialization NAME:
 update:
     nix flake update
 
-# Remove generations older than 6 days or provided number, if parameter is 'all' delete all older generations
+# Remove all generations except current
 [group('main')]
-gc days="6":
-    @if [ "{{ days }}" = "all" ]; then \
-        sudo nix-collect-garbage -d; \
-    else \
-        sudo nix-collect-garbage --delete-older-than "{{ days }}d"; \
-    fi
-
-# Optimise store
-[group('main')]
-optimise:
-    nix-store --optimise -v
+gc:
+    sudo nix-collect-garbage -d
 
 # Custom env with pkg-size
 [group('main')]
 pkg-size:
     nix run .#pkg-size
-
 
 # Show flake outputs
 [group('dev')]
