@@ -5,17 +5,30 @@ _:
   networking.hostName = "ouz";
 
   my = {
-    mod = {
-      programs = {
-        obs.enable = false;
-        gimp.enable = false;
-        steam.enable = false;
-      };
+    misc = {
+      chatgpt.enable = false;
+
+      obs.enable = false;
+
+      steam.enable = true;
+
+      gimp.enable = true;
+      office.enable = true;
+
+      lan-stats.enable = true;
+      lsp.enable = true;
     };
   };
 
-  # specialisation.configuration.onthego = {
-  #   system.nixos.tags = [ "onthego" ];
-  #   config.my.desktop.external = lib.mkForce false;
-  # };
+  specialisation = {
+    # Uses integrated gpu and laptop monitor
+    mobile = {
+      inheritParentConfig = true;
+      configuration = {
+        system.nixos.tags = [ "mobile" ];
+
+        # my.desktop.external = lib.mkForce false;
+      };
+    };
+  };
 }
