@@ -19,16 +19,8 @@
     };
 
     systemPackages = with pkgs; [
-      fastfetch
-
+      libarchive
       wget
-      smartmontools
-
-      zip
-      unzip
-      unrar
-      p7zip
-
       fd
       ripgrep
       just

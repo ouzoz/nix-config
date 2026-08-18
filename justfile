@@ -19,10 +19,15 @@ update:
 gc:
     sudo nix-collect-garbage -d
 
-# Custom env with pkg-size
+# Run package size app
 [group('main')]
 pkg-size:
     nix run .#pkg-size
+
+# Run fastfetch
+[group('main')]
+fetch:
+    nix run .#fetch
 
 # Show flake outputs
 [group('dev')]

@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
-{
+rec {
+  default = fetch;
+
   pkg-size = {
     type = "app";
     meta.description = "Inspect current system closure size with nix-tree";
@@ -15,5 +17,11 @@
         };
       in
       "${script}/bin/system-size";
+  };
+
+  fetch = {
+    type = "app";
+    meta.description = "Run fastfetch.";
+    program = "${pkgs.fastfetch}/bin/fastfetch";
   };
 }
