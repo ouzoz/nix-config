@@ -1,4 +1,9 @@
-{ my, ... }: {
+{ self, pkgs, ... }:
+
+let
+  treesitter-runtime = self.packages.${pkgs.stdenv.hostPlatform.system}.treesitter-runtime;
+in
+{
   environment.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
@@ -18,8 +23,8 @@
       "lsp".source = ./lsp;
       "colors".source = ./colors;
       "spell".source = ./spell;
-      "parser".source = "${my.pkgs.treesitter-runtime}/parser";
-      "queries".source = "${my.pkgs.treesitter-runtime}/queries";
+      "parser".source = "${treesitter-runtime}/parser";
+      "queries".source = "${treesitter-runtime}/queries";
     };
   };
 }
