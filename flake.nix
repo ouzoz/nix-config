@@ -1,45 +1,47 @@
 {
-  description = "nixos system config";
+  description = "nixos config";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   outputs =
-    inputs@{ nixpkgs, ... }:
+    inputs@{ self, nixpkgs, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
       myLib = (pkgs.callPackage ./lib/modules.nix { self = myLib; }).call {
         dir = ./lib;
-        args = {
-          self = myLib;
-        };
+        act = path: pkgs.callPackage path { self = myLib; };
       };
 
       mkHost =
-        hostname:
+        hostModule:
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs;
-            my = {
-              lib = myLib;
-              pkgs = myLib.modules.call { dir = ./pkgs; };
-              assets = ./assets;
-            };
+            inherit inputs self;
+            my.lib = myLib;
           };
-          modules = [
+          modules = myLib.modules.paths ./modules ++ [
             myLib.home
-          ]
-          ++ myLib.modules.paths ./hosts/${hostname}
-          ++ myLib.modules.paths ./modules;
+            hostModule
+          ];
         };
     in
     {
-      templates = import ./templates;
-      apps.${system} = import ./apps.nix { inherit pkgs; };
+      # overlays
+      # nixosModules =
+      # lib =
+
       formatter.${system} = pkgs.callPackage ./formatter.nix { };
       checks.${system} = pkgs.callPackages ./checks.nix { };
       devShells.${system} = pkgs.callPackages ./devshells.nix { };
-      nixosConfigurations = {
-        ouz = mkHost "ouz";
+
+      apps.${system} = import ./apps.nix { inherit pkgs; };
+      packages.${system} = myLib.modules.call { dir = ./pkgs; };
+
+      templates = import ./templates;
+
+      nixosConfigurations = myLib.modules.call {
+        dir = ./hosts;
+        act = mkHost;
       };
     };
 }
