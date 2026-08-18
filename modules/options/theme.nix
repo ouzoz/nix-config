@@ -1,4 +1,10 @@
-{ lib, config, ... }:
+{
+  self,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 let
   cfg = config.my.theme;
@@ -86,6 +92,12 @@ let
 in
 {
   options.my.theme = {
+    wallpaper = lib.mkOption {
+      type = lib.types.path;
+      default = "${self.packages.${pkgs.stdenv.hostPlatform.system}.assets}/share/wallpaper/horizon.jpg";
+      description = "Wallpaper image.";
+    };
+
     colors = {
       variant = lib.mkOption {
         type = lib.types.enum (lib.attrNames tokens);
