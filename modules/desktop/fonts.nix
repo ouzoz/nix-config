@@ -1,12 +1,13 @@
 {
+  self,
   pkgs,
-  my,
   config,
   ...
 }:
 
 let
   cfg = config.my.theme.fonts;
+  customPackages = self.packages.${pkgs.stdenv.hostPlatform.system};
 in
 {
   fonts = {
@@ -18,9 +19,10 @@ in
       noto-fonts-color-emoji
       # corefonts
 
-      (google-fonts.override { fonts = [ "Manuale" ]; })
-
-      my.pkgs.oziosevka
+      customPackages.spectral
+      customPackages.manuale
+      customPackages.oziosevka
+      source-sans
       inter
     ];
 
