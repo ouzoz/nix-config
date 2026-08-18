@@ -94,7 +94,7 @@ in
   options.my.theme = {
     wallpaper = lib.mkOption {
       type = lib.types.path;
-      default = "${self.packages.${pkgs.stdenv.hostPlatform.system}.assets}/share/wallpaper/horizon.jpg";
+      default = "${self.packages.${pkgs.stdenv.hostPlatform.system}.oz-assets}/share/wallpaper/horizon.jpg";
       description = "Wallpaper image.";
     };
 
