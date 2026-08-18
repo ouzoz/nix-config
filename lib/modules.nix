@@ -46,14 +46,13 @@ in
   call =
     {
       dir,
-      act ? pkgs.callPackage,
-      args ? { },
+      act ? path: pkgs.callPackage path { },
     }:
     lib.listToAttrs (
       map
         (entry: {
           inherit (entry) name;
-          value = act entry.path args;
+          value = act entry.path;
         })
         (selectedEntries {
           inherit dir;
