@@ -25,7 +25,9 @@
   (text-mode . flyspell-mode)
   (prog-mode . flyspell-prog-mode)
   :custom
-  (flyspell-issue-message-flag nil))
+  (flyspell-issue-message-flag nil)
+  (flyspell-prog-text-faces
+   '(font-lock-comment-face font-lock-doc-face)))
 
 (use-package tab-bar
   :ensure nil
@@ -69,6 +71,9 @@
   :init
   (setopt treesit-enabled-modes t))
 
+(use-package subword
+  :ensure nil
+  :hook (prog-mode . subword-mode))
 
 (provide 'my-feat)
 
