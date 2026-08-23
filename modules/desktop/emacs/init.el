@@ -4,19 +4,7 @@
 ;;
 
 
-(setq my-theme-col-p "#09bea8"
-      my-theme-col-s "#ff3c5b"
-      my-theme-col-f "#ffffff"
-      my-theme-col-m "#7e8180"
-      my-theme-col-o "#101212"
-      my-theme-col-b "#000000"
-      my-theme-fonts-mono "Oziosevka"
-      my-theme-fonts-serif "Manuale"
-      my-theme-fonts-sans "Inter"
-      my-theme-fonts-emoji "Noto Emoji Color"
-      my-theme-font-size-b 120
-      my-theme-font-size-h 144
-      my-theme-font-size-t 240)
+(load (expand-file-name "my-constants.el" user-emacs-directory))
 
 (let ((default-directory (expand-file-name "lisp" user-emacs-directory)))
   (add-to-list 'load-path default-directory)
@@ -27,6 +15,7 @@
 (require 'my-modes)
 (require 'my-editor)
 (require 'my-extra)
+(require 'my-env)
 (load-theme 'my t)
 
 
