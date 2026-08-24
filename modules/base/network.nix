@@ -1,26 +1,7 @@
 _:
 
 {
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = false;
-  };
-
-  networking.networkmanager = {
-    enable = true;
-    wifi = {
-      backend = "iwd";
-      scanRandMacAddress = true;
-      powersave = false;
-    };
-  };
-
-  networking.wireless.iwd.settings = {
-    General = {
-      AddressRandomization = "network";
-    };
-  };
-
+  networking.networkmanager.enable = true;
   services.resolved = {
     enable = true;
     settings = {

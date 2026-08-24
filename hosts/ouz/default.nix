@@ -11,6 +11,8 @@ inputs.nixpkgs.lib.nixosSystem {
     hardware-logitech
     hardware-nvidia
     hardware-swap
+    hardware-wifi
+    hardware-bluetooth
 
     # misc-chatgpt
     misc-gimp
