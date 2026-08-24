@@ -1,14 +1,19 @@
 { config, pkgs, ... }:
 
 let
-  theme = config.my.theme;
+  theme = config.ozozka.theme;
 
   myEmacs = (pkgs.emacsPackagesFor pkgs.emacs31-pgtk).emacsWithPackages (
     epkgs: with epkgs; [ treesit-grammars.with-all-grammars ]
   );
 in
 {
-  my.home.profiles.emacs.files = {
+  imports = [
+    ../../home.nix
+    ../../theme.nix
+  ];
+
+  ozozka.home.profiles.emacs.files = {
     ".config/emacs/early-init.el".source = ./early-init.el;
     ".config/emacs/init.el".source = ./init.el;
     ".config/emacs/lisp".source = ./lisp;

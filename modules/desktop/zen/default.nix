@@ -1,3 +1,6 @@
-{ self, pkgs, ... }: {
-  environment.systemPackages = [ self.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser ];
+{ pkgs, ... }:
+
+{
+  imports = [ ../../overlays.nix ];
+  environment.systemPackages = with pkgs; [ ozozka.zen-browser ];
 }

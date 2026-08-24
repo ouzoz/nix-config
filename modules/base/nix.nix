@@ -1,9 +1,7 @@
-{ inputs, ... }:
+_:
 
 {
   nix = {
-    registry.nixpkgs.flake = inputs.nixpkgs;
-    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
     # firewall.enable = true;
     # sshServe.enable = true;
@@ -37,7 +35,7 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
 
   environment.localBinInPath = true;
 

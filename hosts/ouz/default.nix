@@ -1,50 +1,57 @@
-_:
+{ inputs }:
 
-{
-  imports = [ ./hardware-configuration.nix ];
-  system.stateVersion = "25.11";
-  networking.hostName = "ouz";
+inputs.nixpkgs.lib.nixosSystem {
+  modules = with inputs.self.nixosModules; [
+    ./hardware-configuration.nix
 
-  my = {
-    misc = {
-      chatgpt.enable = false;
+    base
+    desktop
 
-      obs.enable = false;
+    hardware-brightness
+    hardware-logitech
+    hardware-nvidia
+    hardware-swap
 
-      steam.enable = true;
+    # misc-chatgpt
+    misc-gimp
+    misc-loc
+    misc-lsp
+    # misc-obs
+    misc-office
+    misc-opencode
+    misc-pi
+    misc-steam
 
-      gimp.enable = true;
-      office.enable = true;
+    {
+      system.stateVersion = "25.11";
+      networking.hostName = "ouz";
 
-      lan-stats.enable = true;
-      lsp.enable = true;
-    };
-  };
+      specialisation = {
+        # Uses integrated gpu and laptop monitor
+        mobile = {
+          inheritParentConfig = true;
+          configuration = {
+            system.nixos.tags = [ "mobile" ];
 
-  specialisation = {
-    # Uses integrated gpu and laptop monitor
-    mobile = {
-      inheritParentConfig = true;
-      configuration = {
-        system.nixos.tags = [ "mobile" ];
-
-        # my.desktop.external = lib.mkForce false;
+            # my.desktop.external = lib.mkForce false;
+          };
+        };
       };
-    };
-  };
 
-  users.users.ouz = {
-    isNormalUser = true;
-    description = "ouz";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-  };
+      users.users.ouz = {
+        isNormalUser = true;
+        description = "ouz";
+        extraGroups = [
+          "networkmanager"
+          "wheel"
+        ];
+      };
 
-  my.home.users = {
-    ouz = {
-      emacs = true;
-    };
-  };
+      ozozka.home.users = {
+        ouz = {
+          emacs = true;
+        };
+      };
+    }
+  ];
 }

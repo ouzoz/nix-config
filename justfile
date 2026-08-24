@@ -9,6 +9,11 @@ build NAME="":
 specialization NAME:
     sudo nixos-rebuild switch --flake .# --specialisation {{ NAME }}
 
+# List generations
+[group('main')]
+ls:
+    nixos-rebuild list-generations
+
 # Update flake inputs
 [group('main')]
 update:
@@ -19,25 +24,20 @@ update:
 gc:
     sudo nix-collect-garbage -d
 
-# Run package size app
-[group('main')]
-pkg-size:
-    nix run .#pkg-size
-
 # Run fastfetch
 [group('main')]
-fetch:
-    nix run .#fetch
+info:
+    nix run .#info
 
 # Show flake outputs
 [group('dev')]
 show:
-    nix flake show
+    nix flake show --all-systems
 
 # Check flake outputs
 [group('dev')]
 check:
-    nix flake check --show-trace
+    nix flake check --all-systems --show-trace
 
 # Format
 [group('dev')]

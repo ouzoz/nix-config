@@ -6,7 +6,7 @@ let
     fileset = lib.fileset.difference ./. ./default.nix;
   };
 in
-runCommandLocal "oz-assets" { } ''
+runCommandLocal "ozozka-assets" { } ''
   mkdir -p "$out/share"
   cp -r ${source}/. "$out/share/"
 ''

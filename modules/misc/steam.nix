@@ -1,10 +1,10 @@
-{ config, lib, ... }:
+_:
 
-let
-  cfg = config.my.misc;
-in
 {
-  options.my.misc.steam.enable = lib.mkEnableOption "Steam";
+  nixpkgs.config.allowUnfreePackages = [
+    "steam"
+    "steam-unwrapped"
+  ];
 
-  config = lib.mkIf cfg.steam.enable { programs.steam.enable = true; };
+  programs.steam.enable = true;
 }

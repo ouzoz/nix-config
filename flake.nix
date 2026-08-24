@@ -1,47 +1,28 @@
 {
-  description = "nixos config";
+  description = "nixos system config";
+
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
   outputs =
-    inputs@{ self, nixpkgs, ... }:
+    inputs@{ nixpkgs, ... }:
     let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
-      myLib = (pkgs.callPackage ./lib/modules.nix { self = myLib; }).call {
-        dir = ./lib;
-        act = path: pkgs.callPackage path { self = myLib; };
-      };
-
-      mkHost =
-        hostModule:
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs self;
-            my.lib = myLib;
-          };
-          modules = myLib.modules.paths ./modules ++ [
-            myLib.home
-            hostModule
-          ];
-        };
+      perSystem =
+        f:
+        nixpkgs.lib.genAttrs [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ] (
+          system: f (import nixpkgs { inherit system; })
+        );
     in
-    {
-      # overlays
-      # nixosModules =
-      # lib =
+    rec {
+      formatter = perSystem (pkgs: pkgs.callPackage ./formatter.nix { });
+      checks = perSystem (pkgs: pkgs.callPackages ./checks.nix { inherit inputs; });
+      devShells = perSystem (pkgs: pkgs.callPackages ./devshells.nix { });
+      apps = perSystem (pkgs: import ./apps.nix { inherit pkgs; });
+      packages = perSystem (pkgs: import ./pkgs { inherit pkgs; });
 
-      formatter.${system} = pkgs.callPackage ./formatter.nix { };
-      checks.${system} = pkgs.callPackages ./checks.nix { };
-      devShells.${system} = pkgs.callPackages ./devshells.nix { };
-
-      apps.${system} = import ./apps.nix { inherit pkgs; };
-      packages.${system} = myLib.modules.call { dir = ./pkgs; };
-
+      lib = import ./lib.nix { inherit (nixpkgs) lib; };
       templates = import ./templates;
-
-      nixosConfigurations = myLib.modules.call {
-        dir = ./hosts;
-        act = mkHost;
-      };
+      overlays = import ./overlays;
+      nixosModules = lib.paths ./modules (path: path);
+      nixosConfigurations = lib.paths ./hosts (path: import path { inherit inputs; });
     };
 }

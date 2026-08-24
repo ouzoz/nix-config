@@ -1,6 +1,4 @@
-{ lib, ... }:
-
-{ config, ... }:
+{ lib, config, ... }:
 
 let
   inherit (builtins) attrNames;
@@ -54,7 +52,7 @@ let
     };
   };
 
-  cfg = config.my.home;
+  cfg = config.ozozka.home;
 
   hasExactlyOneContent = file: (file.source != null) != (file.text != null);
 
@@ -276,7 +274,7 @@ let
   tmpfilesSettings = listToAttrs (mapAttrsToList makeTmpfilesSettings resolvedUsers);
 in
 {
-  options.my.home = {
+  options.ozozka.home = {
     profiles = mkOption {
       type = types.attrsOf profileType;
       default = { };

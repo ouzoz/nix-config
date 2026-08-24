@@ -1,8 +1,12 @@
-{ pkgs, ... }: {
-  environment.systemPackages = with pkgs; [ apple-cursor ];
+{ pkgs, ... }:
 
-  environment.sessionVariables = {
-    XCURSOR_THEME = "macOS";
-    XCURSOR_SIZE = "20";
+{
+  nixpkgs.config.allowUnfreePackages = [ "apple_cursor" ];
+  environment = {
+    systemPackages = with pkgs; [ apple-cursor ];
+    sessionVariables = {
+      XCURSOR_THEME = "macOS";
+      XCURSOR_SIZE = "20";
+    };
   };
 }

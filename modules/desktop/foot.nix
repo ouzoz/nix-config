@@ -1,9 +1,11 @@
 { config, ... }:
 
 let
-  col = config.my.theme.colors;
+  col = config.ozozka.theme.colors;
 in
 {
+  imports = [ ../theme.nix ];
+
   programs.foot = {
     enable = true;
     settings = {

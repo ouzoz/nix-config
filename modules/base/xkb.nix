@@ -1,1 +1,8 @@
-{ config, ... }: { services.xserver.xkb = { inherit (config.my.xkb) layout options; }; }
+_:
+
+{
+  services.xserver.xkb = {
+    layout = "tr,us";
+    options = "caps:swapescape,grp:win_space_toggle";
+  };
+}

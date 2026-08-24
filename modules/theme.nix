@@ -1,5 +1,4 @@
 {
-  self,
   pkgs,
   lib,
   config,
@@ -7,7 +6,7 @@
 }:
 
 let
-  cfg = config.my.theme;
+  cfg = config.ozozka.theme;
 
   tokens = {
     dark = rec {
@@ -91,10 +90,12 @@ let
   };
 in
 {
-  options.my.theme = {
+  imports = [ ./overlays.nix ];
+
+  options.ozozka.theme = {
     wallpaper = lib.mkOption {
       type = lib.types.path;
-      default = "${self.packages.${pkgs.stdenv.hostPlatform.system}.oz-assets}/share/wallpaper/horizon.jpg";
+      default = "${pkgs.ozozka.ozozka-assets}/share/wallpapers/horizon.jpg";
       description = "Wallpaper image.";
     };
 
@@ -170,7 +171,25 @@ in
         description = "Emoji font.";
       };
     };
+
+    font-size = {
+      b = lib.mkOption {
+        type = lib.types.int;
+        default = 120;
+        description = "Body size.";
+      };
+      h = lib.mkOption {
+        type = lib.types.int;
+        default = 144;
+        description = "Heading size.";
+      };
+      t = lib.mkOption {
+        type = lib.types.int;
+        default = 240;
+        description = "Title size.";
+      };
+    };
   };
 
-  config.my.theme.colors.tokens = lib.mkDefault tokens.${cfg.colors.variant};
+  config.ozozka.theme.colors.tokens = lib.mkDefault tokens.${cfg.colors.variant};
 }

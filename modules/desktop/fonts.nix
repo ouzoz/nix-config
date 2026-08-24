@@ -1,15 +1,11 @@
-{
-  self,
-  pkgs,
-  config,
-  ...
-}:
+{ pkgs, config, ... }:
 
 let
-  cfg = config.my.theme.fonts;
-  customPackages = self.packages.${pkgs.stdenv.hostPlatform.system};
+  cfg = config.ozozka.theme.fonts;
 in
 {
+  imports = [ ../theme.nix ];
+
   fonts = {
     enableDefaultPackages = false;
     # enableGhostscriptFonts = false;
@@ -19,9 +15,9 @@ in
       noto-fonts-color-emoji
       # corefonts
 
-      customPackages.spectral
-      customPackages.manuale
-      customPackages.oziosevka
+      ozozka.spectral
+      ozozka.manuale
+      ozozka.oziosevka
       source-sans
       inter
     ];
