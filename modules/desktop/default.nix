@@ -6,11 +6,11 @@
     ./hyprland
     ./quickshell
     ./zen
+    ./alacritty.nix
     ./audio.nix
     ./clipboard.nix
     ./cursor.nix
     ./fonts.nix
-    ./foot.nix
     ./fuzzel.nix
   ];
 
